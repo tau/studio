@@ -1,6 +1,3 @@
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ff1563fb81b34629bad68bc41007241c)](https://www.codacy.com/gh/tau/studio/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tau/studio&amp;utm_campaign=Badge_Grade)
-
-
 <p align="center">
   <a href="https://tau.studio">
     <img src="https://github.com/tau/studio/blob/main/public/tau.svg"/>
