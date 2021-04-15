@@ -18,7 +18,7 @@ export default function Footer() {
               </div>
             </div>
             <div className="footer__flex">
-              <div><a href="mailto:hey@tau.studio">hey@tau.studio</a></div>
+              <div><a className="mailto" href="mailto:hey@tau.studio">hey@tau.studio</a></div>
               <div className="no-select">/</div>
               <div>©{(new Date().getFullYear())} Tau Studio</div>
             </div>
