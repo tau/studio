@@ -1,0 +1,24 @@
+$breakpoint-sm: 600px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+
+@media only screen and (max-width: $breakpoint-sm) {
+  footer {
+    .footer__wrapper {
+      .footer__flex {
+        justify-content: center;   
+        .footer__logo {
+          margin-bottom: 20px;
+        }
+        .footer__icons {
+          margin-bottom: 20px;
+        } 
+        .no-select {
+          display: none;
+        }    
+      }      
+    }
+  }
+}
