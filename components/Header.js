@@ -22,11 +22,11 @@ export default function Header() {
 
           <div onClick={scrollToMain} className="mouse"></div>
         </section>
-        <div onClick={scrollToMain} class="scroll-down scroll-down--left">
+        <div onClick={scrollToMain} className="scroll-down scroll-down--left">
           <span className="no-select">Desplázate hacia abajo</span>
           <ArrowDown />
         </div>
-        <div onClick={scrollToMain} class="scroll-down">
+        <div onClick={scrollToMain} className="scroll-down">
           <span className="no-select">Desplázate hacia abajo</span>
           <ArrowDown />
         </div>
