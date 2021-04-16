@@ -1,0 +1,7 @@
+@mixin logo-animation {
+  -webkit-animation: rotate3d 10s infinite linear;
+  -moz-animation: rotate3d 10s infinite linear;
+  -o-animation: rotate3d 10s infinite linear;
+  animation: rotate3d 10s infinite linear;
+  transform-style: preserve-3d;
+}
