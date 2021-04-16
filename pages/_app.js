@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import '../styles/styles.scss'
+import '../styles/index.scss'
 
 function Tau({ Component, pageProps }) {
 
