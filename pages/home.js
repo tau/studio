@@ -5,10 +5,10 @@ function Home() {
   return (
     <>
       <Head>
-
+        <meta key="robots" name="robots" content="noindex,follow" />
+        <meta key="googlebot" name="googlebot" content="noindex,follow" />
       </Head>
-
-      
+            
     </>
   )
 }
