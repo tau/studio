@@ -1,21 +1,17 @@
-import Image from 'next/image'
+import Nav from '../components/Nav'
+import Header from '../components/Header'
 import Footer from '../components/Footer'
-import Nav from '../components/Nav';
 
 export default function Layout({ children }) {
 
   return (
     <>
-      <section>
-        <Nav />
-
-        <br />
-        <br />
-        <br />
-        <br />
-        
-        <Footer />
+      <Nav />
+      <Header />
+      <section id="main">
+        {children}
       </section>
+      <Footer />
     </>
   );
 }
