@@ -1,13 +1,21 @@
 import { Facebook, Github, Googleplay, Instagram, Linkedin, Twitter } from '@icons-pack/react-simple-icons';
 
 export default function Footer() {
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <>
       <footer>
         <section className="content">
           <div className="footer__wrapper">
             <div className="footer__flex">
-              <img className="footer__logo" src="/tau.svg" />
+              <img onClick={scrollToTop} className="footer__logo" src="/tau.svg" />
               <div className="footer__icons">
                 <a href="https://www.facebook.com/TauStudioX"><Facebook title="Facebook" /></a>
                 <a href="https://twitter.com/TauStudioX"><Twitter title="Twitter" /></a>
