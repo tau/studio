@@ -5,3 +5,27 @@
   animation: rotate3d 10s infinite linear;
   transform-style: preserve-3d;
 }
+
+@mixin sm {
+  @media only screen and (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media only screen and (min-width: 1280px) {
+    @content;
+  }
+}
