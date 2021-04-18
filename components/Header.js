@@ -19,8 +19,6 @@ export default function Header() {
             <p>Officia ipsum irure magna dolore velit deserunt ut est mollit aute.</p>
             <p>Aliquip nulla sunt cupidatat ut deserunt ea. Cillum aliquip duis ullamco anim nulla et adipisicing tempor veniam reprehenderit.</p>
           </section>
-
-          <div onClick={scrollToMain} className="mouse"></div>
         </section>
         <div onClick={scrollToMain} className="scroll-down scroll-down--left">
           <span className="no-select">Desplázate hacia abajo</span>
