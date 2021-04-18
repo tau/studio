@@ -32,7 +32,7 @@ function Home({ clients }) {
         <meta key="googlebot" name="googlebot" content="noindex,follow" />
       </Head>
 
-      <section className="grid">        
+      <section className="square-grid">        
         {clients.map((client, i) => (
           <Square client={client} index={i} />
         ))}

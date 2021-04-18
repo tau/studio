@@ -86,11 +86,17 @@ h6 {
   }
 }
 
-.grid {
-  margin: 40px 40px;
+.square-grid {
+  margin: 20px 20px;
   display: grid;
-  grid-gap: 40px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  @include md {
+    margin: 40px 40px;
+    grid-gap: 40px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 @keyframes wheel {
