@@ -136,11 +136,17 @@ nav {
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 40px;
+      @include lg {
+        flex-wrap: nowrap;
+      }
       .footer-nav__item {
-        display: flex;
+        display: flex;        
         align-items: center;
         position: relative;
         justify-content: center;
+        @include sm {
+          flex: calc(100% / 3);
+        }        
         a {
           -webkit-writing-mode: vertical-lr;
           -ms-writing-mode: tb-lr;
@@ -148,13 +154,14 @@ nav {
           text-orientation: mixed;
           transform: rotate(180deg);
           background-color: $base-color;
-          font-size: .9em;
+          font-size: .8em;
           color: #ffffff;
           margin-right: 10px;
           position: absolute;
           left: 0;
           height: 100%;
           padding: 12px 4px;
+          white-space: nowrap;
           &.c1 {            
               background-color: $color1;           
           }

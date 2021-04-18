@@ -16,7 +16,7 @@ export default function FooterNav() {
                     <span>Trabajos</span>
                   </a>
                 </Link>
-                <p>Our clients and case-studies are extremely diverse, however many are confidential and can not be displayed on this site.</p>
+                <p>Veniam excepteur cupidatat et reprehenderit fugiat adipisicing sit nostrud do reprehenderit.</p>
               </div>
               <div className="footer-nav__item">
                 <Link href="/proyectos">
@@ -25,7 +25,7 @@ export default function FooterNav() {
                     <span>Proyectos</span>
                   </a>
                 </Link>
-                <p>Creative agencies should always be generating. This page is a collection of our various articles, ideation, and press.</p>
+                <p>Elit adipisicing consectetur amet aliquip minim dolor velit reprehenderit duis dolor aute quis in. </p>
               </div>
               <div className="footer-nav__item">
                 <Link href="/nosotros">
@@ -34,7 +34,7 @@ export default function FooterNav() {
                     <span>El estudio</span>
                   </a>
                 </Link>
-                <p>We specialize in projects requiring innovative design, bleeding-edge technologies, and complex data modeling.</p>
+                <p>Deserunt consequat consectetur deserunt est Lorem elit fugiat tempor cillum commodo.</p>
               </div>
               <div className="footer-nav__item">
                 <Link href="/contacto">
@@ -43,7 +43,7 @@ export default function FooterNav() {
                     <span>Contacto</span>
                   </a>
                 </Link>
-                <p>We're a full-service digital agency based out of Brooklyn. This page gives an overview of what's going on at RANGER.</p>
+                <p>Labore tempor adipisicing ex magna officia ullamco anim.</p>
               </div>
             </section>
           </section>
