@@ -25,7 +25,7 @@ export default function Footer() {
                 <a href="https://play.google.com/store/apps/dev?id=4747667721362765016"><Googleplay title="Google Play" /></a>
               </div>
             </div>
-            <div className="footer__flex ml-20">
+            <div className="footer__flex">
               <div className="mailto"><a href="mailto:hey@tau.studio">hey@tau.studio</a></div>
               <div className="no-select">/</div>
               <div>©{(new Date().getFullYear())} Tau Studio</div>
