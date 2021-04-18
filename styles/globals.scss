@@ -45,24 +45,22 @@ h6 {
   font-size: 0.67em;
 }
 
-.ml-20 {
-  margin-left: 20px;
-}
-
-.t-heading {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .mt-0 {
   margin-top: 0;
 }
 
-.mt-heading {
-  margin-top: -20%;
-  margin-bottom: 0;
+.show {
+  display: block;
+  transition: $default-transition;
+}
+
+.hide {
+  display: none;
+  transition: $default-transition;
+}
+
+.smooth {
+  transition: $default-transition;
 }
 
 .relative {
@@ -82,7 +80,10 @@ h6 {
 .content {
   max-width: 1500px;
   margin: 0 auto;
-  padding: 0 25px;
+  padding: 0 15px;
+  @include md {
+    padding: 0 25px;
+  }
 }
 
 .grid {
