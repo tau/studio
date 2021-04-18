@@ -1,9 +1,12 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Menu, X } from 'react-feather';
+import { useState } from 'react';
 
 export default function Nav() {
 
   const router = useRouter()
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
     <>
@@ -14,6 +17,7 @@ export default function Nav() {
               <img className="nav__logo" src="/tau.svg" />
               <img className="nav__name" src="/studio.svg" />
             </div>
+            <div className="menu__btn" onClick={() => setMobileOpen(mobileOpen => !mobileOpen)}>{mobileOpen ? <X className="smooth" /> : <Menu className="smooth" />}</div>
             <div className="nav__flex">
               <ul className="nav__items">
                 <li className="c1">
