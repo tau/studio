@@ -59,7 +59,7 @@ nav {
       }
       svg {
         display: block;
-      }      
+      }
     }
     .nav__flex {
       display: flex;
@@ -140,13 +140,13 @@ nav {
         flex-wrap: nowrap;
       }
       .footer-nav__item {
-        display: flex;        
+        display: flex;
         align-items: center;
         position: relative;
         justify-content: center;
         @include sm {
           flex: calc(100% / 3);
-        }        
+        }
         a {
           -webkit-writing-mode: vertical-lr;
           -ms-writing-mode: tb-lr;
@@ -154,7 +154,7 @@ nav {
           text-orientation: mixed;
           transform: rotate(180deg);
           background-color: $base-color;
-          font-size: .8em;
+          font-size: 0.8em;
           color: #ffffff;
           margin-right: 10px;
           position: absolute;
@@ -162,24 +162,24 @@ nav {
           height: 100%;
           padding: 12px 4px;
           white-space: nowrap;
-          &.c1 {            
-              background-color: $color1;           
+          &.c1 {
+            background-color: $color1;
           }
-          &.c2 {           
-              background-color: $color2;            
+          &.c2 {
+            background-color: $color2;
           }
-          &.c3 {            
-              background-color: $color3;            
+          &.c3 {
+            background-color: $color3;
           }
-          &.c4 {            
-              background-color: $color4;            
+          &.c4 {
+            background-color: $color4;
           }
           .item__icon {
             position: absolute;
             bottom: 5px;
-            right: -15px;
+            right: -8px;
             transition: $default-transition;
-            opacity: 0;
+            opacity: .5;
           }
           &:hover {
             .item__icon {
@@ -199,7 +199,7 @@ nav {
 header {
   height: calc(100vh - 90px);
   .header__wrapper {
-    padding: 15px 45px; 
+    padding: 15px 45px;
     @include md {
       max-width: 50%;
     }
@@ -210,7 +210,7 @@ header {
       @include md {
         height: 100%;
       }
-    }   
+    }
     .mt-heading {
       margin-top: 40px;
       margin-bottom: 0;
@@ -222,108 +222,6 @@ header {
       display: none;
       @include md {
         display: block;
-      }
-    }    
-  }
-  
-}
-
-footer {
-  background-color: $background-light;
-  font-weight: 300;
-  padding: 15px 0;
-  .footer__wrapper {
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    flex-wrap: wrap;
-    .footer__flex {
-      display: flex;
-      gap: 20px 30px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 0 auto;
-      @include sm {
-        justify-content: initial;
-      }
-      @include md {
-        margin: 0 0;
-      }
-      > span {
-        white-space: nowrap;
-      }
-      .no-select {
-        display: none;
-        @include sm {
-          display: block;
-        }
-      }
-      .footer__logo {
-        max-height: 60px;
-        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-        filter: grayscale(100%);
-        opacity: $default-opacity;
-        transition: $default-transition;
-        cursor: pointer;
-        @include sm {
-          
-        }
-        &:hover {
-          opacity: 0.9;
-          filter: none;
-          @include logo-animation();
-        }
-      }
-      .footer__icons {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        a {
-          opacity: $default-opacity;
-          height: 20px;
-          transition: $default-transition;
-          &:hover {
-            opacity: 0.8;
-            transform: translateY(-2px);
-          }
-          svg {
-            height: 20px;
-          }
-        }
-      }
-      .mailto {
-        transition: $default-transition;
-        position: relative;
-        a {
-          transition: $default-transition;
-          display: inline-block;
-          position: relative;
-          &:hover {
-            transform: translateY(-2px);
-          }
-        }
-        &:hover {
-          transform: translateY(-2px);
-          transition: $default-transition;
-          &::before {
-            width: 100%;
-            opacity: 0.5;
-          }
-        }
-        &::before {
-          content: "";
-          position: absolute;
-          height: 10px;
-          width: 10px;
-          left: -5px;
-          bottom: 2px;
-          background-color: $base-color;
-          opacity: 0.4;
-          transition: $default-transition;
-        }
       }
     }
   }
@@ -446,5 +344,105 @@ footer {
   svg {
     margin-top: 10px;
     width: 14px;
+  }
+}
+
+footer {
+  background-color: $background-light;
+  font-weight: 300;
+  padding: 15px 0;
+  .footer__wrapper {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    .footer__flex {
+      display: flex;
+      gap: 20px 30px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 auto;
+      @include sm {
+        justify-content: initial;
+      }
+      @include md {
+        margin: 0 0;
+      }
+      > span {
+        white-space: nowrap;
+      }
+      .no-select {
+        display: none;
+        @include sm {
+          display: block;
+        }
+      }
+      .footer__logo {
+        max-height: 60px;
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+        opacity: $default-opacity;
+        transition: $default-transition;
+        cursor: pointer;
+        @include sm {
+        }
+        &:hover {
+          opacity: 0.9;
+          filter: none;
+          @include logo-animation();
+        }
+      }
+      .footer__icons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        a {
+          opacity: $default-opacity;
+          height: 20px;
+          transition: $default-transition;
+          &:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+          }
+          svg {
+            height: 20px;
+          }
+        }
+      }
+      .mailto {
+        transition: $default-transition;
+        position: relative;
+        a {
+          transition: $default-transition;
+          display: inline-block;
+          position: relative;
+          &:hover {
+            transform: translateY(-2px);
+          }
+        }
+        &:hover {
+          transform: translateY(-2px);
+          transition: $default-transition;
+          &::before {
+            width: 100%;
+            opacity: 0.5;
+          }
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          height: 10px;
+          width: 10px;
+          left: -5px;
+          bottom: 2px;
+          background-color: $base-color;
+          opacity: 0.4;
+          transition: $default-transition;
+        }
+      }
+    }
   }
 }
