@@ -80,6 +80,97 @@ const jsonLd = {
     )}
   </head>
   <body>
+    <div class="bg-decor" aria-hidden="true">
+      <span class="bg-decor__line bg-decor__line--v" style="left: 18%;"></span>
+      <span class="bg-decor__line bg-decor__line--v" style="left: 50%;"></span>
+      <span class="bg-decor__line bg-decor__line--v" style="left: 82%;"></span>
+      <span class="bg-decor__line bg-decor__line--h" style="top: 28%;"></span>
+      <span class="bg-decor__line bg-decor__line--h" style="top: 62%;"></span>
+      <span class="bg-decor__mark bg-decor__mark--purple" style="top: 28%; left: 18%;"></span>
+      <span class="bg-decor__mark bg-decor__mark--yellow" style="top: 28%; left: 82%;"></span>
+      <span class="bg-decor__mark bg-decor__mark--green" style="top: 62%; left: 82%;"></span>
+      <span class="bg-decor__mark bg-decor__mark--pink" style="top: 62%; left: 18%;"></span>
+      <span class="bg-decor__pattern bg-decor__pattern--top" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
+      <span class="bg-decor__pattern bg-decor__pattern--bottom" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
+    </div>
     <slot />
   </body>
+  <style>
+    .bg-decor {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .bg-decor__line {
+      position: absolute;
+      background: rgba(17, 24, 39, 0.045);
+    }
+    .bg-decor__line--v {
+      top: 0;
+      bottom: 0;
+      width: 1px;
+    }
+    .bg-decor__line--h {
+      left: 0;
+      right: 0;
+      height: 1px;
+    }
+    .bg-decor__mark {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      transform: translate(-50%, -50%);
+    }
+    .bg-decor__mark--purple {
+      background: #6853a2;
+    }
+    .bg-decor__mark--green {
+      background: #5abe93;
+    }
+    .bg-decor__mark--yellow {
+      background: #fbaf18;
+    }
+    .bg-decor__mark--pink {
+      background: #ec1978;
+    }
+    .bg-decor__pattern {
+      position: absolute;
+      display: grid;
+      grid-template-columns: repeat(3, 3px);
+      gap: 7px;
+      opacity: 0.16;
+    }
+    .bg-decor__pattern i {
+      width: 3px;
+      height: 3px;
+      background: #111827;
+    }
+    .bg-decor__pattern--top {
+      top: 12%;
+      right: 12%;
+    }
+    .bg-decor__pattern--bottom {
+      bottom: 12%;
+      left: 12%;
+    }
+    @media (max-width: 640px) {
+      .bg-decor__line--v:first-child,
+      .bg-decor__line--v:nth-child(3),
+      .bg-decor__line--h {
+        display: none;
+      }
+      .bg-decor__pattern--top {
+        right: 7%;
+      }
+      .bg-decor__pattern--bottom {
+        left: 7%;
+      }
+    }
+  </style>
 </html>
