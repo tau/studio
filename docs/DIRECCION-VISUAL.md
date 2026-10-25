@@ -34,6 +34,8 @@ Cada página puede tener un color de acento propio: Servicios usa `$color1`, Equ
 
 En la home, el hero, la sección de clientes y la sección de proyectos reciben colores distintos, elegidos al azar sin repetir entre sí en cada carga. Dentro de cada bloque, el marcador, el texto destacado y las interacciones comparten el mismo acento. Si el script no se ejecuta, los bloques parten del color base `#111827`.
 
+El catálogo de proyectos se sincroniza desde la fuente con `npm run sync:projects`; `npm run sync:projects:check` muestra el resultado sin escribir archivos. `src/data/project-overrides.json` conserva la clasificación de proyectos personales activos/archivados, los proyectos históricos que no aparecen en el módulo de datos y la selección de destacados.
+
 ## Retícula y detalles
 
 - Las líneas de fondo viven en `src/layouts/BaseLayout.astro`; son fijas, no interactivas y van detrás del contenido.
@@ -108,6 +110,7 @@ En la home, el hero, la sección de clientes y la sección de proyectos reciben 
 - `src/components/shared/Clients.astro` y `Square.astro`: presentación y logos de clientes.
 - `src/components/shared/FeaturedProjects.astro` y `src/data/projects.ts`: selección de proyectos para la home y catálogo.
 - `src/pages/proyectos.astro`: catálogo agrupado por tipo, estado y año.
+- `scripts/sync-projects.mjs` y `src/data/projects.generated.json`: sincronización local del catálogo público.
 - `src/pages/servicios.astro`: detalle de servicios y tarjetas numeradas.
 - `src/pages/equipo.astro`: perfil de Paul Guillamón y su trayectoria.
 - `src/pages/404.astro`: página de error con retícula y rutas de salida.

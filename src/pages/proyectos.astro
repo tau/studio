@@ -4,6 +4,7 @@ import { projects } from '@/data/projects';
 
 const personalProjects = projects.filter((project) => project.category === 'personal');
 const clientProjects = projects.filter((project) => project.category === 'client');
+const otherProjects = projects.filter((project) => project.category === 'other');
 const activeProjects = personalProjects.filter((project) => project.status === 'active');
 const archivedProjects = personalProjects.filter((project) => project.status === 'archived');
 
@@ -18,7 +19,7 @@ const groupByYear = (items) => {
 const activeByYear = groupByYear(activeProjects);
 const archivedByYear = groupByYear(archivedProjects);
 const clientsByYear = groupByYear(clientProjects);
-const projectUrl = (slug) => `https://qu4k3.com/proyecto/${slug}`;
+const otherByYear = groupByYear(otherProjects);
 ---
 
 <SiteLayout
@@ -37,6 +38,7 @@ const projectUrl = (slug) => `https://qu4k3.com/proyecto/${slug}`;
         <div class="projects-page__counts" aria-label="Resumen del catálogo">
           <span><strong>{personalProjects.length}</strong> personales</span>
           <span><strong>{clientProjects.length}</strong> para clientes</span>
+          <span><strong>{otherProjects.length}</strong> otros</span>
         </div>
       </div>
     </header>
@@ -58,8 +60,9 @@ const projectUrl = (slug) => `https://qu4k3.com/proyecto/${slug}`;
             <ul>
               {group.projects.map((project) => (
                 <li>
-                  <a href={projectUrl(project.slug)} target="_blank" rel="noopener noreferrer">
-                    <span>{project.title}</span>
+                  <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
+                    <span class="projects-page__name">{project.title}</span>
+                    <span class={`projects-page__status projects-page__status--${project.status}`}>{project.statusLabel}</span>
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
                   </a>
                 </li>
@@ -69,7 +72,7 @@ const projectUrl = (slug) => `https://qu4k3.com/proyecto/${slug}`;
         ))}
       </div>
 
-      <details class="projects-page__archive">
+      <details class="projects-page__archive" open>
         <summary>
           <span>Proyectos archivados</span>
           <span>{archivedProjects.length} proyectos</span>
@@ -81,8 +84,9 @@ const projectUrl = (slug) => `https://qu4k3.com/proyecto/${slug}`;
               <ul>
                 {group.projects.map((project) => (
                   <li>
-                    <a href={projectUrl(project.slug)} target="_blank" rel="noopener noreferrer">
-                      <span>{project.title}</span>
+                    <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
+                      <span class="projects-page__name">{project.title}</span>
+                      <span class={`projects-page__status projects-page__status--${project.status}`}>{project.statusLabel}</span>
                       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
                     </a>
                   </li>
@@ -106,8 +110,9 @@ const projectUrl = (slug) => `https://qu4k3.com/proyecto/${slug}`;
             <ul>
               {group.projects.map((project) => (
                 <li>
-                  <a href={projectUrl(project.slug)} target="_blank" rel="noopener noreferrer">
-                    <span>{project.title}</span>
+                  <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
+                    <span class="projects-page__name">{project.title}</span>
+                    <span class={`projects-page__status projects-page__status--${project.status}`}>{project.statusLabel}</span>
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
                   </a>
                 </li>
@@ -117,6 +122,33 @@ const projectUrl = (slug) => `https://qu4k3.com/proyecto/${slug}`;
         ))}
       </div>
     </section>
+
+    {otherProjects.length > 0 && (
+    <section class="projects-page__section projects-page__other" aria-labelledby="other-projects-title">
+      <div class="projects-page__section-heading">
+        <p class="projects-page__eyebrow"><span></span> 03 <b>/</b> Otros proyectos</p>
+        <h2 id="other-projects-title">Experimentos y colaboraciones.</h2>
+      </div>
+      <div class="projects-page__years">
+        {otherByYear.map((group) => (
+          <section class="projects-page__year" aria-label={`Otros proyectos de ${group.year}`}>
+            <h4>{group.year}</h4>
+            <ul>
+              {group.projects.map((project) => (
+                <li>
+                  <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
+                    <span class="projects-page__name">{project.title}</span>
+                    <span class={`projects-page__status projects-page__status--${project.status}`}>{project.statusLabel}</span>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </section>
+    )}
 
     <div class="projects-page__closing">
       <p>¿Tienes un proyecto en mente? <span>Hablemos.</span></p>

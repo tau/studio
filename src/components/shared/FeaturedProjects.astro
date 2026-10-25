@@ -23,16 +23,16 @@ const featuredProjects = projects.filter((project) => project.featured);
       {featuredProjects.map((project) => (
         <a
           class="featured-projects__card"
-          href={`https://qu4k3.com/proyecto/${project.slug}`}
+          href={project.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
           <div class="featured-projects__meta">
-            <span>{project.category === 'personal' ? 'Proyecto personal' : 'Proyecto para cliente'}</span>
+            <span>{project.category === 'personal' ? 'Proyecto personal' : project.category === 'client' ? 'Proyecto para cliente' : 'Proyecto'}</span>
             <span>{project.year}</span>
           </div>
           <div class="featured-projects__identity">
-            {project.logo && <img src={`https://qu4k3.com/assets/img/favicons/${project.logo}`} alt="" loading="lazy" decoding="async" />}
+            {project.logo && <img src={project.logo} alt="" loading="lazy" decoding="async" />}
             <h3>{project.title}</h3>
           </div>
           <p>{project.description}</p>
