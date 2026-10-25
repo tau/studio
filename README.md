@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/061d6f73-e0da-41c7-97bc-acc0004b02cb/deploy-status)](https://app.netlify.com/projects/tau-studio/deploys)
+
 # Tau Studio
 
 Sitio web de Tau Studio migrado a [Astro](https://astro.build/) (v7.4+), sin frameworks de UI, con entrega de contenido estático.
