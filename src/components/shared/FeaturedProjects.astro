@@ -1,0 +1,48 @@
+---
+import { projects } from '@/data/projects';
+
+const featuredProjects = projects.filter((project) => project.featured);
+const totalProjectCount = String(projects.length).padStart(2, '0');
+---
+
+<section class="featured-projects" id="featured-projects" aria-labelledby="featured-projects-title">
+  <div class="content">
+    <div class="featured-projects__intro">
+      <div>
+        <p class="featured-projects__eyebrow"><span></span> Proyectos <b>/ {totalProjectCount}</b></p>
+        <h2 id="featured-projects-title">Ideas que <em>se convierten en proyectos.</em></h2>
+      </div>
+      <a class="featured-projects__all" href="/proyectos">
+        <span>Ver todos los proyectos</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </a>
+    </div>
+
+    <p class="featured-projects__lead">Una selección de proyectos personales y colaboraciones con clientes, construidos para resolver necesidades reales.</p>
+
+    <div class="featured-projects__grid">
+      {featuredProjects.map((project) => (
+        <a
+          class="featured-projects__card"
+          href={project.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="featured-projects__meta">
+            <span>{project.category === 'personal' ? 'Proyecto personal' : project.category === 'client' ? 'Proyecto para cliente' : 'Proyecto'}</span>
+            <span>{project.year}</span>
+          </div>
+          <div class="featured-projects__identity">
+            {project.logo && <img src={project.logo} alt="" loading="lazy" decoding="async" />}
+            <h3>{project.title}</h3>
+          </div>
+          <p>{project.description}</p>
+          <span class="featured-projects__link">
+            <span>Ver ficha</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

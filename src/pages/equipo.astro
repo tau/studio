@@ -1,0 +1,73 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+
+const disciplines = ['Marketing', 'SEO', 'Diseño', 'Maquetación', 'Desarrollo web', 'Desarrollo móvil'];
+const milestones = [
+  { value: '+10', label: 'años de experiencia' },
+  { value: '+50', label: 'proyectos web y móvil' },
+  { value: '+15', label: 'clientes acompañados' },
+];
+---
+
+<SiteLayout
+  robots="noindex,follow"
+  title="El equipo | Tau Studio"
+  description="Conoce a Paul Guillamón, creador de Tau Studio, y su trayectoria en marketing, SEO, diseño y desarrollo web."
+>
+  <main class="content team-page">
+    <section class="team-page__intro" aria-labelledby="team-title">
+      <div class="team-page__copy">
+        <p class="team-page__eyebrow"><span></span> El equipo <b>/ 03</b></p>
+        <h1 id="team-title">Hola, soy Paul.<br /><em>La persona detrás de Tau.</em></h1>
+        <p class="team-page__lead">Soy Paul Guillamón, también conocido como Qu4k3. Desarrollador web con más de diez años de experiencia en marketing, SEO, diseño y desarrollo web y móvil. Desde 2019, doy forma a Tau Studio.</p>
+      </div>
+
+      <aside class="team-page__profile" aria-label="Perfil de Paul Guillamón">
+        <span class="team-page__monogram" aria-hidden="true">PG</span>
+        <div class="team-page__profile-info">
+          <strong>Paul Guillamón</strong>
+          <span>Desarrollador web <b>/</b> Qu4k3</span>
+        </div>
+        <div class="team-page__profile-links">
+          <a href="https://www.linkedin.com/in/paulguillamon/" target="_blank" rel="noopener noreferrer">
+            <span>LinkedIn</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+          </a>
+          <a href="https://qu4k3.com/" target="_blank" rel="noopener noreferrer">
+            <span>qu4k3.com</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+          </a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="team-page__milestones" aria-label="Experiencia">
+      {milestones.map((milestone) => (
+        <div class="team-page__milestone">
+          <strong>{milestone.value}</strong>
+          <span>{milestone.label}</span>
+        </div>
+      ))}
+    </section>
+
+    <section class="team-page__approach" aria-labelledby="team-approach-title">
+      <div>
+        <p class="team-page__eyebrow"><span></span> Un perfil multidisciplinar</p>
+        <h2 id="team-approach-title">Distintas disciplinas.<br /><em>Una visión conectada.</em></h2>
+      </div>
+      <div class="team-page__disciplines">
+        {disciplines.map((discipline) => (
+          <span><i aria-hidden="true"></i>{discipline}</span>
+        ))}
+      </div>
+      <p class="team-page__note">Su trayectoria empezó con PHP y evolucionó hacia el desarrollo web y móvil con JavaScript y React, siempre conectando la tecnología con el diseño y los objetivos de cada proyecto.</p>
+    </section>
+
+    <div class="team-page__closing">
+      <p>¿Tienes una idea entre manos? <span>Hablemos.</span></p>
+      <a href="/contacto" aria-label="Contactar con Paul y Tau Studio">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </a>
+    </div>
+  </main>
+</SiteLayout>

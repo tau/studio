@@ -1,0 +1,203 @@
+---
+import '@/styles/index.scss';
+import '@fontsource/poppins/latin-300.css';
+import '@fontsource/poppins/latin-500.css';
+import '@fontsource/poppins/latin-600.css';
+import poppins300 from '@fontsource/poppins/files/poppins-latin-300-normal.woff2?url';
+import poppins500 from '@fontsource/poppins/files/poppins-latin-500-normal.woff2?url';
+import poppins600 from '@fontsource/poppins/files/poppins-latin-600-normal.woff2?url';
+
+interface Props {
+  title?: string;
+  description?: string;
+  robots?: string;
+  image?: string;
+  type?: string;
+  randomizeAccents?: boolean;
+}
+
+const {
+  title = 'Tau Studio | Desarrollo de experiencias web y marketing digital',
+  description = 'Estudio de desarrollo de experiencias web a medida, marketing digital y SEO',
+  robots,
+  image = '/og.png',
+  type = 'website',
+  randomizeAccents = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(image, Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Tau Studio',
+  url: Astro.site?.href,
+  logo: new URL('/tau.svg', Astro.site).href,
+  email: 'hey@tau.studio',
+  sameAs: [
+    'https://www.facebook.com/TauStudioX',
+    'https://twitter.com/TauStudioX',
+    'https://www.linkedin.com/company/tau',
+    'https://www.instagram.com/taustudiox',
+    'https://github.com/tau',
+  ],
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preload" href={poppins300} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={poppins500} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={poppins600} as="font" type="font/woff2" crossorigin="anonymous" />
+    <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#111827" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Tau Studio" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {robots && <meta name="robots" content={robots} />}
+    {robots && <meta name="googlebot" content={robots} />}
+
+    {randomizeAccents && <script is:inline>
+      const accents = [
+        { color: '#6853A2', ink: '#ffffff' },
+        { color: '#EC1978', ink: '#111827' },
+        { color: '#5ABE93', ink: '#111827' },
+        { color: '#FBAF18', ink: '#111827' },
+      ];
+      for (let i = accents.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [accents[i], accents[j]] = [accents[j], accents[i]];
+      }
+      const root = document.documentElement;
+      root.style.setProperty('--home-hero-accent', accents[0].color);
+      root.style.setProperty('--home-hero-accent-ink', accents[0].ink);
+      root.style.setProperty('--home-clients-accent', accents[1].color);
+      root.style.setProperty('--home-projects-accent', accents[2].color);
+    </script>}
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    {import.meta.env.PROD && (
+      <script defer src="/umami.js" data-website-id="f0262f57-b11c-47bf-9f6f-7bd965487d7b" data-host-url="https://umami.qu4k3.com"></script>
+    )}
+  </head>
+  <body>
+    <div class="bg-decor" aria-hidden="true">
+      <span class="bg-decor__line bg-decor__line--v" style="left: 18%;"></span>
+      <span class="bg-decor__line bg-decor__line--v" style="left: 50%;"></span>
+      <span class="bg-decor__line bg-decor__line--v" style="left: 82%;"></span>
+      <span class="bg-decor__line bg-decor__line--h" style="top: 28%;"></span>
+      <span class="bg-decor__line bg-decor__line--h" style="top: 62%;"></span>
+      <span class="bg-decor__mark bg-decor__mark--purple" style="top: 28%; left: 18%;"></span>
+      <span class="bg-decor__mark bg-decor__mark--yellow" style="top: 28%; left: 82%;"></span>
+      <span class="bg-decor__mark bg-decor__mark--green" style="top: 62%; left: 82%;"></span>
+      <span class="bg-decor__mark bg-decor__mark--pink" style="top: 62%; left: 18%;"></span>
+      <span class="bg-decor__pattern bg-decor__pattern--top" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
+      <span class="bg-decor__pattern bg-decor__pattern--bottom" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
+    </div>
+    <slot />
+  </body>
+  <style>
+    .bg-decor {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .bg-decor__line {
+      position: absolute;
+      background: rgba(17, 24, 39, 0.035);
+    }
+    .bg-decor__line--v {
+      top: 0;
+      bottom: 0;
+      width: 1px;
+    }
+    .bg-decor__line--h {
+      left: 0;
+      right: 0;
+      height: 1px;
+    }
+    .bg-decor__mark {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      opacity: 0.28;
+      transform: translate(-50%, -50%);
+    }
+    .bg-decor__mark--purple {
+      background: #6853a2;
+    }
+    .bg-decor__mark--green {
+      background: #5abe93;
+    }
+    .bg-decor__mark--yellow {
+      background: #fbaf18;
+    }
+    .bg-decor__mark--pink {
+      background: #ec1978;
+    }
+    .bg-decor__pattern {
+      position: absolute;
+      display: grid;
+      grid-template-columns: repeat(3, 3px);
+      gap: 7px;
+      opacity: 0.12;
+    }
+    .bg-decor__pattern i {
+      width: 3px;
+      height: 3px;
+      background: #111827;
+    }
+    .bg-decor__pattern--top {
+      top: 12%;
+      right: 12%;
+    }
+    .bg-decor__pattern--bottom {
+      bottom: 12%;
+      left: 12%;
+    }
+    @media (max-width: 640px) {
+      .bg-decor__line--v:first-child,
+      .bg-decor__line--v:nth-child(3),
+      .bg-decor__line--h {
+        display: none;
+      }
+      .bg-decor__pattern--top {
+        right: 7%;
+      }
+      .bg-decor__pattern--bottom {
+        left: 7%;
+      }
+    }
+  </style>
+</html>

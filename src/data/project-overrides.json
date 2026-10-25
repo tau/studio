@@ -1,0 +1,46 @@
+{
+  "featured": [
+    "medilens::MEDI lens",
+    "pckt-link::Pocket Link",
+    "kinfelina::Kin Felina",
+    "finques-mireia::Finques Mireia",
+    "iberia-estimulantes::Iberia Estimulantes",
+    "huca-constructora::HUCA Constructora"
+  ],
+  "personalCatalog": [
+    { "title": "Fibers v3", "year": 2026, "slug": "fibers", "logo": "fibers-cat.png", "status": "active" },
+    { "title": "MEDI lens", "year": 2025, "slug": "medilens", "sourceTitle": "MEDI lens - Landing", "logo": "medilens-es.png", "status": "active" },
+    { "title": "Pocket Link", "year": 2025, "slug": "pckt-link", "logo": "pckt-link.png", "status": "active" },
+    { "title": "Qu4k3 v2", "year": 2025, "slug": "qu4k3", "logo": "qu4k3-com.png", "status": "active" },
+    { "title": "Inefable", "year": 2024, "slug": "inefable", "sourceTitle": "Inefable Day", "logo": "inefable-day.png", "status": "active" },
+    { "title": "Killing Floor Zone", "year": 2023, "slug": "killingfloor-zone", "logo": "killingfloor-zone.png", "status": "active" },
+    { "title": "Disboard · Web", "year": 2019, "slug": "disboard-web", "sourceTitle": "Disboard Web", "logo": "disboard-team.png", "status": "active" },
+    { "title": "Disboard · API", "year": 2019, "slug": "disboard-api", "sourceTitle": "Disboard API", "logo": "api-disboard-team.png", "status": "active" },
+    { "title": "Disboard · Documentación", "year": 2019, "slug": "disboard-docs", "sourceTitle": "Disboard Docs", "logo": "docs-disboard-team.png", "status": "active" },
+    { "title": "Disboard · Discord Bot", "year": 2019, "slug": "disboard-bot", "sourceTitle": "Disboard Bot", "logo": "bot-disboard-team.png", "status": "active" },
+
+    { "title": "Fibers v2", "year": 2022, "slug": "fibers", "sourceTitle": "Fibers v2", "logo": "fibers-cat.png", "status": "archived" },
+    { "title": "CEU Eventos", "year": 2021, "slug": "ceu-events-scanner", "sourceTitle": "CEU Eventos (App)", "logo": "ceu-es.png", "status": "archived" },
+    { "title": "Mario Kart · Discord Bot (Lakitu)", "year": 2017, "slug": "mk-lakitu", "logo": "bot-mariokartworld-com.png", "status": "archived" },
+    { "title": "Mario Kart · Mario Kart World", "year": 2017, "slug": "mk-mkw", "logo": "mariokartworld-com.png", "status": "archived" },
+    { "title": "Mario Kart · CEMK", "year": 2017, "slug": "mk-cemk", "logo": "cemk-es.png", "status": "archived" },
+    { "title": "Mario Kart · FEMK", "year": 2017, "slug": "mk-femk", "logo": "femk-es.png", "status": "archived" },
+    { "title": "Mario Kart · Torneo Interautonómico", "year": 2017, "slug": "mk-torneo-interautonomico", "logo": "mariokartworld-com.png", "status": "archived" },
+    { "title": "Mario Kart · SNL", "year": 2017, "slug": "mk-snl", "logo": "mariokartworld-com.png", "status": "archived" },
+    { "title": "MHW Guild", "year": 2017, "slug": "mhw-guild", "logo": "mhwguild-com.png", "status": "archived" },
+    { "title": "Zerg Pulse", "year": 2017, "slug": "zerg-pulse", "status": "archived" },
+    { "title": "Fibers v1", "year": 2017, "slug": "fibers-v2017", "logo": "fibers-cat.png", "status": "archived" },
+    { "title": "Pong", "year": 2017, "slug": "pong", "status": "archived" },
+    { "title": "Ecard Game", "year": 2017, "slug": "ecard-game", "logo": "ecardgame-io.png", "status": "archived" },
+    { "title": "ASCII Art", "year": 2017, "slug": "ascii-art", "logo": "asciiart-io.png", "status": "archived" },
+    { "title": "Qu4k3 v1", "year": 2017, "slug": "qu4k3-v2017", "logo": "qu4k3-com.png", "status": "archived" },
+    { "title": "Fibers v0", "year": 2016, "slug": "fibers-v2016", "logo": "fibers-cat.png", "status": "archived" },
+    { "title": "Kiznaiver", "year": 2016, "slug": "kiznaiver", "logo": "kiznaiver-net.png", "status": "archived" },
+    { "title": "Qu4k3 v0", "year": 2015, "slug": "qu4k3-v2015", "logo": "qu4k3-com.png", "status": "archived" }
+  ],
+  "additionalClients": [
+    { "title": "IBA · Panorama d'Art", "year": 2016, "slug": "iba-panoramadart", "logo": "panoramadart-com.png" },
+    { "title": "IBA · B151 Barcelona", "year": 2016, "slug": "iba-b151-barcelona", "logo": "b151barcelona-com.png" },
+    { "title": "IBA · Institut Barcelonès d'Art", "year": 2016, "slug": "iba-institutbarcelonesdart", "logo": "iba-cat.png" }
+  ]
+}

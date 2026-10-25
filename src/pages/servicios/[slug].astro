@@ -1,0 +1,68 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import { services } from '@/data/services';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+---
+
+<SiteLayout
+  robots="noindex,follow"
+  title={`${service.title} | Servicios | Tau Studio`}
+  description={service.intro}
+>
+  <main class="content service-detail">
+    <nav class="service-detail__breadcrumb" aria-label="Ruta de navegación">
+      <a href="/servicios">Servicios</a>
+      <span>/</span>
+      <span>{service.title}</span>
+    </nav>
+
+    <header class="service-detail__intro">
+      <div>
+        <p class="service-detail__eyebrow"><span></span> Servicio <b>/ {service.number}</b></p>
+        <h1>{service.title}<em>{service.headlineAccent}</em></h1>
+      </div>
+      <div class="service-detail__summary">
+        <p>{service.intro}</p>
+        <a href="/contacto">
+          <span>Hablemos de tu proyecto</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </a>
+      </div>
+    </header>
+
+    <section class="service-detail__scope" aria-labelledby="service-scope-title">
+      <div class="service-detail__scope-heading">
+        <p class="service-detail__eyebrow"><span></span> Enfoque</p>
+        <h2 id="service-scope-title">Un servicio, pensado para tu contexto.</h2>
+      </div>
+      <div class="service-detail__capabilities">
+        {service.capabilities.map((capability, index) => (
+          <article>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <h3>{capability}</h3>
+            <i aria-hidden="true"></i>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <div class="service-detail__closing">
+      <a class="service-detail__back" href="/servicios">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7" /></svg>
+        <span>Todos los servicios</span>
+      </a>
+      <a class="service-detail__contact" href="/contacto">
+        <span>Cuéntanos qué necesitas</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </a>
+    </div>
+  </main>
+</SiteLayout>

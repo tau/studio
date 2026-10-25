@@ -1,0 +1,42 @@
+---
+import { siFacebook, siX, siLinkedin, siInstagram, siGithub, siGoogleplay } from 'simple-icons';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <section class="content">
+    <div class="footer__wrapper">
+      <div class="footer__main">
+        <div class="footer__brand">
+          <a class="footer__logo-link" href="/" aria-label="Tau Studio, inicio">
+            <img class="footer__logo" src="/tau.svg" alt="" />
+            <img class="footer__name" src="/studio.svg" alt="" />
+          </a>
+          <p>Diseño, desarrollo y estrategia digital.</p>
+        </div>
+
+        <div class="footer__social">
+          <span class="footer__eyebrow">Encuéntranos</span>
+          <div class="footer__icons">
+            <a href="https://www.facebook.com/TauStudioX" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d={siFacebook.path} /></svg></a>
+            <a href="https://twitter.com/TauStudioX" aria-label="X"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d={siX.path} /></svg></a>
+            <a href="https://www.linkedin.com/company/tau" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d={siLinkedin.path} /></svg></a>
+            <a href="https://www.instagram.com/taustudiox" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d={siInstagram.path} /></svg></a>
+            <a href="https://github.com/tau" aria-label="GitHub"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d={siGithub.path} /></svg></a>
+            <a href="https://play.google.com/store/apps/dev?id=4747667721362765016" aria-label="Google Play"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d={siGoogleplay.path} /></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <a class="footer__email" href="mailto:hey@tau.studio">hey@tau.studio</a>
+        <span class="footer__copyright">© {year} Tau Studio</span>
+        <a class="footer__top" href="#top">
+          <span>Volver arriba</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</footer>

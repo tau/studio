@@ -1,0 +1,47 @@
+---
+const services = [
+  { number: '01', className: 'c1', label: 'Diseño web', slug: 'diseno-web' },
+  { number: '02', className: 'c2', label: 'Desarrollo', slug: 'desarrollo-web' },
+  { number: '03', className: 'c3', label: 'Marketing digital', slug: 'marketing-digital' },
+  { number: '04', className: 'c4', label: 'SEO y estrategia', slug: 'seo' },
+];
+---
+
+<header class="site-hero">
+  <div class="content hero__content">
+    <div class="hero__layout">
+      <div class="hero__intro">
+        <p class="hero__eyebrow"><span></span> Tau Studio <b>/</b> Estudio digital</p>
+        <h1>Diseño digital <em>con intención.</em></h1>
+        <p class="hero__lead">Creamos experiencias web y estrategias digitales para conectar marcas y personas.</p>
+        <div class="hero__actions">
+          <a class="hero__primary" href="/contacto">
+            <span>Hablemos de tu proyecto</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+          <a class="hero__secondary" href="#clients">
+            <span>Explorar el estudio</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+        </div>
+      </div>
+
+      <ul class="hero__services" aria-label="Qué hacemos">
+        {services.map((service) => (
+          <li class={service.className}>
+            <span class="hero__service-number">{service.number}</span>
+            <strong>{service.label}</strong>
+            <a class="hero__service-link" href={`/servicios/${service.slug}`} aria-label={`Ver servicio: ${service.label}`}>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <a class="hero__scroll" href="#clients">
+      <span>Desliza para descubrir</span>
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v16m-7-7 7 7 7-7" /></svg>
+    </a>
+  </div>
+</header>

@@ -1,0 +1,76 @@
+---
+const currentPath = Astro.url.pathname;
+const items = [
+  { href: '/servicios', className: 'c1', label: 'Servicios' },
+  { href: '/proyectos', className: 'c2', label: 'Proyectos' },
+  { href: '/equipo', className: 'c3', label: 'El equipo' },
+  { href: '/contacto', className: 'c4', label: 'Contacto' },
+];
+const currentItem = items.find((item) => item.href === currentPath);
+const menuAccentByClass: Record<string, string> = {
+  c1: '#6853A2',
+  c2: '#EC1978',
+  c3: '#5ABE93',
+  c4: '#FBAF18',
+};
+const menuAccent = currentItem
+  ? menuAccentByClass[currentItem.className]
+  : 'var(--home-hero-accent, #111827)';
+---
+
+<nav class="site-nav" id="top" aria-label="Navegación principal">
+  <section class="content">
+    <div class="nav__wrapper">
+      <a class="nav__logo-wrapper" href="/" aria-label="Tau Studio, inicio">
+        <img class="nav__logo" src="/tau.svg" alt="" />
+        <img class="nav__name" src="/studio.svg" alt="" />
+      </a>
+
+      <button class="menu__btn" id="menu-btn" type="button" aria-label="Abrir menú" aria-controls="nav-flex" aria-expanded="false" style={`--menu-accent: ${menuAccent}`}>
+        <svg class="icon-menu" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square" style="display:none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+      </button>
+
+      <div class="nav__flex" id="nav-flex">
+        <ul class="nav__items">
+          {items.map((item) => (
+            <li class={`${item.className}${currentPath === item.href ? ' is-current' : ''}`}>
+              <a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</nav>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const flex = document.getElementById('nav-flex');
+  const menuIcon = btn?.querySelector('.icon-menu');
+  const closeIcon = btn?.querySelector('.icon-close');
+  let open = false;
+
+  const setOpen = (value: boolean) => {
+    open = value;
+    flex?.classList.toggle('show', open);
+    if (menuIcon && closeIcon) {
+      (menuIcon as HTMLElement).style.display = open ? 'none' : 'block';
+      (closeIcon as HTMLElement).style.display = open ? 'block' : 'none';
+    }
+    btn?.setAttribute('aria-expanded', String(open));
+    btn?.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
+  btn?.addEventListener('click', () => setOpen(!open));
+  flex?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && open) {
+      setOpen(false);
+      btn?.focus();
+    }
+  });
+</script>

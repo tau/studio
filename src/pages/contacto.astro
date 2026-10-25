@@ -1,0 +1,32 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import ContactForm from '@/components/ContactForm.astro';
+---
+
+<SiteLayout robots="noindex,follow" title="Contacto | Tau Studio" description="Cuéntanos qué tienes en mente. Hablemos de tu próximo proyecto con Tau Studio.">
+  <main class="content contact-page">
+    <section class="contact-page__intro" aria-labelledby="contact-title">
+      <p class="contact-page__eyebrow"><span></span>Contacto <b>/</b> 04</p>
+      <h1 id="contact-title">Hagamos algo <em>que valga la pena.</em></h1>
+      <p class="contact-page__lead">Cuéntanos qué tienes en mente. Te responderemos personalmente y veremos juntos cómo darle forma.</p>
+
+      <div class="contact-page__details">
+        <a href="mailto:hey@tau.studio">
+          <span class="contact-page__detail-label">Escríbenos</span>
+          <strong>hey@tau.studio</strong>
+        </a>
+      </div>
+    </section>
+
+    <section class="contact-page__panel" aria-labelledby="contact-form-title">
+      <div class="contact-page__panel-heading">
+        <div>
+          <p class="contact-page__eyebrow">Cuéntanos tu idea</p>
+          <h2 id="contact-form-title">Empezamos por aquí.</h2>
+        </div>
+        <span class="contact-page__panel-index" aria-hidden="true">01—05</span>
+      </div>
+      <ContactForm />
+    </section>
+  </main>
+</SiteLayout>
