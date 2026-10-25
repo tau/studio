@@ -1,15 +1,14 @@
 ---
 interface Props {
   client: { logo: string; task?: string };
-  index: number;
 }
 
-const { client, index } = Astro.props;
+const { client } = Astro.props;
 ---
 
-<div class:list={['square', { 'span-2': index === 2 || index === 9 }]}>
+<div class="square">
   <div class="square__wrapper">
-    <img class="square__image" src={client.logo} alt="" />
+    <img class="square__image" src={client.logo} alt="" loading="lazy" decoding="async" />
   </div>
   {client.task && <span class="square__task">{client.task}</span>}
 </div>

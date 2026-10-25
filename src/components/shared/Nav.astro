@@ -1,22 +1,33 @@
 ---
+const currentPath = Astro.url.pathname;
+const items = [
+  { href: '/servicios', className: 'c1', label: 'Servicios' },
+  { href: '/proyectos', className: 'c2', label: 'Proyectos' },
+  { href: '/equipo', className: 'c3', label: 'El equipo' },
+  { href: '/contacto', className: 'c4', label: 'Contacto' },
+];
 ---
-<nav>
+
+<nav class="site-nav" id="top" aria-label="Navegación principal">
   <section class="content">
     <div class="nav__wrapper">
-      <div class="nav__logo-wrapper" id="nav-logo">
-        <img class="nav__logo" src="/tau.svg" alt="Tau" />
-        <img class="nav__name" src="/studio.svg" alt="Studio" />
-      </div>
+      <a class="nav__logo-wrapper" href="/" aria-label="Tau Studio, inicio">
+        <img class="nav__logo" src="/tau.svg" alt="" />
+        <img class="nav__name" src="/studio.svg" alt="" />
+      </a>
+
       <button class="menu__btn" id="menu-btn" type="button" aria-label="Abrir menú" aria-controls="nav-flex" aria-expanded="false">
-        <svg class="icon-menu" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        <svg class="icon-close" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square" style="display:none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        <svg class="icon-menu" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square" style="display:none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
       </button>
+
       <div class="nav__flex" id="nav-flex">
         <ul class="nav__items">
-          <li class="c1"><a href="/trabajos">Trabajos</a></li>
-          <li class="c2"><a href="/proyectos">Proyectos</a></li>
-          <li class="c3"><a href="/nosotros">El estudio</a></li>
-          <li class="c4"><a href="/contacto">Contacto</a></li>
+          {items.map((item) => (
+            <li class={`${item.className}${currentPath === item.href ? ' is-current' : ''}`}>
+              <a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
@@ -24,21 +35,15 @@
 </nav>
 
 <script>
-  const logo = document.getElementById('nav-logo');
-  logo?.addEventListener('click', () => { window.location.href = '/'; });
-
   const btn = document.getElementById('menu-btn');
   const flex = document.getElementById('nav-flex');
   const menuIcon = btn?.querySelector('.icon-menu');
   const closeIcon = btn?.querySelector('.icon-close');
   let open = false;
 
-  const setOpen = (value) => {
+  const setOpen = (value: boolean) => {
     open = value;
-    if (flex) {
-      if (open) flex.classList.add('show');
-      else flex.classList.remove('show');
-    }
+    flex?.classList.toggle('show', open);
     if (menuIcon && closeIcon) {
       (menuIcon as HTMLElement).style.display = open ? 'none' : 'block';
       (closeIcon as HTMLElement).style.display = open ? 'block' : 'none';
@@ -49,8 +54,13 @@
   };
 
   btn?.addEventListener('click', () => setOpen(!open));
-
   flex?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => setOpen(false));
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && open) {
+      setOpen(false);
+      btn?.focus();
+    }
   });
 </script>

@@ -1,0 +1,77 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+
+const services = [
+  {
+    number: '01',
+    className: 'c1',
+    title: 'Diseño web',
+    description: 'Diseñamos sitios claros, accesibles y coherentes con la personalidad de tu marca.',
+    detail: 'Experiencia · Identidad · Interfaz',
+  },
+  {
+    number: '02',
+    className: 'c2',
+    title: 'Desarrollo web',
+    description: 'Construimos experiencias rápidas, a medida y sencillas de mantener.',
+    detail: 'Desarrollo · Integraciones · Rendimiento',
+  },
+  {
+    number: '03',
+    className: 'c3',
+    title: 'Marketing digital',
+    description: 'Conectamos tu propuesta con las personas adecuadas mediante una estrategia medible.',
+    detail: 'Estrategia · Campañas · Analítica',
+  },
+  {
+    number: '04',
+    className: 'c4',
+    title: 'SEO',
+    description: 'Mejoramos la visibilidad orgánica con una base técnica sólida y contenidos útiles.',
+    detail: 'Auditoría · SEO técnico · Contenidos',
+  },
+];
+---
+
+<SiteLayout
+  robots="noindex,follow"
+  title="Servicios | Tau Studio"
+  description="Diseño web, desarrollo, marketing digital y SEO para marcas que quieren crecer."
+>
+  <main class="content services-page">
+    <header class="services-page__intro">
+      <div>
+        <p class="services-page__eyebrow"><span></span> Servicios <b>/ 01</b></p>
+        <h1>Ideas claras.<br /><em>Soluciones digitales.</em></h1>
+      </div>
+      <div class="services-page__summary">
+        <p>Unimos estrategia, diseño y tecnología para resolver retos reales y ayudar a tu marca a avanzar.</p>
+        <a href="/contacto">
+          <span>Hablemos de tu proyecto</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </a>
+      </div>
+    </header>
+
+    <section class="services-page__grid" aria-label="Nuestros servicios">
+      {services.map((service) => (
+        <article class={`services-page__card ${service.className}`}>
+          <div class="services-page__card-top">
+            <span>{service.number}</span>
+            <i aria-hidden="true"></i>
+          </div>
+          <h2>{service.title}</h2>
+          <p>{service.description}</p>
+          <div class="services-page__detail">{service.detail}</div>
+        </article>
+      ))}
+    </section>
+
+    <div class="services-page__closing">
+      <p>¿No sabes por dónde empezar? <span>Cuéntanos el reto.</span></p>
+      <a href="/contacto" aria-label="Contacta con Tau Studio">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </a>
+    </div>
+  </main>
+</SiteLayout>

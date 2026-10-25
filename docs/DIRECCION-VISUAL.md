@@ -30,6 +30,8 @@ Los valores base se definen en `src/styles/_variables.scss`:
 
 Usar la tinta para texto y estructura. Aplicar los cuatro colores de marca en puntos pequeños: marcadores, números, reglas o indicadores. Para texto pequeño, oscurecer los tonos claros hasta conseguir contraste suficiente.
 
+Cada página puede tener un color de acento propio: Servicios usa `$color1`, Equipo `$color3` y Contacto `$color4`. Mantener ese color en sus marcadores, flechas, focos y estados de hover.
+
 ## Retícula y detalles
 
 - Las líneas de fondo viven en `src/layouts/BaseLayout.astro`; son fijas, no interactivas y van detrás del contenido.
@@ -53,6 +55,14 @@ Usar la tinta para texto y estructura. Aplicar los cuatro colores de marca en pu
 - Los enlaces se presentan como filas amplias, separadas por líneas; pueden incluir numeración y un pequeño acento de color.
 - Mantener el área interactiva generosa y evitar depender de hover para comunicar información.
 
+## Cabecera y navegación principal
+
+- El hero de inicio combina una frase principal clara, una llamada a la acción y un índice de servicios en cuadrícula.
+- Usar un marcador amarillo para el eyebrow, morado para destacar una parte del titular y tinta oscura para la acción principal.
+- La navegación mantiene el logo a la izquierda y enlaces sencillos a la derecha; una regla fina la separa del contenido.
+- Mostrar la página activa con peso tipográfico y una línea de color, no con una pastilla o fondo saturado.
+- Los enlaces a secciones usan anclas reales; no depender de JavaScript para navegar al contenido.
+
 ## Formularios y contacto
 
 - Priorizar etiquetas visibles y claras, campos cómodos, foco evidente y errores asociados a cada campo.
@@ -61,12 +71,21 @@ Usar la tinta para texto y estructura. Aplicar los cuatro colores de marca en pu
 - Mantener acciones principales de alto contraste y estados visibles para foco, envío y error.
 - La información de contacto debe presentarse como enlaces directos (`mailto:` y `tel:`) y separarse con líneas, no con bloques de color grandes.
 
+## Presentación de clientes
+
+- Introducir la cuadrícula con un título editorial y una explicación breve, sin convertirla en otra portada.
+- Dar a los logos el mismo peso en tarjetas horizontales de borde fino y fondo apenas visible.
+- Mantener las marcas en escala de grises y reducir su opacidad; recuperar algo de presencia con hover, sin mover la tarjeta.
+- Usar una cuadrícula responsive de dos columnas en móvil y más columnas en pantallas amplias.
+
 ## Enlaces de navegación del pie
 
 - Tratar `FooterNav` como una continuación de la página, no como un segundo footer pesado.
 - Usar tarjetas ligeras en una cuadrícula responsive, con número, título, descripción breve y flecha.
 - Evitar fondos saturados y texto vertical; conservar los colores de marca en los números o marcas pequeñas.
 - El fondo del `<footer>` principal permanece transparente para dejar visible el lenguaje del layout.
+- El footer principal mantiene una regla superior, marca y descripción a un lado, redes sociales en controles cuadrados y una fila final con email, copyright y enlace para volver arriba.
+- Los estados de hover se limitan a cambios de color y borde; evitar desplazar iconos o controles verticalmente.
 
 ## Accesibilidad y calidad
 
@@ -79,6 +98,13 @@ Usar la tinta para texto y estructura. Aplicar los cuatro colores de marca en pu
 
 - `src/layouts/BaseLayout.astro`: retícula y marcas del fondo.
 - `src/styles/_variables.scss`: colores y transiciones base.
-- `src/styles/main.scss`: navegación, panel móvil, layout de contacto y tarjetas de `FooterNav`.
+- `src/styles/main.scss`: navegación, panel móvil, hero, clientes, contacto y tarjetas de `FooterNav`.
 - `src/pages/contacto.astro` y `src/components/ContactForm.astro`: composición y formulario de contacto.
 - `src/components/shared/FooterNav.astro`: enlaces de navegación complementaria.
+- `src/components/shared/Header.astro`: hero de inicio e índice de servicios.
+- `src/components/shared/Clients.astro` y `Square.astro`: presentación y logos de clientes.
+- `src/pages/servicios.astro`: detalle de servicios y tarjetas numeradas.
+- `src/pages/equipo.astro`: perfil de Paul Guillamón y su trayectoria.
+- `src/pages/404.astro`: página de error con retícula y rutas de salida.
+- `src/components/shared/Nav.astro`: navegación principal y menú móvil.
+- `src/components/shared/Footer.astro`: marca, redes sociales e información legal.

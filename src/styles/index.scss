@@ -1,5 +1,2 @@
-@import "variables";
-@import "mixins";
-
-@import "globals.scss";
-@import "main.scss";
+@use "globals";
+@use "main";

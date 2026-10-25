@@ -175,9 +175,9 @@
   .contact-form__field input:focus,
   .contact-form__field textarea:focus,
   .contact-form__field select:focus {
-    border-color: #6853a2;
+    border-color: #fbaf18;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(104, 83, 162, 0.12);
+    box-shadow: 0 0 0 3px rgba(251, 175, 24, 0.16);
   }
   .contact-form__field [aria-invalid="true"] {
     border-color: #b42318;
@@ -194,7 +194,7 @@
     width: 16px;
     height: 16px;
     margin: 2px 0 0;
-    accent-color: #6853a2;
+    accent-color: #fbaf18;
   }
   .contact-form__consent .field-error {
     grid-column: 2;
@@ -216,11 +216,12 @@
     transition: background-color 0.2s ease, border-color 0.2s ease;
   }
   .contact-form__submit:hover {
-    border-color: #6853a2;
-    background: #6853a2;
+    border-color: #fbaf18;
+    background: #fbaf18;
+    color: #111827;
   }
   .contact-form__submit:focus-visible {
-    outline: 2px solid #6853a2;
+    outline: 2px solid #fbaf18;
     outline-offset: 3px;
   }
   .contact-form__submit:disabled {
@@ -228,9 +229,11 @@
     opacity: 0.65;
   }
   .contact-form__submit svg {
+    color: #fbaf18;
     transition: transform 0.2s ease;
   }
   .contact-form__submit:hover svg {
+    color: #111827;
     transform: translateX(3px);
   }
   .honeypot {

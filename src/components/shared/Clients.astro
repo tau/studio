@@ -8,14 +8,38 @@ interface Props {
 
 const { clients = [], max } = Astro.props;
 const limit = max ?? 14;
+const featuredClients = clients.slice(0, limit);
+const count = String(featuredClients.length).padStart(2, '0');
 ---
 
-<section>
-  <section class="content">
-    <section class="square-grid">
-      {clients.slice(0, limit).map((client, i) => (
-        <Square client={client} index={i} />
+<section id="clients" class="clients-section" aria-labelledby="clients-title">
+  <div class="content">
+    <div class="clients__intro">
+      <div class="clients__heading">
+        <p class="clients__eyebrow"><span></span> Clientes <b>/ 01</b></p>
+        <h2 id="clients-title">Clientes que confían <em>en Tau Studio.</em></h2>
+      </div>
+      <div class="clients__summary">
+        <p>Trabajamos junto a equipos que quieren hacer crecer su presencia digital con ideas claras y soluciones bien construidas.</p>
+        <div class="clients__count">
+          <strong>{count}</strong>
+          <span>clientes destacados</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="clients__grid">
+      {featuredClients.map((client) => (
+        <Square client={client} />
       ))}
-    </section>
-  </section>
+    </div>
+
+    <div class="clients__footer">
+      <span>¿Hacemos equipo?</span>
+      <a href="/contacto">
+        <span>Cuéntanos tu proyecto</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </a>
+    </div>
+  </div>
 </section>
