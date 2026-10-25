@@ -2,13 +2,14 @@
 import { projects } from '@/data/projects';
 
 const featuredProjects = projects.filter((project) => project.featured);
+const totalProjectCount = String(projects.length).padStart(2, '0');
 ---
 
 <section class="featured-projects" id="featured-projects" aria-labelledby="featured-projects-title">
   <div class="content">
     <div class="featured-projects__intro">
       <div>
-        <p class="featured-projects__eyebrow"><span></span> Proyectos <b>/ 02</b></p>
+        <p class="featured-projects__eyebrow"><span></span> Proyectos <b>/ {totalProjectCount}</b></p>
         <h2 id="featured-projects-title">Ideas que <em>se convierten en proyectos.</em></h2>
       </div>
       <a class="featured-projects__all" href="/proyectos">

@@ -10,13 +10,14 @@ const { clients = [], max } = Astro.props;
 const limit = max ?? 14;
 const featuredClients = clients.slice(0, limit);
 const count = String(featuredClients.length).padStart(2, '0');
+const totalClientCount = String(clients.length).padStart(2, '0');
 ---
 
 <section id="clients" class="clients-section" aria-labelledby="clients-title">
   <div class="content">
     <div class="clients__intro">
       <div class="clients__heading">
-        <p class="clients__eyebrow"><span></span> Clientes <b>/ 01</b></p>
+        <p class="clients__eyebrow"><span></span> Clientes <b>/ {totalClientCount}</b></p>
         <h2 id="clients-title">Clientes que confían <em>en Tau Studio.</em></h2>
       </div>
       <div class="clients__summary">

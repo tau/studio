@@ -1,36 +1,6 @@
 ---
 import SiteLayout from '@/layouts/SiteLayout.astro';
-
-const services = [
-  {
-    number: '01',
-    className: 'c1',
-    title: 'Diseño web',
-    description: 'Diseñamos sitios claros, accesibles y coherentes con la personalidad de tu marca.',
-    detail: 'Experiencia · Identidad · Interfaz',
-  },
-  {
-    number: '02',
-    className: 'c2',
-    title: 'Desarrollo web',
-    description: 'Construimos experiencias rápidas, a medida y sencillas de mantener.',
-    detail: 'Desarrollo · Integraciones · Rendimiento',
-  },
-  {
-    number: '03',
-    className: 'c3',
-    title: 'Marketing digital',
-    description: 'Conectamos tu propuesta con las personas adecuadas mediante una estrategia medible.',
-    detail: 'Estrategia · Campañas · Analítica',
-  },
-  {
-    number: '04',
-    className: 'c4',
-    title: 'SEO',
-    description: 'Mejoramos la visibilidad orgánica con una base técnica sólida y contenidos útiles.',
-    detail: 'Auditoría · SEO técnico · Contenidos',
-  },
-];
+import { services } from '@/data/services';
 ---
 
 <SiteLayout
@@ -58,7 +28,9 @@ const services = [
         <article class={`services-page__card ${service.className}`}>
           <div class="services-page__card-top">
             <span>{service.number}</span>
-            <i aria-hidden="true"></i>
+            <a class="services-page__card-link" href={`/servicios/${service.slug}`} aria-label={`Ver detalle de ${service.title}`}>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
           </div>
           <h2>{service.title}</h2>
           <p>{service.description}</p>

@@ -1,9 +1,9 @@
 ---
 const services = [
-  { number: '01', className: 'c1', label: 'Diseño web' },
-  { number: '02', className: 'c2', label: 'Desarrollo' },
-  { number: '03', className: 'c3', label: 'Marketing digital' },
-  { number: '04', className: 'c4', label: 'SEO y estrategia' },
+  { number: '01', className: 'c1', label: 'Diseño web', slug: 'diseno-web' },
+  { number: '02', className: 'c2', label: 'Desarrollo', slug: 'desarrollo-web' },
+  { number: '03', className: 'c3', label: 'Marketing digital', slug: 'marketing-digital' },
+  { number: '04', className: 'c4', label: 'SEO y estrategia', slug: 'seo' },
 ];
 ---
 
@@ -31,7 +31,9 @@ const services = [
           <li class={service.className}>
             <span class="hero__service-number">{service.number}</span>
             <strong>{service.label}</strong>
-            <span class="hero__service-mark" aria-hidden="true"></span>
+            <a class="hero__service-link" href={`/servicios/${service.slug}`} aria-label={`Ver servicio: ${service.label}`}>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
           </li>
         ))}
       </ul>
