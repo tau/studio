@@ -1,24 +1,37 @@
-<p align="center">
-  <a href="https://tau.studio" target="_blank" rel="nofollow noopener noreferrer">
-    <img src="https://github.com/tau/studio/blob/main/public/tau.svg"/>
-  </a>
-</p>
+# Tau Studio
 
-<p align="center">
-  <a href="https://app.netlify.com/sites/tau-studio/deploys" target="_blank" rel="nofollow noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/061d6f73-e0da-41c7-97bc-acc0004b02cb/deploy-status"/></a>&nbsp;
-  <a href="https://www.codacy.com/gh/tau/studio/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tau/studio&amp;utm_campaign=Badge_Grade" target="_blank" rel="nofollow noopener noreferrer"><img src="https://api.codacy.com/project/badge/grade/ff1563fb81b34629bad68bc41007241c"/></a>
-</p>
+Sitio web de Tau Studio migrado a [Astro](https://astro.build/) (v7.4+), sin frameworks de UI, con entrega de contenido estático.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Estructura
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+```
+src/
+  components/
+  layouts/
+  pages/
+  styles/
+public/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Comandos
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+```
+
+## Variables de entorno
+
+Copia `.env.example` a `.env` y completa las credenciales de Contentful:
+
+```
+PUBLIC_CONTENTFUL_SPACE_ID=
+PUBLIC_CONTENTFUL_ACCESS_TOKEN=
+```
+
+## MCP y skills
+
+- MCP de documentación de Astro configurado en `opencode.json`.
+- Skills de Astro instaladas en `.agents/skills/`.

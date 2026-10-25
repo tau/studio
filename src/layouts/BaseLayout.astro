@@ -1,0 +1,51 @@
+---
+import '@/styles/index.scss';
+
+interface Props {
+  title?: string;
+  description?: string;
+  robots?: string;
+}
+
+const {
+  title = 'Tau Studio | Desarrollo de experiencias web y marketing digital',
+  description = 'Estudio de desarrollo de experiencias web a medida, marketing digital y SEO',
+  robots,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{title}</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/tau-studio.jpg" />
+    <meta property="og:type" content="website" />
+
+    {robots && <meta name="robots" content={robots} />}
+    {robots && <meta name="googlebot" content={robots} />}
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K04X75PRJ4"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-K04X75PRJ4');
+    </script>
+    {import.meta.env.PROD && (
+      <script defer src="/umami.js" data-website-id="f0262f57-b11c-47bf-9f6f-7bd965487d7b" data-host-url="https://umami.qu4k3.com"></script>
+    )}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

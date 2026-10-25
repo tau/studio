@@ -1,0 +1,27 @@
+---
+---
+<header>
+  <section class="content h-full relative">
+    <section class="header__wrapper t-heading">
+      <h1 class="mt-0 mt-heading">Tau Studio</h1>
+      <h3>Quis deserunt pariatur mollit voluptate nulla voluptate nisi anim nulla veniam</h3>
+      <p>Officia ipsum irure magna dolore velit deserunt ut est mollit aute.</p>
+      <p>Aliquip nulla sunt cupidatat ut deserunt ea. Cillum aliquip duis ullamco anim nulla et adipisicing tempor veniam reprehenderit.</p>
+    </section>
+  </section>
+  <div class="scroll-down scroll-down--left" data-scroll-main>
+    <span class="no-select">Desplázate hacia abajo</span>
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+  <div class="scroll-down" data-scroll-main>
+    <span class="no-select">Desplázate hacia abajo</span>
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</header>
+
+<script>
+  const scrollToMain = () => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+  document.querySelectorAll('[data-scroll-main]').forEach((el) => {
+    el.addEventListener('click', scrollToMain);
+  });
+</script>

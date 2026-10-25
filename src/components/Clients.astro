@@ -1,0 +1,21 @@
+---
+import Square from '@/components/Square.astro';
+
+interface Props {
+  clients?: any[];
+  max?: number;
+}
+
+const { clients = [], max } = Astro.props;
+const limit = max ?? 14;
+---
+
+<section>
+  <section class="content">
+    <section class="square-grid">
+      {clients.slice(0, limit).map((client, i) => (
+        <Square client={client} index={i} />
+      ))}
+    </section>
+  </section>
+</section>

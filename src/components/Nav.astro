@@ -1,0 +1,47 @@
+---
+---
+<nav>
+  <section class="content">
+    <div class="nav__wrapper">
+      <div class="nav__logo-wrapper" id="nav-logo">
+        <img class="nav__logo" src="/tau.svg" alt="Tau" />
+        <img class="nav__name" src="/studio.svg" alt="Studio" />
+      </div>
+      <div class="menu__btn" id="menu-btn" aria-label="Menu">
+        <svg class="icon-menu" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </div>
+      <div class="nav__flex" id="nav-flex">
+        <ul class="nav__items">
+          <li class="c1"><a href="/trabajos">Trabajos</a></li>
+          <li class="c2"><a href="/proyectos">Proyectos</a></li>
+          <li class="c3"><a href="/nosotros">El estudio</a></li>
+          <li class="c4"><a href="/contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</nav>
+
+<script>
+  const logo = document.getElementById('nav-logo');
+  logo?.addEventListener('click', () => { window.location.href = '/'; });
+
+  const btn = document.getElementById('menu-btn');
+  const flex = document.getElementById('nav-flex');
+  const menuIcon = btn?.querySelector('.icon-menu');
+  const closeIcon = btn?.querySelector('.icon-close');
+  let open = false;
+
+  btn?.addEventListener('click', () => {
+    open = !open;
+    if (flex) {
+      if (open) flex.classList.add('show');
+      else flex.classList.remove('show');
+    }
+    if (menuIcon && closeIcon) {
+      (menuIcon as HTMLElement).style.display = open ? 'none' : 'block';
+      (closeIcon as HTMLElement).style.display = open ? 'block' : 'none';
+    }
+  });
+</script>

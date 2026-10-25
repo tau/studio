@@ -1,0 +1,11 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import Clients from '@/components/Clients.astro';
+import Header from '@/components/Header.astro';
+import { clients } from '@/data/clients';
+---
+
+<SiteLayout robots="noindex,follow">
+  <Header />
+  <Clients clients={clients} max={5} />
+</SiteLayout>
