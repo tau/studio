@@ -8,13 +8,36 @@ interface Props {
   title?: string;
   description?: string;
   robots?: string;
+  image?: string;
+  type?: string;
 }
 
 const {
   title = 'Tau Studio | Desarrollo de experiencias web y marketing digital',
   description = 'Estudio de desarrollo de experiencias web a medida, marketing digital y SEO',
   robots,
+  image = '/og.png',
+  type = 'website',
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(image, Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Tau Studio',
+  url: Astro.site?.href,
+  logo: new URL('/tau.svg', Astro.site).href,
+  email: 'hey@tau.studio',
+  sameAs: [
+    'https://www.facebook.com/TauStudioX',
+    'https://twitter.com/TauStudioX',
+    'https://www.linkedin.com/company/tau',
+    'https://www.instagram.com/taustudiox',
+    'https://github.com/tau',
+  ],
+};
 ---
 
 <!doctype html>
@@ -24,16 +47,33 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{title}</title>
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#111827" />
 
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Tau Studio" />
+    <meta property="og:locale" content="es_ES" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/tau-studio.jpg" />
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     {robots && <meta name="robots" content={robots} />}
     {robots && <meta name="googlebot" content={robots} />}
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     {import.meta.env.PROD && (
       <script defer src="/umami.js" data-website-id="f0262f57-b11c-47bf-9f6f-7bd965487d7b" data-host-url="https://umami.qu4k3.com"></script>

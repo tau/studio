@@ -33,8 +33,8 @@
   const closeIcon = btn?.querySelector('.icon-close');
   let open = false;
 
-  btn?.addEventListener('click', () => {
-    open = !open;
+  const setOpen = (value) => {
+    open = value;
     if (flex) {
       if (open) flex.classList.add('show');
       else flex.classList.remove('show');
@@ -43,5 +43,12 @@
       (menuIcon as HTMLElement).style.display = open ? 'none' : 'block';
       (closeIcon as HTMLElement).style.display = open ? 'block' : 'none';
     }
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
+  btn?.addEventListener('click', () => setOpen(!open));
+
+  flex?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
   });
 </script>

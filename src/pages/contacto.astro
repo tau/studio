@@ -1,8 +1,21 @@
 ---
 import SiteLayout from '@/layouts/SiteLayout.astro';
-import Header from '@/components/Header.astro';
+import Header from '@/components/shared/Header.astro';
+import ContactForm from '@/components/ContactForm.astro';
 ---
 
-<SiteLayout robots="noindex,follow">
+<SiteLayout robots="noindex,follow" title="Contacto | Tau Studio" description="Contacta con Tau Studio para tu proyecto web, marketing digital o SEO.">
   <Header />
+  <section class="content contact">
+    <h2>Contacto</h2>
+    <p>Escríbenos y te responderemos lo antes posible.</p>
+    <ContactForm />
+  </section>
 </SiteLayout>
+
+<style>
+  .contact {
+    max-width: 640px;
+    margin: 0 auto 80px;
+  }
+</style>

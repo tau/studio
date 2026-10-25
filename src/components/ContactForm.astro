@@ -1,0 +1,170 @@
+---
+---
+<form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" novalidate>
+  <input type="hidden" name="form-name" value="contacto" />
+  <p class="honeypot">
+    <label>No rellenar: <input name="bot-field" /></label>
+  </p>
+
+  <label>
+    Nombre
+    <input type="text" name="nombre" required />
+    <small class="field-error" data-for="nombre"></small>
+  </label>
+
+  <label>
+    Email
+    <input type="email" name="email" required />
+    <small class="field-error" data-for="email"></small>
+  </label>
+
+  <label>
+    Teléfono (opcional)
+    <input type="tel" name="telefono" />
+  </label>
+
+  <label>
+    Servicio de interés
+    <select name="servicio">
+      <option value="">Selecciona una opción</option>
+      <option value="web">Desarrollo web</option>
+      <option value="marketing">Marketing digital</option>
+      <option value="seo">SEO</option>
+      <option value="otro">Otro</option>
+    </select>
+  </label>
+
+  <label>
+    Mensaje
+    <textarea name="mensaje" rows="6" required></textarea>
+    <small class="field-error" data-for="mensaje"></small>
+  </label>
+
+  <label class="consent">
+    <input type="checkbox" name="consentimiento" value="aceptado" required />
+    Acepto la política de privacidad
+    <small class="field-error" data-for="consentimiento"></small>
+  </label>
+
+  <div id="form-status" class="form-status" aria-live="polite"></div>
+  <button type="submit">Enviar</button>
+</form>
+
+<script>
+  const form = document.querySelector('.contact-form');
+  const status = document.getElementById('form-status');
+
+  const showError = (name, message) => {
+    const el = form?.querySelector(`[data-for="${name}"]`);
+    if (el) el.textContent = message;
+  };
+
+  const clearErrors = () => {
+    form?.querySelectorAll('.field-error').forEach((el) => (el.textContent = ''));
+  };
+
+  const validate = () => {
+    clearErrors();
+    let ok = true;
+
+    const nombre = form?.querySelector('[name="nombre"]');
+    if (!nombre?.value.trim()) { showError('nombre', 'El nombre es obligatorio.'); ok = false; }
+
+    const email = form?.querySelector('[name="email"]');
+    if (!email?.value.trim()) { showError('email', 'El email es obligatorio.'); ok = false; }
+    else if (!email.checkValidity()) { showError('email', 'Introduce un email válido.'); ok = false; }
+
+    const mensaje = form?.querySelector('[name="mensaje"]');
+    if (!mensaje?.value.trim()) { showError('mensaje', 'El mensaje es obligatorio.'); ok = false; }
+
+    const consent = form?.querySelector('[name="consentimiento"]');
+    if (!consent?.checked) { showError('consentimiento', 'Debes aceptar la política de privacidad.'); ok = false; }
+
+    return ok;
+  };
+
+  form?.querySelectorAll('input, textarea, select').forEach((field) => {
+    field.addEventListener('input', () => {
+      const name = field.getAttribute('name');
+      if (name) showError(name, '');
+    });
+  });
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    const button = form.querySelector('button[type="submit"]');
+    if (button) button.disabled = true;
+    if (status) status.textContent = 'Enviando...';
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString(),
+      });
+
+      if (response.ok) {
+        if (status) status.textContent = 'Mensaje enviado correctamente. Te responderemos pronto.';
+        form.reset();
+        clearErrors();
+      } else {
+        if (status) status.textContent = 'Ha ocurrido un error. Inténtalo de nuevo.';
+      }
+    } catch {
+      if (status) status.textContent = 'Ha ocurrido un error. Inténtalo de nuevo.';
+    } finally {
+      if (button) button.disabled = false;
+    }
+  });
+</script>
+
+<style>
+  .contact-form {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .contact-form label {
+    display: grid;
+    gap: 0.5rem;
+    font-weight: 500;
+  }
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font: inherit;
+  }
+  .contact-form .consent {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-weight: 400;
+  }
+  .contact-form button {
+    justify-self: start;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: #6853a2;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+  }
+  .honeypot {
+    display: none;
+  }
+  .form-status {
+    min-height: 1.5rem;
+    font-weight: 500;
+  }
+  .field-error {
+    color: #dc2626;
+    font-size: 0.875rem;
+    min-height: 1rem;
+  }
+</style>

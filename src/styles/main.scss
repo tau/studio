@@ -43,7 +43,7 @@ nav {
     }
     .menu__btn {
       position: fixed;
-      right: 40px;
+      right: 30px;
       background-color: rgba($color: $background-light, $alpha: 1);
       z-index: 5;
       padding: 8px;
@@ -444,5 +444,36 @@ footer {
         }
       }
     }
+  }
+}
+
+.nav__flex.show {
+  display: block !important;
+}
+
+@media (max-width: 767px) {
+  .menu__btn {
+    z-index: 100;
+    top: 20px;
+  }
+  .nav__flex.show {
+    display: flex !important;
+    position: fixed;
+    top: 85px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    background: rgba(249, 250, 251, 0.98);
+  }
+  .nav__flex.show .nav__items {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
   }
 }
