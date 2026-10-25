@@ -156,69 +156,249 @@ nav {
     }
   }
   .footer-nav__wrapper {
-    padding: 15px;
-    margin: 80px 0;
-    .footer-nav__flex {
+    padding: 72px 0 0;
+    margin: 72px 0 48px;
+    border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
+    .footer-nav__heading {
       display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 40px;
-      @include lg {
-        flex-wrap: nowrap;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+      p {
+        margin: 0;
+        color: rgba($color: $base-color, $alpha: 0.58);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .footer-nav__rule {
+        position: relative;
+        width: 100%;
+        height: 1px;
+        background-color: rgba($color: $base-color, $alpha: 0.1);
+        &::after {
+          content: "";
+          position: absolute;
+          top: -2px;
+          right: 0;
+          width: 5px;
+          height: 5px;
+          background-color: $color4;
+        }
+      }
+    }
+    .footer-nav__flex {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+      @include sm {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      @include xl {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
       .footer-nav__item {
-        display: flex;
-        align-items: center;
         position: relative;
-        justify-content: center;
-        @include sm {
-          flex: calc(100% / 3);
-        }
-        a {
-          -webkit-writing-mode: vertical-lr;
-          -ms-writing-mode: tb-lr;
-          writing-mode: vertical-lr;
-          text-orientation: mixed;
-          transform: rotate(180deg);
-          background-color: $base-color;
-          font-size: 0.8em;
-          color: #ffffff;
-          margin-right: 10px;
+        display: grid;
+        grid-template-columns: 2.25rem minmax(0, 1fr) 18px;
+        align-items: start;
+        gap: 12px;
+        min-height: 132px;
+        padding: 18px;
+        border: 1px solid rgba($color: $base-color, $alpha: 0.12);
+        background-color: rgba($color: $background-light, $alpha: 0.58);
+        transition: border-color $default-transition, background-color $default-transition;
+        &::before {
+          content: "";
           position: absolute;
-          left: 0;
-          height: 100%;
-          padding: 12px 4px;
-          white-space: nowrap;
-          &.c1 {
-            background-color: $color1;
-          }
-          &.c2 {
-            background-color: $color2;
-          }
-          &.c3 {
-            background-color: $color3;
-          }
-          &.c4 {
-            background-color: $color4;
-          }
-          .item__icon {
-            position: absolute;
-            bottom: 5px;
-            right: -8px;
-            transition: $default-transition;
-            opacity: .5;
-          }
-          &:hover {
-            .item__icon {
-              right: -4px;
-              opacity: 1;
-            }
+          top: 12px;
+          right: 12px;
+          width: 5px;
+          height: 5px;
+          background-color: $base-color;
+        }
+        &:hover {
+          border-color: rgba($color: $base-color, $alpha: 0.25);
+          background-color: rgba($color: $background-light, $alpha: 1);
+          .footer-nav__icon {
+            transform: translateX(3px);
           }
         }
-        p {
-          margin-left: 40px;
+        &:focus-visible {
+          outline: 2px solid $color1;
+          outline-offset: 3px;
+        }
+        &.c1 .footer-nav__number {
+          color: $color1;
+        }
+        &.c2 .footer-nav__number {
+          color: $color2;
+        }
+        &.c3 .footer-nav__number {
+          color: #397a60;
+        }
+        &.c4 .footer-nav__number {
+          color: $color4;
+        }
+        .footer-nav__number {
+          padding-top: 2px;
+          font-size: 0.72rem;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+        }
+        .footer-nav__copy {
+          display: grid;
+          gap: 8px;
+          strong {
+            color: $base-color;
+            font-size: 1rem;
+            font-weight: 500;
+          }
+          > span {
+            color: rgba($color: $base-color, $alpha: 0.68);
+            font-size: 0.82rem;
+            line-height: 1.55;
+          }
+        }
+        .footer-nav__icon {
+          align-self: center;
+          color: rgba($color: $base-color, $alpha: 0.58);
+          transition: transform $default-transition;
         }
       }
+    }
+  }
+}
+
+.contact-page {
+  display: grid;
+  gap: 42px;
+  max-width: 1200px;
+  margin: 26px auto 56px;
+  @include md {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: clamp(42px, 7vw, 104px);
+    margin-top: 40px;
+    margin-bottom: 72px;
+  }
+  .contact-page__intro {
+    .contact-page__eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 22px;
+      color: rgba($color: $base-color, $alpha: 0.58);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      span {
+        width: 6px;
+        height: 6px;
+        background-color: $color4;
+      }
+      b {
+        color: rgba($color: $base-color, $alpha: 0.28);
+        font-weight: 300;
+      }
+    }
+    h1 {
+      max-width: 9ch;
+      margin: 0;
+      font-size: clamp(2.6rem, 6vw, 4.6rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 1.04;
+      em {
+        display: block;
+        color: $color4;
+        font-style: normal;
+      }
+    }
+    .contact-page__lead {
+      max-width: 34rem;
+      margin: 22px 0 30px;
+      color: rgba($color: $base-color, $alpha: 0.72);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+  }
+  .contact-page__details {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    border-top: 1px solid rgba($color: $base-color, $alpha: 0.14);
+    @include sm {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    a {
+      display: grid;
+      gap: 7px;
+      padding: 16px 12px 16px 0;
+      border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.14);
+      &:focus-visible {
+        outline: 2px solid $color1;
+        outline-offset: 2px;
+      }
+      .contact-page__detail-label {
+        color: rgba($color: $base-color, $alpha: 0.52);
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      strong {
+        font-size: 0.9rem;
+        font-weight: 500;
+        overflow-wrap: anywhere;
+      }
+    }
+  }
+  .contact-page__panel {
+    position: relative;
+    padding: clamp(22px, 4vw, 42px);
+    border: 1px solid rgba($color: $base-color, $alpha: 0.12);
+    background-color: rgba($color: $background-light, $alpha: 0.84);
+    box-shadow: 0 14px 40px rgba($color: $base-color, $alpha: 0.055);
+    &::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      width: 42px;
+      height: 3px;
+      background-color: $color4;
+    }
+  }
+  .contact-page__panel-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.12);
+    .contact-page__eyebrow {
+      margin: 0 0 7px;
+      color: rgba($color: $base-color, $alpha: 0.58);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+    }
+    .contact-page__panel-index {
+      padding-top: 2px;
+      color: rgba($color: $base-color, $alpha: 0.4);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
     }
   }
 }

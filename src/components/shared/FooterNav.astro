@@ -1,26 +1,31 @@
 ---
 const items = [
-  { href: '/trabajos', cls: 'c1', label: 'Trabajos', text: 'Veniam excepteur cupidatat et reprehenderit fugiat adipisicing sit nostrud do reprehenderit.' },
-  { href: '/proyectos', cls: 'c2', label: 'Proyectos', text: 'Elit adipisicing consectetur amet aliquip minim dolor velit reprehenderit duis dolor aute quis in.' },
-  { href: '/nosotros', cls: 'c3', label: 'El estudio', text: 'Deserunt consequat consectetur deserunt est Lorem elit fugiat tempor cillum commodo.' },
-  { href: '/contacto', cls: 'c4', label: 'Contacto', text: 'Labore tempor adipisicing ex magna officia ullamco anim.' },
+  { href: '/trabajos', cls: 'c1', number: '01', label: 'Trabajos', text: 'Una selección de experiencias digitales que hemos creado.' },
+  { href: '/proyectos', cls: 'c2', number: '02', label: 'Proyectos', text: 'Ideas y colaboraciones llevadas a la práctica.' },
+  { href: '/nosotros', cls: 'c3', number: '03', label: 'El estudio', text: 'Conoce cómo pensamos, diseñamos y trabajamos.' },
+  { href: '/contacto', cls: 'c4', number: '04', label: 'Contacto', text: 'Cuéntanos qué tienes en mente. Hablemos.' },
 ];
 ---
 
-<nav>
+<nav class="footer-nav" aria-label="Explora Tau Studio">
   <section class="content">
     <section class="footer-nav__wrapper">
-      <section class="footer-nav__flex">
+      <div class="footer-nav__heading">
+        <p>Continúa explorando</p>
+        <span class="footer-nav__rule" aria-hidden="true"></span>
+      </div>
+      <div class="footer-nav__flex">
         {items.map((item) => (
-          <div class="footer-nav__item">
-            <a href={item.href} class={item.cls}>
-              <svg class="item__icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-              <span>{item.label}</span>
-            </a>
-            <p>{item.text}</p>
-          </div>
+          <a href={item.href} class={`footer-nav__item ${item.cls}`}>
+            <span class="footer-nav__number">{item.number}</span>
+            <span class="footer-nav__copy">
+              <strong>{item.label}</strong>
+              <span>{item.text}</span>
+            </span>
+            <svg class="footer-nav__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         ))}
-      </section>
+      </div>
     </section>
   </section>
 </nav>
