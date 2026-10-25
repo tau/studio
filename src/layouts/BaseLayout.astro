@@ -1,5 +1,8 @@
 ---
 import '@/styles/index.scss';
+import '@fontsource/poppins/300.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
 
 interface Props {
   title?: string;
@@ -32,15 +35,6 @@ const {
     {robots && <meta name="robots" content={robots} />}
     {robots && <meta name="googlebot" content={robots} />}
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K04X75PRJ4"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-K04X75PRJ4');
-    </script>
     {import.meta.env.PROD && (
       <script defer src="/umami.js" data-website-id="f0262f57-b11c-47bf-9f6f-7bd965487d7b" data-host-url="https://umami.qu4k3.com"></script>
     )}
