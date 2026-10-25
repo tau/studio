@@ -1,6 +1,12 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+:root {
+  --home-hero-accent: #111827;
+  --home-hero-accent-ink: #ffffff;
+  --home-clients-accent: #111827;
+}
+
 .preview {
   height: 100vh;
   display: grid;
@@ -1070,7 +1076,7 @@ header.site-hero {
     span {
       width: 6px;
       height: 6px;
-      background-color: $color4;
+      background-color: var(--home-hero-accent, #111827);
     }
     b {
       color: rgba($color: $base-color, $alpha: 0.28);
@@ -1086,7 +1092,7 @@ header.site-hero {
     line-height: 0.98;
     em {
       display: block;
-      color: $color1;
+      color: var(--home-hero-accent, #111827);
       font-style: normal;
     }
   }
@@ -1116,11 +1122,12 @@ header.site-hero {
     font-size: 0.9rem;
     transition: background-color $default-transition, border-color $default-transition;
     &:hover {
-      border-color: $color1;
-      background-color: $color1;
+      border-color: var(--home-hero-accent, #111827);
+      background-color: var(--home-hero-accent, #111827);
+      color: var(--home-hero-accent-ink, #ffffff);
     }
     &:focus-visible {
-      outline: 2px solid $color1;
+      outline: 2px solid var(--home-hero-accent, #111827);
       outline-offset: 3px;
     }
     svg {
@@ -1131,14 +1138,24 @@ header.site-hero {
     }
   }
   .hero__secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     padding: 12px 0;
     border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.3);
     font-size: 0.88rem;
     &:hover {
-      border-color: $color2;
+      border-color: var(--home-hero-accent, #111827);
+    }
+    svg {
+      color: var(--home-hero-accent, #111827);
+      transition: transform $default-transition;
+    }
+    &:hover svg {
+      transform: translateX(3px);
     }
     &:focus-visible {
-      outline: 2px solid $color1;
+      outline: 2px solid var(--home-hero-accent, #111827);
       outline-offset: 3px;
     }
   }
@@ -1178,19 +1195,7 @@ header.site-hero {
     right: 16px;
     width: 5px;
     height: 5px;
-    background-color: $base-color;
-  }
-  .c1 .hero__service-mark {
-    background-color: $color1;
-  }
-  .c2 .hero__service-mark {
-    background-color: $color2;
-  }
-  .c3 .hero__service-mark {
-    background-color: $color3;
-  }
-  .c4 .hero__service-mark {
-    background-color: $color4;
+    background-color: var(--home-hero-accent, #111827);
   }
   .hero__scroll {
     position: absolute;
@@ -1211,10 +1216,10 @@ header.site-hero {
       animation: bounce linear 2s infinite;
     }
     svg {
-      color: $base-color;
+      color: var(--home-hero-accent, #111827);
     }
     &:focus-visible {
-      outline: 2px solid $color1;
+      outline: 2px solid var(--home-hero-accent, #111827);
       outline-offset: 4px;
     }
     @include md {
@@ -1304,7 +1309,7 @@ header.site-hero {
     span {
       width: 6px;
       height: 6px;
-      background-color: $color4;
+      background-color: var(--home-clients-accent, #111827);
     }
     b {
       color: rgba($color: $base-color, $alpha: 0.3);
@@ -1319,7 +1324,7 @@ header.site-hero {
     letter-spacing: -0.055em;
     line-height: 1.04;
     em {
-      color: $color1;
+      color: var(--home-clients-accent, #111827);
       font-style: normal;
     }
   }
@@ -1387,14 +1392,14 @@ header.site-hero {
       .square__task {
         top: 8px;
         right: 8px;
-        border: 1px solid rgba($color: $base-color, $alpha: 0.12);
+        border: 1px solid var(--home-clients-accent, rgba(17, 24, 39, 0.12));
         background-color: $background-light;
         color: rgba($color: $base-color, $alpha: 0.62);
         font-size: 0.62rem;
         letter-spacing: 0.02em;
       }
       &:hover {
-        border-color: rgba($color: $base-color, $alpha: 0.24);
+        border-color: var(--home-clients-accent, rgba(17, 24, 39, 0.24));
         background-color: rgba($color: $background-light, $alpha: 0.9);
         .square__image {
           opacity: 0.9;
@@ -1420,14 +1425,14 @@ header.site-hero {
       color: $base-color;
       font-weight: 500;
       svg {
-        color: $color1;
+        color: var(--home-clients-accent, #111827);
         transition: transform $default-transition;
       }
       &:hover svg {
         transform: translateX(3px);
       }
       &:focus-visible {
-        outline: 2px solid $color1;
+        outline: 2px solid var(--home-clients-accent, #111827);
         outline-offset: 3px;
       }
     }
@@ -1526,6 +1531,9 @@ footer {
       gap: 8px;
       &:hover {
         opacity: 0.78;
+        .footer__logo {
+          @include logo-animation();
+        }
       }
       &:focus-visible {
         outline: 2px solid $color1;

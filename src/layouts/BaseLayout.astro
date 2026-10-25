@@ -1,8 +1,11 @@
 ---
 import '@/styles/index.scss';
-import '@fontsource/poppins/300.css';
-import '@fontsource/poppins/500.css';
-import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/latin-300.css';
+import '@fontsource/poppins/latin-500.css';
+import '@fontsource/poppins/latin-600.css';
+import poppins300 from '@fontsource/poppins/files/poppins-latin-300-normal.woff2?url';
+import poppins500 from '@fontsource/poppins/files/poppins-latin-500-normal.woff2?url';
+import poppins600 from '@fontsource/poppins/files/poppins-latin-600-normal.woff2?url';
 
 interface Props {
   title?: string;
@@ -10,6 +13,7 @@ interface Props {
   robots?: string;
   image?: string;
   type?: string;
+  randomizeAccents?: boolean;
 }
 
 const {
@@ -18,6 +22,7 @@ const {
   robots,
   image = '/og.png',
   type = 'website',
+  randomizeAccents = false,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -46,6 +51,9 @@ const jsonLd = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preload" href={poppins300} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={poppins500} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={poppins600} as="font" type="font/woff2" crossorigin="anonymous" />
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -72,6 +80,23 @@ const jsonLd = {
 
     {robots && <meta name="robots" content={robots} />}
     {robots && <meta name="googlebot" content={robots} />}
+
+    {randomizeAccents && <script is:inline>
+      const accents = [
+        { color: '#6853A2', ink: '#ffffff' },
+        { color: '#EC1978', ink: '#111827' },
+        { color: '#5ABE93', ink: '#111827' },
+        { color: '#FBAF18', ink: '#111827' },
+      ];
+      for (let i = accents.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [accents[i], accents[j]] = [accents[j], accents[i]];
+      }
+      const root = document.documentElement;
+      root.style.setProperty('--home-hero-accent', accents[0].color);
+      root.style.setProperty('--home-hero-accent-ink', accents[0].ink);
+      root.style.setProperty('--home-clients-accent', accents[1].color);
+    </script>}
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 

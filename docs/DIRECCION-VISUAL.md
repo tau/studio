@@ -32,6 +32,8 @@ Usar la tinta para texto y estructura. Aplicar los cuatro colores de marca en pu
 
 Cada página puede tener un color de acento propio: Servicios usa `$color1`, Equipo `$color3` y Contacto `$color4`. Mantener ese color en sus marcadores, flechas, focos y estados de hover.
 
+En la home, el hero y la sección de clientes reciben colores distintos, elegidos al azar sin repetir entre sí en cada carga. Dentro de cada bloque, el marcador, el texto destacado y las interacciones comparten el mismo acento. Si el script no se ejecuta, ambos bloques parten del color base `#111827`.
+
 ## Retícula y detalles
 
 - Las líneas de fondo viven en `src/layouts/BaseLayout.astro`; son fijas, no interactivas y van detrás del contenido.
@@ -43,6 +45,7 @@ Cada página puede tener un color de acento propio: Servicios usa `$color1`, Equ
 ## Tipografía y composición
 
 - La tipografía del sitio es Poppins, con pesos 300, 500 y 600 cargados desde `BaseLayout.astro`.
+- Cargar solo el subconjunto Latin utilizado y precargar los tres WOFF2 desde el `<head>` para reducir el cambio visual al entrar la página.
 - Usar pesos ligeros para texto corrido y 500/600 para títulos, navegación y controles.
 - Crear jerarquía con escala, espaciado, alineación, mayúsculas pequeñas y numeración; evitar añadir adornos tipográficos innecesarios.
 - Dar aire al contenido y limitar el ancho de lectura. En móvil, apilar columnas y mantener márgenes táctiles cómodos.
