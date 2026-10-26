@@ -126,7 +126,7 @@ function parseSourceProjects(moduleSource) {
   return data;
 }
 
-function normalizeProject(project, featuredKeys) {
+function normalizeProject(project, featuredKeys, clientGroups = {}) {
   const categoryByType = {
     personal: 'personal',
     cliente: 'client',
@@ -149,6 +149,7 @@ function normalizeProject(project, featuredKeys) {
     yearStart: project.yearStart ? Number(project.yearStart) : null,
     yearEnd: project.yearEnd ? Number(project.yearEnd) : null,
     category,
+    clientGroup: category === 'client' ? (clientGroups[sourceSlug(project)] ?? sourceSlug(project)) : null,
     status: project.status === 'En Desarrollo' && !project.yearEnd ? 'active' : 'archived',
     statusLabel: project.status || '',
     slug,
@@ -166,8 +167,8 @@ function sourceSlug(project) {
   return project.link?.split('/').filter(Boolean).at(-1);
 }
 
-function curatedProject(entry, category, sourceProject, featuredKeys) {
-  const sourceData = sourceProject ? normalizeProject(sourceProject, new Set()) : null;
+function curatedProject(entry, category, sourceProject, featuredKeys, clientGroups = {}) {
+  const sourceData = sourceProject ? normalizeProject(sourceProject, new Set(), clientGroups) : null;
   const key = `${entry.slug}::${entry.title}`;
   const status = entry.status ?? 'archived';
 
@@ -179,6 +180,9 @@ function curatedProject(entry, category, sourceProject, featuredKeys) {
     yearStart: sourceData?.yearStart ?? entry.year,
     yearEnd: sourceData?.yearEnd ?? null,
     category,
+    clientGroup: category === 'client'
+      ? sourceData?.clientGroup ?? entry.clientGroup ?? entry.slug
+      : null,
     status,
     statusLabel: category === 'personal'
       ? status === 'active' ? 'Activo' : 'Archivado'
@@ -197,6 +201,7 @@ function curatedProject(entry, category, sourceProject, featuredKeys) {
 try {
   const overrides = JSON.parse(await readFile(overridesPath, 'utf8'));
   const featuredKeys = new Set(overrides.featured ?? []);
+  const clientGroups = overrides.clientGroups ?? {};
   const html = await fetchText(PROJECTS_URL);
   const moduleUrl = findProjectsModule(html);
   const moduleSource = await fetchText(moduleUrl);
@@ -207,22 +212,22 @@ try {
       project.title === sourceTitle && sourceSlug(project) === entry.slug,
     );
 
-    return curatedProject(entry, 'personal', sourceProject, featuredKeys);
+    return curatedProject(entry, 'personal', sourceProject, featuredKeys, clientGroups);
   });
   const curatedPersonalSlugs = new Set(overrides.personalCatalog.map((entry) => entry.slug));
   const additionalSourceProjects = sourceProjects
     .filter((project) => !curatedPersonalSlugs.has(sourceSlug(project)))
     .filter((project) => project.type !== 'cliente')
-    .map((project) => normalizeProject(project, featuredKeys));
+    .map((project) => normalizeProject(project, featuredKeys, clientGroups));
   const clientSlugs = new Set(sourceProjects.filter((project) => project.type === 'cliente').map(sourceSlug));
   const additionalClients = overrides.additionalClients
     .filter((entry) => !clientSlugs.has(entry.slug))
-    .map((entry) => curatedProject(entry, 'client', null, featuredKeys));
+    .map((entry) => curatedProject(entry, 'client', null, featuredKeys, clientGroups));
   const normalizedProjects = [
     ...curatedPersonal,
     ...sourceProjects
       .filter((project) => project.type === 'cliente')
-      .map((project) => normalizeProject(project, featuredKeys)),
+      .map((project) => normalizeProject(project, featuredKeys, clientGroups)),
     ...additionalClients,
     ...additionalSourceProjects,
   ];

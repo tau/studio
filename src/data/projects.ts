@@ -10,6 +10,7 @@ export interface Project {
   yearStart: number | null;
   yearEnd: number | null;
   category: ProjectCategory;
+  clientGroup: string | null;
   status: ProjectStatus;
   statusLabel: string;
   slug: string;

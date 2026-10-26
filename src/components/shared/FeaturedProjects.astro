@@ -1,24 +1,29 @@
 ---
 import { projects } from '@/data/projects';
+import SectionCta from '@/components/shared/SectionCta.astro';
 
 const featuredProjects = projects.filter((project) => project.featured);
 const totalProjectCount = String(projects.length).padStart(2, '0');
+const personalProjectCount = projects.filter((project) => project.category === 'personal').length;
+const clientProjectCount = projects.filter((project) => project.category === 'client').length;
 ---
 
 <section class="featured-projects" id="featured-projects" aria-labelledby="featured-projects-title">
   <div class="content">
     <div class="featured-projects__intro">
       <div>
-        <p class="featured-projects__eyebrow"><span></span> Proyectos <b>/ {totalProjectCount}</b></p>
+        <p class="featured-projects__eyebrow"><span></span> Proyectos <b># {totalProjectCount}</b></p>
         <h2 id="featured-projects-title">Ideas que <em>se convierten en proyectos.</em></h2>
       </div>
-      <a class="featured-projects__all" href="/proyectos">
-        <span>Ver todos los proyectos</span>
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
+      <div class="featured-projects__summary">
+        <p>Una selección de proyectos personales y colaboraciones con clientes, construidos para resolver necesidades reales.</p>
+        <div class="featured-projects__counts" aria-label="Resumen de proyectos">
+          <div class="featured-projects__count"><strong>{totalProjectCount}</strong><span>totales</span></div>
+          <div class="featured-projects__count"><strong>{String(personalProjectCount).padStart(2, '0')}</strong><span>personales</span></div>
+          <div class="featured-projects__count"><strong>{String(clientProjectCount).padStart(2, '0')}</strong><span>de clientes</span></div>
+        </div>
+      </div>
     </div>
-
-    <p class="featured-projects__lead">Una selección de proyectos personales y colaboraciones con clientes, construidos para resolver necesidades reales.</p>
 
     <div class="featured-projects__grid">
       {featuredProjects.map((project) => (
@@ -44,5 +49,12 @@ const totalProjectCount = String(projects.length).padStart(2, '0');
         </a>
       ))}
     </div>
+
+    <SectionCta
+      variant="projects"
+      prompt="Descubre el catálogo completo"
+      label="Ver todos los proyectos"
+      href="/proyectos"
+    />
   </div>
 </section>
