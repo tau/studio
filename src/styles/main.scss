@@ -1261,9 +1261,12 @@ header.site-hero {
   min-height: min(760px, calc(100svh - 89px));
   align-items: center;
   padding: clamp(48px, 7vw, 88px) 0 40px;
+  padding-left: 10px;
+  @include md {
+    padding-left: 0;
+  }
   .hero__content {
     width: 100%;
-    padding-left: clamp(30px, 3.5vw, 42px);
   }
   .hero__layout {
     display: grid;
@@ -1436,34 +1439,36 @@ header.site-hero {
       transform: translateX(3px);
     }
   }
-  .hero__scroll {
-    position: absolute;
-    bottom: 24px;
-    left: 5px;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    color: rgba($color: $base-color, $alpha: 0.58);
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    span {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      -webkit-animation: bounce linear 2s infinite;
-      animation: bounce linear 2s infinite;
-    }
-    svg {
-      color: var(--home-hero-accent, #111827);
-    }
-    &:focus-visible {
-      outline: 2px solid var(--home-hero-accent, #111827);
-      outline-offset: 4px;
-    }
-    @include md {
-      left: max(12px, calc((100vw - 1500px) / 2 + 8px));
-    }
+}
+
+.hero__scroll {
+  position: absolute;
+  top: calc(100svh - 24px);
+  left: 5px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: rgba($color: $base-color, $alpha: 0.58);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: translateY(-100%);
+  span {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    -webkit-animation: bounce linear 2s infinite;
+    animation: bounce linear 2s infinite;
+  }
+  svg {
+    color: var(--home-hero-accent, #111827);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--home-hero-accent, #111827);
+    outline-offset: 4px;
+  }
+  @include md {
+    left: max(5px, calc((100vw - 1500px) / 2 - 10px));
   }
 }
 
