@@ -8,23 +8,6 @@
   --home-projects-accent: #111827;
 }
 
-.preview {
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  .preview__wrapper {
-    display: flex;
-    justify-content: center;
-    .preview__logo {
-      @include logo-animation();
-    }
-    .preview__name {
-      margin-left: 20px;
-    }
-  }
-}
-
 .site-nav {
   border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.1);
 }
@@ -40,7 +23,8 @@ nav {
     flex-wrap: wrap;
     .nav__logo {
       max-height: 54px;
-      transition: $default-transition;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity $default-transition;
     }
     .nav__logo-wrapper {
       display: flex;
@@ -54,6 +38,9 @@ nav {
       }
       &:hover {
         opacity: 0.78;
+        .nav__logo {
+          transform: rotate3d(1, 1, 1, 360deg);
+        }
       }
     }
     .nav__name {
