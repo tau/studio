@@ -14,7 +14,7 @@ const uniqueClientCount = new Set(
 ).size;
 ---
 
-<SiteLayout randomizeAccents>
+<SiteLayout image="/og.png" randomizeAccents>
   <Header />
   <Clients clients={clients} max={5} total={uniqueClientCount} projectTotal={clientProjectCount} />
   <FeaturedProjects />
