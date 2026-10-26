@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
-  client: { logo: string; task?: string; description: string };
+  client: { logo: ImageMetadata; task?: string; description: string };
 }
 
 const { client } = Astro.props;
@@ -8,7 +11,7 @@ const { client } = Astro.props;
 
 <div class="square" tabindex="0" aria-label={client.description}>
   <div class="square__wrapper">
-    <img class="square__image" src={client.logo} alt="" loading="lazy" decoding="async" />
+    <Image class="square__image" src={client.logo} alt="" loading="lazy" decoding="async" />
   </div>
   {client.task && <span class="square__task">{client.task}</span>}
   <span class="square__tooltip" role="tooltip">{client.description}</span>

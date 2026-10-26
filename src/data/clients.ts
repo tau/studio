@@ -1,28 +1,35 @@
+import type { ImageMetadata } from 'astro';
+import hucaLogo from '@/assets/clients/huca-logo.png';
+import inOneLogo from '@/assets/clients/logo-inone.png';
+import uaoLogo from '@/assets/clients/logo-uao-ceu.png';
+import transcontrolLogo from '@/assets/clients/transcontrol-logo.svg';
+import farellLogo from '@/assets/clients/WEB-Logo-Farell-Color.jpg';
+
 export interface Client {
-  logo: string;
+  logo: ImageMetadata;
   task?: string;
   description: string;
 }
 
 export const clients: Client[] = [
   {
-    logo: '/assets/img/clients/logo-inone.png',
+    logo: inOneLogo,
     description: 'Marketing digital y gestión para clubes de golf.',
   },
   {
-    logo: '/assets/img/clients/logo-uao-ceu.png',
+    logo: uaoLogo,
     description: 'Universidad privada de Barcelona.',
   },
   {
-    logo: '/assets/img/clients/transcontrol-logo.svg',
+    logo: transcontrolLogo,
     description: 'Software de gestión para empresas de transporte.',
   },
   {
-    logo: '/assets/img/clients/huca-logo.png',
+    logo: hucaLogo,
     description: 'Constructora especializada en reformas y obra.',
   },
   {
-    logo: '/assets/img/clients/WEB-Logo-Farell-Color.jpg',
+    logo: farellLogo,
     description: 'Editorial catalana de naturaleza, cultura e historia.',
   },
 ];
