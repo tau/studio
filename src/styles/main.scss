@@ -1380,15 +1380,21 @@ header.site-hero {
     border-left: 1px solid rgba($color: $base-color, $alpha: 0.12);
     li {
       position: relative;
+      border-right: 1px solid rgba($color: $base-color, $alpha: 0.12);
+      border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.12);
+      background-color: rgba($color: $background-light, $alpha: 0.42);
+    }
+    .hero__service-card {
       display: flex;
       min-height: 112px;
       flex-direction: column;
       justify-content: space-between;
       gap: 20px;
       padding: 16px;
-      border-right: 1px solid rgba($color: $base-color, $alpha: 0.12);
-      border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.12);
-      background-color: rgba($color: $background-light, $alpha: 0.42);
+      &:focus-visible {
+        outline: 2px solid var(--home-hero-accent, #111827);
+        outline-offset: -3px;
+      }
       strong {
         font-size: 0.9rem;
         font-weight: 500;
@@ -1408,20 +1414,26 @@ header.site-hero {
     width: 36px;
     height: 36px;
     place-items: center;
-    border: 1px solid var(--home-hero-accent, #111827);
-    background-color: var(--home-hero-accent, #111827);
-    color: var(--home-hero-accent-ink, #ffffff);
+    border: 1px solid rgba($color: $base-color, $alpha: 0.14);
+    background-color: transparent;
+    color: var(--home-hero-accent, #111827);
+    transition: background-color $default-transition, color $default-transition;
     svg {
       transition: transform $default-transition;
     }
     &:hover {
+      background-color: var(--home-hero-accent, #111827);
+      color: var(--home-hero-accent-ink, #ffffff);
       svg {
         transform: translateX(3px);
       }
     }
-    &:focus-visible {
-      outline: 2px solid var(--home-hero-accent, #111827);
-      outline-offset: 2px;
+  }
+  .hero__service-card:hover .hero__service-link {
+    background-color: var(--home-hero-accent, #111827);
+    color: var(--home-hero-accent-ink, #ffffff);
+    svg {
+      transform: translateX(3px);
     }
   }
   .hero__scroll {
@@ -1459,6 +1471,10 @@ header.site-hero {
   position: relative;
   cursor: default;
   background-color: $background-regular;
+  &:focus-visible {
+    outline: 2px solid var(--home-clients-accent, #111827);
+    outline-offset: 3px;
+  }
   .square__wrapper {
     display: flex;
     height: 100%;
@@ -1484,6 +1500,25 @@ header.site-hero {
     color: #ffffff;
     background-color: $color1;
   }
+  .square__tooltip {
+    position: absolute;
+    z-index: 2;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    padding: 8px 10px;
+    color: #ffffff;
+    background-color: rgba($color: $base-color, $alpha: 0.94);
+    font-size: 0.68rem;
+    line-height: 1.35;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: opacity $default-transition, visibility $default-transition,
+      transform $default-transition;
+  }
   &:hover {
     .square__image {
       filter: grayscale(0);
@@ -1499,6 +1534,14 @@ header.site-hero {
       left: 0;
       z-index: 1;
       opacity: 0;
+    }
+  }
+  &:hover,
+  &:focus-visible {
+    .square__tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
   }
   &.span-2 {
