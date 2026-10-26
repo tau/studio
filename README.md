@@ -13,6 +13,7 @@ src/
   pages/
   styles/
 public/
+scripts/
 ```
 
 ## Comandos
@@ -22,16 +23,14 @@ npm install
 npm run dev
 npm run build
 npm run preview
+npm run sync:projects
+npm run sync:projects:check
 ```
 
-## Variables de entorno
+### Sincronización de proyectos
 
-Copia `.env.example` a `.env` y completa las credenciales de Contentful:
-
-```
-PUBLIC_CONTENTFUL_SPACE_ID=
-PUBLIC_CONTENTFUL_ACCESS_TOKEN=
-```
+- `npm run sync:projects`: descarga el catálogo de proyectos desde `qu4k3.com`, lo normaliza y regenera `src/data/projects.generated.json`, que alimenta la página `/proyectos`.
+- `npm run sync:projects:check`: ejecuta la misma sincronización en modo vista previa (`--dry-run`), mostrando cuántos proyectos se encontraron y si se conservan los destacados, sin modificar ningún archivo.
 
 ## MCP y skills
 
