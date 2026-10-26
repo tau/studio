@@ -37,10 +37,15 @@ const totalClientCount = String(total ?? clients.length).padStart(2, '0');
       </div>
     </div>
 
-    <div class="clients__grid">
-      {featuredClients.map((client) => (
-        <Square client={client} />
-      ))}
+    <div class="clients__carousel" aria-label="Clientes de Tau Studio">
+      <div class="clients__track">
+        {featuredClients.map((client) => (
+          <Square client={client} />
+        ))}
+        {featuredClients.map((client) => (
+          <Square client={client} />
+        ))}
+      </div>
     </div>
 
     <SectionCta
