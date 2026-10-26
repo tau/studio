@@ -4,6 +4,9 @@ import inOneLogo from '@/assets/clients/logo-inone.png';
 import uaoLogo from '@/assets/clients/logo-uao-ceu.png';
 import transcontrolLogo from '@/assets/clients/transcontrol-logo.svg';
 import farellLogo from '@/assets/clients/WEB-Logo-Farell-Color.jpg';
+import accelLogo from '@/assets/clients/accel-logo.png';
+import abedentLogo from '@/assets/clients/abedent-logo.png';
+import lfbLogo from '@/assets/clients/lfb-logo.png';
 
 export interface Client {
   logo: ImageMetadata;
@@ -31,5 +34,17 @@ export const clients: Client[] = [
   {
     logo: farellLogo,
     description: 'Editorial catalana de naturaleza, cultura e historia.',
+  },
+  {
+    logo: accelLogo,
+    description: 'Plataforma de crecimiento para startups.',
+  },
+  {
+    logo: abedentLogo,
+    description: 'Clínica de podología y salud del pie.',
+  },
+  {
+    logo: lfbLogo,
+    description: 'Servicios y soluciones para empresas.',
   },
 ];

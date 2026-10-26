@@ -57,7 +57,7 @@ nav {
       border: 1px solid rgba($color: $base-color, $alpha: 0.12);
       border-radius: 3px;
       color: $base-color;
-      background-color: rgba($color: $background-light, $alpha: 0.96);
+      background-color: transparent;
       z-index: 5;
       align-items: center;
       justify-content: center;
@@ -1916,21 +1916,23 @@ header.site-hero {
       }
     }
   }
-  .clients__grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+      .clients__carousel {
+    overflow: hidden;
     margin-top: 20px;
-    @include sm {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-    @include lg {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 26px;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+  }
+  .clients__track {
+    display: flex;
+    gap: 10px;
+    width: max-content;
+    animation: clients-marquee 40s linear infinite;
+    &:hover {
+      animation-play-state: paused;
     }
     .square {
+      flex: 0 0 240px;
       min-width: 0;
       border: 1px solid rgba($color: $base-color, $alpha: 0.11);
       background-color: rgba($color: $background-light, $alpha: 0.46);
@@ -1964,8 +1966,28 @@ header.site-hero {
         }
       }
     }
+    @include sm {
+      gap: 12px;
+      .square {
+        flex: 0 0 220px;
+      }
+    }
+    @include lg {
+      gap: 14px;
+      .square {
+        flex: 0 0 200px;
+      }
+    }
   }
-  .clients__footer {
+  @keyframes clients-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+.clients__footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
