@@ -2,12 +2,30 @@
 import SiteLayout from '@/layouts/SiteLayout.astro';
 import ClosingCta from '@/components/shared/ClosingCta.astro';
 import { services } from '@/data/services';
+
+const serviceList = {
+  '@type': 'ItemList',
+  name: 'Servicios de Tau Studio',
+  itemListElement: services.map((service, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Service',
+      name: service.title,
+      description: service.description,
+      url: `https://tau.studio/servicios/${service.slug}`,
+      provider: { '@id': 'https://tau.studio#organization' },
+    },
+  })),
+};
 ---
 
 <SiteLayout
   title="Servicios | Tau Studio"
   description="Diseño web, desarrollo, marketing digital y SEO para marcas que quieren crecer."
   image="/og-servicios.png"
+  schemaType="CollectionPage"
+  mainEntity={serviceList}
 >
   <main class="content services-page">
     <header class="services-page__intro">

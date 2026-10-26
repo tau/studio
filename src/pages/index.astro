@@ -14,7 +14,7 @@ const uniqueClientCount = new Set(
 ).size;
 ---
 
-<SiteLayout image="/og.png" randomizeAccents>
+<SiteLayout image="/og.png" schemaType="WebPage" mainEntity={{ '@id': 'https://tau.studio#organization' }} randomizeAccents>
   <Header />
   <Clients clients={clients} max={5} total={uniqueClientCount} projectTotal={clientProjectCount} />
   <FeaturedProjects />

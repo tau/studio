@@ -37,6 +37,14 @@ const collaborators = [
   title="El equipo | Tau Studio"
   description="Conoce a Paul Guillamón, creador de Tau Studio, y su trayectoria en marketing, SEO, diseño y desarrollo web."
   image="/og-equipo.png"
+  schemaType="ProfilePage"
+  mainEntity={{ '@id': 'https://tau.studio#paul' }}
+  jsonLd={collaborators.map((collaborator) => ({
+    '@type': 'Person',
+    name: collaborator.name,
+    jobTitle: collaborator.role,
+    url: collaborator.profile,
+  }))}
 >
   <main class="content team-page">
     <section class="team-page__intro" aria-labelledby="team-title">
