@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '@/layouts/SiteLayout.astro';
+import Button from '@/components/shared/Button.astro';
 import ClosingCta from '@/components/shared/ClosingCta.astro';
 import { services } from '@/data/services';
 
@@ -35,10 +36,7 @@ const serviceList = {
       </div>
       <div class="services-page__summary">
         <p>Unimos estrategia, diseño y tecnología para resolver retos reales y ayudar a tu marca a avanzar.</p>
-        <a href="/contacto">
-          <span>Hablemos de tu proyecto</span>
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-        </a>
+        <Button href="/contacto" label="Hablemos de tu proyecto" />
       </div>
     </header>
 
