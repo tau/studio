@@ -12,6 +12,9 @@ interface Props {
   description?: string;
   image?: string;
   type?: string;
+  schemaType?: string;
+  jsonLd?: Record<string, any> | Array<Record<string, any>>;
+  mainEntity?: Record<string, any>;
   randomizeAccents?: boolean;
 }
 
@@ -20,25 +23,78 @@ const {
   description = 'Estudio de desarrollo de experiencias web a medida, marketing digital y SEO',
   image = '/og.png',
   type = 'website',
+  schemaType = 'WebPage',
+  jsonLd: extraJsonLd,
+  mainEntity,
   randomizeAccents = false,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(image, Astro.site).href;
 
+const founder = {
+  '@type': 'Person',
+  '@id': `${Astro.site}#paul`,
+  name: 'Paul Guillamón',
+  alternateName: 'Qu4k3',
+  jobTitle: 'Desarrollador FullStack y diseñador UX/UI',
+  url: 'https://www.linkedin.com/in/paulguillamon/',
+  image: new URL('/_astro/paul-guillamon.C3sn_PEE_1YNo9D.webp', Astro.site).href,
+  sameAs: ['https://qu4k3.com/', 'https://www.linkedin.com/in/paulguillamon/'],
+};
+
+const extraNodes = Array.isArray(extraJsonLd)
+  ? extraJsonLd
+  : extraJsonLd
+    ? [extraJsonLd]
+    : [];
+
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'Tau Studio',
-  url: Astro.site?.href,
-  logo: new URL('/tau.svg', Astro.site).href,
-  email: 'hey@tau.studio',
-  sameAs: [
-    'https://www.facebook.com/TauStudioX',
-    'https://twitter.com/TauStudioX',
-    'https://www.linkedin.com/company/tau',
-    'https://www.instagram.com/taustudiox',
-    'https://github.com/tau',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${Astro.site}#organization`,
+      name: 'Tau Studio',
+      url: Astro.site?.href,
+      logo: new URL('/tau.svg', Astro.site).href,
+      email: 'hey@tau.studio',
+      founder: { '@id': `${Astro.site}#paul` },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        email: 'hey@tau.studio',
+        availableLanguage: ['es'],
+      },
+      sameAs: [
+        'https://www.facebook.com/TauStudioX',
+        'https://twitter.com/TauStudioX',
+        'https://www.linkedin.com/company/tau',
+        'https://www.instagram.com/taustudiox',
+        'https://github.com/tau',
+      ],
+    },
+    founder,
+    {
+      '@type': 'WebSite',
+      '@id': `${Astro.site}#website`,
+      name: 'Tau Studio',
+      url: Astro.site?.href,
+      publisher: { '@id': `${Astro.site}#organization` },
+      inLanguage: 'es-ES',
+    },
+    {
+      '@type': schemaType,
+      '@id': `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      image: ogImage,
+      ...(mainEntity ? { mainEntity } : {}),
+      isPartOf: { '@id': `${Astro.site}#website` },
+      inLanguage: 'es-ES',
+    },
+    ...extraNodes,
   ],
 };
 ---
@@ -56,6 +112,7 @@ const jsonLd = {
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <meta name="description" content={description} />
+    <meta name="author" content="Tau Studio" />
     <meta name="theme-color" content="#111827" />
 
     <!-- Open Graph -->
@@ -66,15 +123,18 @@ const jsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:alt" content={title} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@TauStudioX" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={title} />
 
     {randomizeAccents && <script is:inline>
       const accents = [

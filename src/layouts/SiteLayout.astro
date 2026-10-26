@@ -7,13 +7,18 @@ import Footer from '@/components/shared/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: string;
+  schemaType?: string;
+  jsonLd?: Record<string, any> | Array<Record<string, any>>;
+  mainEntity?: Record<string, any>;
   randomizeAccents?: boolean;
 }
 
-const { title, description, randomizeAccents } = Astro.props;
+const { title, description, image, type, schemaType, jsonLd, mainEntity, randomizeAccents } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} randomizeAccents={randomizeAccents}>
+<BaseLayout title={title} description={description} image={image} type={type} schemaType={schemaType} jsonLd={jsonLd} mainEntity={mainEntity} randomizeAccents={randomizeAccents}>
   <Nav />
   <section id="main">
     <slot />

@@ -21,11 +21,29 @@ const activeByYear = groupByYear(activeProjects);
 const archivedByYear = groupByYear(archivedProjects);
 const clientsByYear = groupByYear(clientProjects);
 const otherByYear = groupByYear(otherProjects);
+
+const projectList = {
+  '@type': 'ItemList',
+  name: 'Proyectos de Tau Studio',
+  numberOfItems: projects.length,
+  itemListElement: projects.map((project, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'CreativeWork',
+      name: project.title,
+      url: project.sourceUrl,
+    },
+  })),
+};
 ---
 
 <SiteLayout
   title="Proyectos | Tau Studio"
   description="Proyectos personales y colaboraciones con clientes de Paul Guillamón y Tau Studio."
+  image="/og-proyectos.png"
+  schemaType="CollectionPage"
+  mainEntity={projectList}
 >
   <main class="content projects-page">
     <header class="projects-page__intro">

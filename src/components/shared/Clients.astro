@@ -1,30 +1,38 @@
 ---
 import Square from '@/components/shared/Square.astro';
+import SectionCta from '@/components/shared/SectionCta.astro';
 
 interface Props {
   clients?: any[];
   max?: number;
+  total?: number;
+  projectTotal?: number;
 }
 
-const { clients = [], max } = Astro.props;
+const { clients = [], max, total, projectTotal } = Astro.props;
 const limit = max ?? 14;
 const featuredClients = clients.slice(0, limit);
-const count = String(featuredClients.length).padStart(2, '0');
-const totalClientCount = String(clients.length).padStart(2, '0');
+const totalClientCount = String(total ?? clients.length).padStart(2, '0');
 ---
 
 <section id="clients" class="clients-section" aria-labelledby="clients-title">
   <div class="content">
     <div class="clients__intro">
       <div class="clients__heading">
-        <p class="clients__eyebrow"><span></span> Clientes <b>/ {totalClientCount}</b></p>
+        <p class="clients__eyebrow"><span></span> Clientes <b># {totalClientCount}</b></p>
         <h2 id="clients-title">Clientes que confían <em>en Tau Studio.</em></h2>
       </div>
       <div class="clients__summary">
         <p>Trabajamos junto a equipos que quieren hacer crecer su presencia digital con ideas claras y soluciones bien construidas.</p>
         <div class="clients__count">
-          <strong>{count}</strong>
-          <span>clientes destacados</span>
+          <div class="clients__count-item">
+            <strong>{totalClientCount}</strong>
+            <span>clientes</span>
+          </div>
+          <div class="clients__count-item">
+            <strong>{projectTotal ?? '—'}</strong>
+            <span>proyectos</span>
+          </div>
         </div>
       </div>
     </div>
@@ -35,12 +43,11 @@ const totalClientCount = String(clients.length).padStart(2, '0');
       ))}
     </div>
 
-    <div class="clients__footer">
-      <span>¿Hacemos equipo?</span>
-      <a href="/contacto">
-        <span>Cuéntanos tu proyecto</span>
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
-    </div>
+    <SectionCta
+      variant="clients"
+      prompt="¿Hacemos equipo?"
+      label="Cuéntanos tu proyecto"
+      href="/contacto"
+    />
   </div>
 </section>

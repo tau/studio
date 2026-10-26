@@ -4,11 +4,18 @@ import Header from '@/components/shared/Header.astro';
 import Clients from '@/components/shared/Clients.astro';
 import FeaturedProjects from '@/components/shared/FeaturedProjects.astro';
 import { clients } from '@/data/clients';
+import { projects } from '@/data/projects';
 
+const clientProjects = projects.filter((project) => project.category === 'client');
+const clientProjectCount = clientProjects.length;
+const uniqueClientCount = new Set(
+  clientProjects
+    .map((project) => project.clientGroup ?? project.slug),
+).size;
 ---
 
-<SiteLayout randomizeAccents>
+<SiteLayout image="/og.png" schemaType="WebPage" mainEntity={{ '@id': 'https://tau.studio#organization' }} randomizeAccents>
   <Header />
-  <Clients clients={clients} max={5} />
+  <Clients clients={clients} max={5} total={uniqueClientCount} projectTotal={clientProjectCount} />
   <FeaturedProjects />
 </SiteLayout>

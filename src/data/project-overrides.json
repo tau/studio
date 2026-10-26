@@ -7,6 +7,16 @@
     "iberia-estimulantes::Iberia Estimulantes",
     "huca-constructora::HUCA Constructora"
   ],
+  "clientGroups": {
+    "transcontrol-app": "transcontrol",
+    "boostartup": "accelgrow",
+    "marketplace-barcelona": "evoluginos",
+    "iba-panoramadart": "iba",
+    "iba-b151-barcelona": "iba",
+    "iba-institutbarcelonesdart": "iba",
+    "gotoikoncierge": "iconcierge",
+    "ceu-events-scanner": "uao-mailing-repository"
+  },
   "personalCatalog": [
     { "title": "Fibers v3", "year": 2026, "slug": "fibers", "logo": "fibers-cat.png", "status": "active" },
     { "title": "MEDI lens", "year": 2025, "slug": "medilens", "sourceTitle": "MEDI lens — Landing", "logo": "medilens-es.png", "status": "active" },
@@ -39,8 +49,8 @@
     { "title": "Qu4k3 v0", "year": 2015, "slug": "qu4k3-v2015", "logo": "qu4k3-com.png", "status": "archived" }
   ],
   "additionalClients": [
-    { "title": "IBA · Panorama d'Art", "year": 2016, "slug": "iba-panoramadart", "logo": "panoramadart-com.png" },
-    { "title": "IBA · B151 Barcelona", "year": 2016, "slug": "iba-b151-barcelona", "logo": "b151barcelona-com.png" },
-    { "title": "IBA · Institut Barcelonès d'Art", "year": 2016, "slug": "iba-institutbarcelonesdart", "logo": "iba-cat.png" }
+    { "title": "IBA · Panorama d'Art", "year": 2016, "slug": "iba-panoramadart", "clientGroup": "iba", "logo": "panoramadart-com.png" },
+    { "title": "IBA · B151 Barcelona", "year": 2016, "slug": "iba-b151-barcelona", "clientGroup": "iba", "logo": "b151barcelona-com.png" },
+    { "title": "IBA · Institut Barcelonès d'Art", "year": 2016, "slug": "iba-institutbarcelonesdart", "clientGroup": "iba", "logo": "iba-cat.png" }
   ]
 }
