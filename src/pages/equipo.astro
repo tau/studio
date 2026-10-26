@@ -1,5 +1,11 @@
 ---
 import SiteLayout from '@/layouts/SiteLayout.astro';
+import ClosingCta from '@/components/shared/ClosingCta.astro';
+import { Image } from 'astro:assets';
+import { projects } from '@/data/projects';
+import felipePhoto from '@/assets/team/felipe-bernal.jfif';
+import josePhoto from '@/assets/team/jose-sanchez.jfif';
+import paulPhoto from '@/assets/team/paul-guillamon.jpeg';
 
 const disciplines = ['Marketing', 'SEO', 'Diseño', 'Maquetación', 'Desarrollo web', 'Desarrollo móvil'];
 const milestones = [
@@ -7,10 +13,27 @@ const milestones = [
   { value: '+50', label: 'proyectos web y móvil' },
   { value: '+15', label: 'clientes acompañados' },
 ];
+const collaborators = [
+  {
+    name: 'Jose Sanchez',
+    profile: 'https://www.linkedin.com/in/jos%C3%A9-antonio-s%C3%A1nchez-fuentes/',
+    photo: josePhoto,
+    period: '2024 — 2026',
+    role: 'Frontend React · Móvil con React Native / Expo',
+    projects: ['pckt-link-v0', 'medilens-app'],
+  },
+  {
+    name: 'Felipe Bernal',
+    profile: 'https://www.linkedin.com/in/felipe-bernal-martinez-a140a483/',
+    photo: felipePhoto,
+    period: '2026',
+    role: 'Senior Software Developer Engineering',
+    projects: ['medilens-app'],
+  },
+];
 ---
 
 <SiteLayout
-  robots="noindex,follow"
   title="El equipo | Tau Studio"
   description="Conoce a Paul Guillamón, creador de Tau Studio, y su trayectoria en marketing, SEO, diseño y desarrollo web."
 >
@@ -23,10 +46,17 @@ const milestones = [
       </div>
 
       <aside class="team-page__profile" aria-label="Perfil de Paul Guillamón">
-        <span class="team-page__monogram" aria-hidden="true">PG</span>
+          <Image class="team-page__profile-photo" src={paulPhoto} alt="Paul Guillamón" width={76} height={88} loading="lazy" decoding="async" />
         <div class="team-page__profile-info">
-          <strong>Paul Guillamón</strong>
-          <span>Desarrollador web <b>/</b> Qu4k3</span>
+            <strong>Paul Guillamón <b>/ Qu4k3</b></strong>
+            <span class="team-page__profile-role">Desarrollador FullStack · Diseñador UX/UI</span>
+            <div class="team-page__profile-specialties" aria-label="Especialidades">
+              <span>JavaScript / React</span>
+              <span>FullStack</span>
+              <span>Diseño UX/UI</span>
+              <span>Maquetación</span>
+              <span>React Native / Expo</span>
+            </div>
         </div>
         <div class="team-page__profile-links">
           <a href="https://www.linkedin.com/in/paulguillamon/" target="_blank" rel="noopener noreferrer">
@@ -63,11 +93,49 @@ const milestones = [
       <p class="team-page__note">Su trayectoria empezó con PHP y evolucionó hacia el desarrollo web y móvil con JavaScript y React, siempre conectando la tecnología con el diseño y los objetivos de cada proyecto.</p>
     </section>
 
-    <div class="team-page__closing">
-      <p>¿Tienes una idea entre manos? <span>Hablemos.</span></p>
-      <a href="/contacto" aria-label="Contactar con Paul y Tau Studio">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
-    </div>
+    <section class="team-page__collaborators" aria-labelledby="team-collaborators-title">
+      <div class="team-page__collaborators-heading">
+        <p class="team-page__eyebrow"><span></span> Colaboradores</p>
+        <h2 id="team-collaborators-title">Proyectos que también se construyen <em>en equipo.</em></h2>
+      </div>
+      <div class="team-page__collaborators-list">
+        {collaborators.map((collaborator) => (
+          <article class="team-page__collaborator">
+            <div class="team-page__collaborator-person">
+              <a class="team-page__collaborator-photo-link" href={collaborator.profile} target="_blank" rel="noopener noreferrer" aria-label={`Ver perfil de ${collaborator.name} en LinkedIn`}>
+                <Image class="team-page__collaborator-photo" src={collaborator.photo} alt={collaborator.name} width={58} height={58} loading="lazy" decoding="async" />
+              </a>
+              <div>
+                <div class="team-page__collaborator-meta">
+                  <span>{collaborator.period}</span>
+                  <i aria-hidden="true"></i>
+                </div>
+                <h3>{collaborator.name}</h3>
+                {collaborator.role && <p class="team-page__collaborator-role">{collaborator.role}</p>}
+              </div>
+            </div>
+            <div class="team-page__collaborator-projects" aria-label={`Proyectos de ${collaborator.name}`}>
+              {collaborator.projects.map((slug) => {
+                const project = projects.find((item) => item.slug === slug);
+                return project && (
+                  <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
+                    {project.logo && <img src={project.logo} alt="" loading="lazy" decoding="async" />}
+                    <span>{project.title}</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+                  </a>
+                );
+              })}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <ClosingCta
+      variant="team"
+      prompt="¿Tienes una idea entre manos?"
+      emphasis="Hablemos."
+      ariaLabel="Contactar con Paul y Tau Studio"
+    />
   </main>
 </SiteLayout>

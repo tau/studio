@@ -8,23 +8,6 @@
   --home-projects-accent: #111827;
 }
 
-.preview {
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  .preview__wrapper {
-    display: flex;
-    justify-content: center;
-    .preview__logo {
-      @include logo-animation();
-    }
-    .preview__name {
-      margin-left: 20px;
-    }
-  }
-}
-
 .site-nav {
   border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.1);
 }
@@ -40,7 +23,8 @@ nav {
     flex-wrap: wrap;
     .nav__logo {
       max-height: 54px;
-      transition: $default-transition;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity $default-transition;
     }
     .nav__logo-wrapper {
       display: flex;
@@ -54,6 +38,9 @@ nav {
       }
       &:hover {
         opacity: 0.78;
+        .nav__logo {
+          transform: rotate3d(1, 1, 1, 360deg);
+        }
       }
     }
     .nav__name {
@@ -952,20 +939,50 @@ nav {
     font-weight: 500;
     letter-spacing: -0.08em;
   }
+  .team-page__profile-photo {
+    display: block;
+    width: 76px;
+    height: 88px;
+    border: 1px solid rgba($color: $base-color, $alpha: 0.1);
+    object-fit: cover;
+  }
   .team-page__profile-info {
     display: grid;
     gap: 6px;
     strong {
       font-size: 1rem;
       font-weight: 500;
+      b {
+        color: rgba($color: $base-color, $alpha: 0.42);
+        font-weight: 300;
+      }
     }
-    > span {
+    .team-page__profile-role {
       color: rgba($color: $base-color, $alpha: 0.6);
       font-size: 0.82rem;
       b {
         padding: 0 3px;
         color: rgba($color: $base-color, $alpha: 0.3);
         font-weight: 300;
+      }
+    }
+    .team-page__profile-specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 8px;
+      color: rgba($color: $base-color, $alpha: 0.48);
+      font-size: 0.64rem;
+      letter-spacing: 0.03em;
+      line-height: 1.4;
+      span {
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 4px;
+          height: 4px;
+          margin: 0 5px 1px 0;
+          background-color: $color3;
+        }
       }
     }
   }
@@ -1087,6 +1104,135 @@ nav {
       grid-column: 2;
     }
   }
+  .team-page__collaborators {
+    display: grid;
+    gap: 22px;
+    padding-top: 72px;
+    margin-top: 42px;
+    border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
+    @include md {
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      gap: clamp(28px, 5vw, 72px);
+      align-items: start;
+    }
+  }
+  .team-page__collaborators-heading {
+    .team-page__eyebrow {
+      margin-bottom: 10px;
+      font-size: 0.65rem;
+    }
+    h2 {
+      max-width: 18ch;
+      margin: 0;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      em {
+        color: $color3;
+        font-style: normal;
+      }
+    }
+  }
+  .team-page__collaborators-list {
+    display: grid;
+    gap: 10px;
+    @include sm {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .team-page__collaborator {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: 10px;
+    padding: 18px;
+    border: 1px solid rgba($color: $base-color, $alpha: 0.12);
+    background-color: rgba($color: $background-light, $alpha: 0.48);
+    .team-page__collaborator-person {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      align-items: center;
+      gap: 14px;
+    }
+    .team-page__collaborator-photo-link {
+      display: block;
+      width: 58px;
+      height: 58px;
+      border: 1px solid rgba($color: $base-color, $alpha: 0.14);
+      border-radius: 50%;
+      overflow: hidden;
+      &:focus-visible {
+        outline: 2px solid $color3;
+        outline-offset: 2px;
+      }
+    }
+    .team-page__collaborator-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .team-page__collaborator-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: rgba($color: $base-color, $alpha: 0.5);
+      font-size: 0.67rem;
+      letter-spacing: 0.08em;
+      i {
+        width: 5px;
+        height: 5px;
+        background-color: $color3;
+      }
+    }
+    h3 {
+      margin: 8px 0 0;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .team-page__collaborator-role {
+      margin: 4px 0 0;
+      color: rgba($color: $base-color, $alpha: 0.58);
+      font-size: 0.7rem;
+      line-height: 1.45;
+    }
+    .team-page__collaborator-projects {
+      display: grid;
+      gap: 7px;
+      padding-top: 10px;
+      border-top: 1px solid rgba($color: $base-color, $alpha: 0.1);
+      a {
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr) 14px;
+        align-items: center;
+        gap: 9px;
+        min-height: 32px;
+        color: rgba($color: $base-color, $alpha: 0.72);
+        font-size: 0.76rem;
+        transition: color $default-transition;
+        img {
+          width: 30px;
+          height: 24px;
+          object-fit: contain;
+        }
+        svg {
+          color: $color3;
+          transition: transform $default-transition;
+        }
+        &:hover {
+          color: $base-color;
+          svg {
+            transform: translate(2px, -2px);
+          }
+        }
+        &:focus-visible {
+          outline: 2px solid $color3;
+          outline-offset: 2px;
+        }
+      }
+    }
+  }
   .team-page__closing {
     display: flex;
     align-items: center;
@@ -1122,6 +1268,54 @@ nav {
         outline-offset: 3px;
       }
     }
+  }
+}
+
+.closing-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
+  p {
+    margin: 0;
+    color: rgba($color: $base-color, $alpha: 0.6);
+    font-size: 0.84rem;
+    span {
+      color: $base-color;
+      font-weight: 500;
+    }
+  }
+  a {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    place-items: center;
+    border: 1px solid rgba($color: $base-color, $alpha: 0.16);
+    &:hover {
+      border-color: currentColor;
+    }
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
+    svg {
+      transition: transform $default-transition;
+    }
+    &:hover svg {
+      transform: translateX(3px);
+    }
+  }
+  &--services a {
+    color: $color1;
+  }
+  &--projects a {
+    color: $color2;
+  }
+  &--team a {
+    color: $color3;
   }
 }
 

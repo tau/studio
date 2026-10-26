@@ -1,28 +1,14 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
 import SiteLayout from '@/layouts/SiteLayout.astro';
 import Header from '@/components/shared/Header.astro';
 import Clients from '@/components/shared/Clients.astro';
 import FeaturedProjects from '@/components/shared/FeaturedProjects.astro';
 import { clients } from '@/data/clients';
 
-// Cambia a true para mostrar el resto del contenido (home)
-const showContent = true;
 ---
 
-{showContent ? (
-  <SiteLayout robots="noindex,follow" randomizeAccents>
-    <Header />
-    <Clients clients={clients} max={5} />
-    <FeaturedProjects />
-  </SiteLayout>
-) : (
-  <BaseLayout>
-    <main class="preview">
-      <div class="preview__wrapper">
-        <img class="preview__logo" src="/tau.svg" alt="Tau" />
-        <img class="preview__name" src="/studio.svg" alt="Studio" />
-      </div>
-    </main>
-  </BaseLayout>
-)}
+<SiteLayout randomizeAccents>
+  <Header />
+  <Clients clients={clients} max={5} />
+  <FeaturedProjects />
+</SiteLayout>

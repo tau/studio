@@ -7,14 +7,13 @@ import Footer from '@/components/shared/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
-  robots?: string;
   randomizeAccents?: boolean;
 }
 
-const { title, description, robots, randomizeAccents } = Astro.props;
+const { title, description, randomizeAccents } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} robots={robots} randomizeAccents={randomizeAccents}>
+<BaseLayout title={title} description={description} randomizeAccents={randomizeAccents}>
   <Nav />
   <section id="main">
     <slot />
