@@ -20,18 +20,18 @@ export const testimonials: Testimonial[] = [
     company: 'JS Arquitecto',
     logo: jsArquitectoLogo,
   },
-  {
-    quote: 'Lorem ipsum',
+  /*{
+    quote: '',
     name: 'Begonya Molins',
     role: 'Dissenyadora gràfica',
     company: 'Farell Editors',
     logo: farellLogo,
   },
   {
-    quote: 'Lorem ipsum',
+    quote: '',
     name: 'Silvana Castro Moreno',
     role: 'Presidenta',
     company: 'Kin Felina',
     logo: kinFelinaLogo,
-  },
+  },*/
 ];
