@@ -620,6 +620,103 @@ nav {
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
+  .services-process {
+    display: grid;
+    gap: 24px;
+    padding-top: 27px;
+    border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
+    @include md {
+      gap: 30px;
+      padding-top: 34px;
+    }
+  }
+  .services-process__intro {
+    display: grid;
+    align-items: end;
+    gap: 12px;
+    @include md {
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 0.6fr);
+      gap: 36px;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 3.7vw, 3rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 1.05;
+      em {
+        color: $color1;
+        font-style: normal;
+      }
+    }
+    > p {
+      max-width: 27rem;
+      margin: 0;
+      color: rgba($color: $base-color, $alpha: 0.68);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+  }
+  .services-process__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 12px;
+    color: rgba($color: $base-color, $alpha: 0.58);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    span {
+      width: 6px;
+      height: 6px;
+      background-color: $color1;
+    }
+    b {
+      color: rgba($color: $base-color, $alpha: 0.3);
+      font-weight: 300;
+    }
+  }
+  .services-process__steps {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    @include sm {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px 14px;
+    }
+    @include lg {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+    li {
+      min-width: 0;
+      padding-top: 13px;
+      border-top: 1px solid rgba($color: $base-color, $alpha: 0.16);
+    }
+    h3 {
+      margin: 16px 0 7px;
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    li p {
+      max-width: 22rem;
+      margin: 0;
+      color: rgba($color: $base-color, $alpha: 0.65);
+      font-size: 0.82rem;
+      line-height: 1.65;
+    }
+  }
+  .services-process__number {
+    color: $color1;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+  }
   .services-page__closing {
     display: flex;
     align-items: center;
@@ -2015,6 +2112,94 @@ header.site-hero {
       &:focus-visible {
         outline: 2px solid var(--home-clients-accent, #111827);
         outline-offset: 3px;
+      }
+    }
+  }
+}
+
+.clients-section .testimonials-section {
+  margin-top: 24px;
+  padding-top: 17px;
+  border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
+  .testimonials__title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 12px;
+    color: rgba($color: $base-color, $alpha: 0.56);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    &::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background-color: var(--home-clients-accent, #111827);
+    }
+  }
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+  .testimonials__card {
+    display: grid;
+    align-items: start;
+    gap: 12px;
+    padding: 0 0 14px;
+    margin: 0;
+    border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.1);
+    @include md {
+      grid-template-columns: minmax(0, 1fr) minmax(180px, 0.32fr);
+      align-items: center;
+      gap: 28px;
+    }
+    blockquote {
+      position: relative;
+      margin: 0;
+      padding-left: 22px;
+      &::before {
+        content: "“";
+        position: absolute;
+        top: -2px;
+        left: 0;
+        color: var(--home-clients-accent, #111827);
+        font-size: 1.35rem;
+        font-weight: 500;
+        line-height: 1;
+      }
+      p {
+        margin: 0;
+        font-size: 0.86rem;
+        line-height: 1.7;
+      }
+    }
+    figcaption {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      @include md {
+        padding-left: 18px;
+        border-left: 1px solid rgba($color: $base-color, $alpha: 0.12);
+      }
+    }
+    .testimonials__logo {
+      width: 58px;
+      height: 38px;
+      flex: 0 0 58px;
+      object-fit: contain;
+    }
+    .testimonials__identity {
+      display: grid;
+      gap: 3px;
+      strong {
+        font-size: 0.78rem;
+        font-weight: 500;
+      }
+      span {
+        color: rgba($color: $base-color, $alpha: 0.58);
+        font-size: 0.7rem;
       }
     }
   }

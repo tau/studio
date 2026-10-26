@@ -1,15 +1,18 @@
 ---
 import Square from '@/components/shared/Square.astro';
 import SectionCta from '@/components/shared/SectionCta.astro';
+import Testimonials from '@/components/shared/Testimonials.astro';
+import type { Testimonial } from '@/data/testimonials';
 
 interface Props {
   clients?: any[];
   max?: number;
   total?: number;
   projectTotal?: number;
+  testimonials?: Testimonial[];
 }
 
-const { clients = [], max, total, projectTotal } = Astro.props;
+const { clients = [], max, total, projectTotal, testimonials = [] } = Astro.props;
 const limit = max ?? 14;
 const featuredClients = clients.slice(0, limit);
 const totalClientCount = String(total ?? clients.length).padStart(2, '0');
@@ -47,6 +50,8 @@ const totalClientCount = String(total ?? clients.length).padStart(2, '0');
         ))}
       </div>
     </div>
+
+    <Testimonials testimonials={testimonials} />
 
     <SectionCta
       variant="clients"

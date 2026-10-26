@@ -7,6 +7,9 @@ import farellLogo from '@/assets/clients/WEB-Logo-Farell-Color.jpg';
 import accelLogo from '@/assets/clients/accel-logo.png';
 import abedentLogo from '@/assets/clients/abedent-logo.png';
 import lfbLogo from '@/assets/clients/lfb-logo.png';
+import kinFelinaLogo from '@/assets/clients/kin-felina.jpeg';
+import jsArquitectoLogo from '@/assets/clients/js-arquitecto.png';
+import finquesMireiaLogo from '@/assets/clients/finques-mireia.svg';
 
 export interface Client {
   logo: ImageMetadata;
@@ -46,5 +49,17 @@ export const clients: Client[] = [
   {
     logo: lfbLogo,
     description: 'Servicios y soluciones para empresas.',
+  },
+  {
+    logo: kinFelinaLogo,
+    description: 'Asociación dedicada al cuidado ético de colonias felinas en Sorbas.',
+  },
+  {
+    logo: jsArquitectoLogo,
+    description: 'Estudio de arquitectura dirigido por José Sánchez.',
+  },
+  {
+    logo: finquesMireiaLogo,
+    description: 'Inmobiliaria centrada en las necesidades de las personas.',
   },
 ];

@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import type { Testimonial } from '@/data/testimonials';
+
+interface Props {
+  testimonials: Testimonial[];
+}
+
+const { testimonials } = Astro.props;
+---
+
+{testimonials.length > 0 && (
+  <section class="testimonials-section" aria-labelledby="testimonials-title">
+    <h3 class="testimonials__title" id="testimonials-title">En sus palabras</h3>
+    <div class="testimonials__grid">
+      {testimonials.map((testimonial) => (
+        <figure class="testimonials__card">
+          <blockquote><p>{testimonial.quote}</p></blockquote>
+          <figcaption>
+            {testimonial.logo && <Image class="testimonials__logo" src={testimonial.logo} alt="" loading="lazy" decoding="async" />}
+            <span class="testimonials__identity">
+              <strong>{testimonial.name}</strong>
+              {(testimonial.role || testimonial.company) && (
+                <span>{[testimonial.role, testimonial.company].filter(Boolean).join(' · ')}</span>
+              )}
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+)}
