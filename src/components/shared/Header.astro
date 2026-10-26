@@ -29,19 +29,22 @@ const services = [
       <ul class="hero__services" aria-label="Qué hacemos">
         {services.map((service) => (
           <li class={service.className}>
-            <span class="hero__service-number">{service.number}</span>
-            <strong>{service.label}</strong>
-            <a class="hero__service-link" href={`/servicios/${service.slug}`} aria-label={`Ver servicio: ${service.label}`}>
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            <a class="hero__service-card" href={`/servicios/${service.slug}`}>
+              <span class="hero__service-number">{service.number}</span>
+              <strong>{service.label}</strong>
+              <span class="hero__service-link" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </span>
             </a>
           </li>
         ))}
       </ul>
     </div>
 
-    <a class="hero__scroll" href="#clients">
-      <span>Desliza para descubrir</span>
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v16m-7-7 7 7 7-7" /></svg>
-    </a>
   </div>
 </header>
+
+<a class="hero__scroll" href="#clients">
+  <span>Desliza para descubrir</span>
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v16m-7-7 7 7 7-7" /></svg>
+</a>

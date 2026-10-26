@@ -1,7 +1,7 @@
 {
   "featured": [
     "medilens::MEDI lens",
-    "pckt-link::Pocket Link",
+    "pckt-link::Pocket Link v1",
     "kinfelina::Kin Felina",
     "finques-mireia::Finques Mireia",
     "iberia-estimulantes::Iberia Estimulantes",
@@ -9,15 +9,15 @@
   ],
   "personalCatalog": [
     { "title": "Fibers v3", "year": 2026, "slug": "fibers", "logo": "fibers-cat.png", "status": "active" },
-    { "title": "MEDI lens", "year": 2025, "slug": "medilens", "sourceTitle": "MEDI lens - Landing", "logo": "medilens-es.png", "status": "active" },
-    { "title": "Pocket Link", "year": 2025, "slug": "pckt-link", "logo": "pckt-link.png", "status": "active" },
+    { "title": "MEDI lens", "year": 2025, "slug": "medilens", "sourceTitle": "MEDI lens — Landing", "logo": "medilens-es.png", "status": "active" },
+    { "title": "Pocket Link v1", "year": 2025, "slug": "pckt-link", "sourceTitle": "Pocket Link v1", "logo": "pckt-link.png", "status": "active" },
     { "title": "Qu4k3 v2", "year": 2025, "slug": "qu4k3", "logo": "qu4k3-com.png", "status": "active" },
     { "title": "Inefable", "year": 2024, "slug": "inefable", "sourceTitle": "Inefable Day", "logo": "inefable-day.png", "status": "active" },
-    { "title": "Killing Floor Zone", "year": 2023, "slug": "killingfloor-zone", "logo": "killingfloor-zone.png", "status": "active" },
-    { "title": "Disboard · Web", "year": 2019, "slug": "disboard-web", "sourceTitle": "Disboard Web", "logo": "disboard-team.png", "status": "active" },
+    { "title": "Killing Floor Zone v1", "year": 2023, "slug": "killingfloor-zone", "sourceTitle": "Killing Floor Zone v1", "logo": "killingfloor-zone.png", "status": "active" },
+    { "title": "Disboard · Web v1", "year": 2019, "slug": "disboard-web", "sourceTitle": "Disboard Web v1", "logo": "disboard-team.png", "status": "active" },
     { "title": "Disboard · API", "year": 2019, "slug": "disboard-api", "sourceTitle": "Disboard API", "logo": "api-disboard-team.png", "status": "active" },
-    { "title": "Disboard · Documentación", "year": 2019, "slug": "disboard-docs", "sourceTitle": "Disboard Docs", "logo": "docs-disboard-team.png", "status": "active" },
-    { "title": "Disboard · Discord Bot", "year": 2019, "slug": "disboard-bot", "sourceTitle": "Disboard Bot", "logo": "bot-disboard-team.png", "status": "active" },
+    { "title": "Disboard · Documentación v1", "year": 2019, "slug": "disboard-docs", "sourceTitle": "Disboard Documentación v1", "logo": "docs-disboard-team.png", "status": "active" },
+    { "title": "Disboard · Discord Bot v1", "year": 2019, "slug": "disboard-bot", "sourceTitle": "Disboard Discord Bot v1", "logo": "bot-disboard-team.png", "status": "active" },
 
     { "title": "Fibers v2", "year": 2022, "slug": "fibers", "sourceTitle": "Fibers v2", "logo": "fibers-cat.png", "status": "archived" },
     { "title": "CEU Eventos", "year": 2021, "slug": "ceu-events-scanner", "sourceTitle": "CEU Eventos (App)", "logo": "ceu-es.png", "status": "archived" },
