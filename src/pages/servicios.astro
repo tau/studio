@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '@/layouts/SiteLayout.astro';
+import ClosingCta from '@/components/shared/ClosingCta.astro';
 import { services } from '@/data/services';
 ---
 
@@ -41,11 +42,11 @@ import { services } from '@/data/services';
       ))}
     </section>
 
-    <div class="services-page__closing">
-      <p>¿No sabes por dónde empezar? <span>Cuéntanos el reto.</span></p>
-      <a href="/contacto" aria-label="Contacta con Tau Studio">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
-    </div>
+    <ClosingCta
+      variant="services"
+      prompt="¿No sabes por dónde empezar?"
+      emphasis="Cuéntanos el reto."
+      ariaLabel="Contacta con Tau Studio"
+    />
   </main>
 </SiteLayout>

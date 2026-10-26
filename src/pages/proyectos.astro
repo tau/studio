@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '@/layouts/SiteLayout.astro';
+import ClosingCta from '@/components/shared/ClosingCta.astro';
 import { projects } from '@/data/projects';
 
 const personalProjects = projects.filter((project) => project.category === 'personal');
@@ -150,11 +151,11 @@ const otherByYear = groupByYear(otherProjects);
     </section>
     )}
 
-    <div class="projects-page__closing">
-      <p>¿Tienes un proyecto en mente? <span>Hablemos.</span></p>
-      <a href="/contacto" aria-label="Hablar con Tau Studio sobre un proyecto">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
-    </div>
+    <ClosingCta
+      variant="projects"
+      prompt="¿Tienes un proyecto en mente?"
+      emphasis="Hablemos."
+      ariaLabel="Hablar con Tau Studio sobre un proyecto"
+    />
   </main>
 </SiteLayout>

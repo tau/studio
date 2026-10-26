@@ -952,20 +952,50 @@ nav {
     font-weight: 500;
     letter-spacing: -0.08em;
   }
+  .team-page__profile-photo {
+    display: block;
+    width: 76px;
+    height: 88px;
+    border: 1px solid rgba($color: $base-color, $alpha: 0.1);
+    object-fit: cover;
+  }
   .team-page__profile-info {
     display: grid;
     gap: 6px;
     strong {
       font-size: 1rem;
       font-weight: 500;
+      b {
+        color: rgba($color: $base-color, $alpha: 0.42);
+        font-weight: 300;
+      }
     }
-    > span {
+    .team-page__profile-role {
       color: rgba($color: $base-color, $alpha: 0.6);
       font-size: 0.82rem;
       b {
         padding: 0 3px;
         color: rgba($color: $base-color, $alpha: 0.3);
         font-weight: 300;
+      }
+    }
+    .team-page__profile-specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 8px;
+      color: rgba($color: $base-color, $alpha: 0.48);
+      font-size: 0.64rem;
+      letter-spacing: 0.03em;
+      line-height: 1.4;
+      span {
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 4px;
+          height: 4px;
+          margin: 0 5px 1px 0;
+          background-color: $color3;
+        }
       }
     }
   }
@@ -1174,6 +1204,12 @@ nav {
       font-size: 1rem;
       font-weight: 500;
     }
+    .team-page__collaborator-role {
+      margin: 4px 0 0;
+      color: rgba($color: $base-color, $alpha: 0.58);
+      font-size: 0.7rem;
+      line-height: 1.45;
+    }
     .team-page__collaborator-projects {
       display: grid;
       gap: 7px;
@@ -1245,6 +1281,54 @@ nav {
         outline-offset: 3px;
       }
     }
+  }
+}
+
+.closing-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
+  p {
+    margin: 0;
+    color: rgba($color: $base-color, $alpha: 0.6);
+    font-size: 0.84rem;
+    span {
+      color: $base-color;
+      font-weight: 500;
+    }
+  }
+  a {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    place-items: center;
+    border: 1px solid rgba($color: $base-color, $alpha: 0.16);
+    &:hover {
+      border-color: currentColor;
+    }
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
+    svg {
+      transition: transform $default-transition;
+    }
+    &:hover svg {
+      transform: translateX(3px);
+    }
+  }
+  &--services a {
+    color: $color1;
+  }
+  &--projects a {
+    color: $color2;
+  }
+  &--team a {
+    color: $color3;
   }
 }
 
