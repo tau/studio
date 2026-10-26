@@ -1927,12 +1927,12 @@ header.site-hero {
     display: flex;
     gap: 10px;
     width: max-content;
-    animation: clients-marquee 40s linear infinite;
+    animation: clients-marquee 25s linear infinite;
     &:hover {
       animation-play-state: paused;
     }
     .square {
-      flex: 0 0 240px;
+      flex: 0 0 70vw;
       min-width: 0;
       border: 1px solid rgba($color: $base-color, $alpha: 0.11);
       background-color: rgba($color: $background-light, $alpha: 0.46);
@@ -1969,10 +1969,11 @@ header.site-hero {
     @include sm {
       gap: 12px;
       .square {
-        flex: 0 0 220px;
+        flex: 0 0 45vw;
       }
     }
     @include lg {
+      animation-duration: 40s;
       gap: 14px;
       .square {
         flex: 0 0 200px;
