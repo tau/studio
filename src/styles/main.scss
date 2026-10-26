@@ -2311,8 +2311,10 @@ footer {
   }
   .footer__top {
     display: inline-flex;
+    flex: 0 0 auto;
     align-items: center;
     gap: 8px;
+    white-space: nowrap;
     color: rgba($color: $base-color, $alpha: 0.68);
     &:hover {
       color: $base-color;
@@ -2329,6 +2331,12 @@ footer {
     }
     .footer__bottom {
       justify-content: flex-start;
+    }
+    .footer__top {
+      gap: 0;
+      span {
+        display: none;
+      }
     }
   }
 }
