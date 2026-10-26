@@ -6,6 +6,7 @@ const featuredProjects = projects.filter((project) => project.featured);
 const totalProjectCount = String(projects.length).padStart(2, '0');
 const personalProjectCount = projects.filter((project) => project.category === 'personal').length;
 const clientProjectCount = projects.filter((project) => project.category === 'client').length;
+const otherProjectCount = projects.filter((project) => project.category === 'other').length;
 ---
 
 <section class="featured-projects" id="featured-projects" aria-labelledby="featured-projects-title">
@@ -21,6 +22,7 @@ const clientProjectCount = projects.filter((project) => project.category === 'cl
           <div class="featured-projects__count"><strong>{totalProjectCount}</strong><span>totales</span></div>
           <div class="featured-projects__count"><strong>{String(personalProjectCount).padStart(2, '0')}</strong><span>personales</span></div>
           <div class="featured-projects__count"><strong>{String(clientProjectCount).padStart(2, '0')}</strong><span>de clientes</span></div>
+          <div class="featured-projects__count"><strong>{String(otherProjectCount).padStart(2, '0')}</strong><span>experimentales</span></div>
         </div>
       </div>
     </div>

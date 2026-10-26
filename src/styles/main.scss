@@ -528,6 +528,7 @@ nav {
       gap: 12px;
     }
     @include lg {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
   }
@@ -886,8 +887,8 @@ nav {
       display: flex;
       min-height: 110px;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
+      justify-content: flex-start;
+      gap: 12px;
       padding: 14px;
       border: 1px solid rgba($color: $base-color, $alpha: 0.12);
       background-color: rgba($color: $background-light, $alpha: 0.48);
@@ -2312,6 +2313,7 @@ header.site-hero {
     display: flex;
     align-items: baseline;
     gap: 20px;
+    flex-wrap: wrap;
     margin-top: 16px;
     padding-top: 12px;
     .featured-projects__count {
