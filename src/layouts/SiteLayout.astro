@@ -13,12 +13,13 @@ interface Props {
   jsonLd?: Record<string, any> | Array<Record<string, any>>;
   mainEntity?: Record<string, any>;
   randomizeAccents?: boolean;
+  themeColor?: string;
 }
 
-const { title, description, image, type, schemaType, jsonLd, mainEntity, randomizeAccents } = Astro.props;
+const { title, description, image, type, schemaType, jsonLd, mainEntity, randomizeAccents, themeColor } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} image={image} type={type} schemaType={schemaType} jsonLd={jsonLd} mainEntity={mainEntity} randomizeAccents={randomizeAccents}>
+<BaseLayout title={title} description={description} image={image} type={type} schemaType={schemaType} jsonLd={jsonLd} mainEntity={mainEntity} randomizeAccents={randomizeAccents} themeColor={themeColor}>
   <Nav />
   <section id="main">
     <slot />

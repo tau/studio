@@ -16,6 +16,7 @@ interface Props {
   jsonLd?: Record<string, any> | Array<Record<string, any>>;
   mainEntity?: Record<string, any>;
   randomizeAccents?: boolean;
+  themeColor?: string;
 }
 
 const {
@@ -27,6 +28,7 @@ const {
   jsonLd: extraJsonLd,
   mainEntity,
   randomizeAccents = false,
+  themeColor = '#111827',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -117,7 +119,7 @@ const jsonLd = {
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="description" content={description} />
     <meta name="author" content="Tau Studio" />
-    <meta name="theme-color" content="#111827" />
+    <meta name="theme-color" content={themeColor} />
 
     <!-- Open Graph -->
     <meta property="og:type" content={type} />
