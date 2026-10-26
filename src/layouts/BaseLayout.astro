@@ -19,7 +19,7 @@ interface Props {
 }
 
 const {
-  title = 'Tau Studio | Desarrollo de experiencias web y marketing digital',
+  title = 'Tau Studio | Desarrollo web y marketing digital',
   description = 'Estudio de desarrollo de experiencias web a medida, marketing digital y SEO',
   image = '/og.png',
   type = 'website',
@@ -111,6 +111,10 @@ const jsonLd = {
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="description" content={description} />
     <meta name="author" content="Tau Studio" />
     <meta name="theme-color" content="#111827" />

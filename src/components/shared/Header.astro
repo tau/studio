@@ -1,4 +1,6 @@
 ---
+import Button from '@/components/shared/Button.astro';
+
 const services = [
   { number: '01', className: 'c1', label: 'Diseño web', slug: 'diseno-web' },
   { number: '02', className: 'c2', label: 'Desarrollo', slug: 'desarrollo-web' },
@@ -15,14 +17,8 @@ const services = [
         <h1>Diseño digital <em>con intención.</em></h1>
         <p class="hero__lead">Creamos experiencias web y estrategias digitales para conectar marcas y personas.</p>
         <div class="hero__actions">
-          <a class="hero__primary" href="/contacto">
-            <span>Hablemos de tu proyecto</span>
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-          </a>
-          <a class="hero__secondary" href="#clients">
-            <span>Explorar el estudio</span>
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-          </a>
+          <Button class="hero__primary" href="/contacto" label="Hablemos de tu proyecto" />
+          <Button class="hero__secondary" href="#clients" label="Explorar el estudio" />
         </div>
       </div>
 

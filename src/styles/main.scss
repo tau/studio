@@ -1381,7 +1381,7 @@ nav {
     span {
       width: 6px;
       height: 6px;
-      background-color: $color4;
+      background-color: $color2;
     }
     b {
       color: rgba($color: $base-color, $alpha: 0.3);
@@ -1397,7 +1397,7 @@ nav {
     line-height: 1;
     em {
       display: block;
-      color: $color1;
+      color: $color2;
       font-style: normal;
     }
   }
@@ -1427,11 +1427,11 @@ nav {
     font-size: 0.88rem;
     transition: background-color $default-transition, border-color $default-transition;
     &:hover {
-      border-color: $color1;
-      background-color: $color1;
+      border-color: $color2;
+      background-color: $color2;
     }
     &:focus-visible {
-      outline: 2px solid $color1;
+      outline: 2px solid $color2;
       outline-offset: 3px;
     }
     svg {
@@ -1442,11 +1442,21 @@ nav {
     }
   }
   .not-found__secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     padding: 12px 0;
     border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.3);
     font-size: 0.86rem;
+    svg {
+      color: $color1;
+      transition: transform $default-transition;
+    }
     &:hover {
-      border-color: $color2;
+      border-color: $color1;
+    }
+    &:hover svg {
+      transform: translateX(3px);
     }
     &:focus-visible {
       outline: 2px solid $color1;
