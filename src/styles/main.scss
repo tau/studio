@@ -216,9 +216,8 @@ nav {
     }
   }
   .footer-nav__wrapper {
-    padding: 72px 0 0;
-    margin: 72px 0 48px;
-    border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
+    padding: 64px 0 0;
+    margin: 0;
     .footer-nav__heading {
       display: flex;
       align-items: center;
@@ -1681,9 +1680,12 @@ header.site-hero {
   display: flex;
   min-height: min(760px, calc(100svh - 89px));
   align-items: center;
-  padding: clamp(48px, 7vw, 88px) 0 40px;
+  padding: clamp(48px, 7vw, 88px) 0 64px;
   padding-left: 10px;
   @include md {
+    min-height: 100svh;
+    align-items: center;
+    padding: 0 0 128px;
     padding-left: 0;
   }
   .hero__content {
@@ -1979,6 +1981,9 @@ header.site-hero {
 .clients-section {
   scroll-margin-top: 24px;
   padding: clamp(48px, 7vw, 92px) 0 64px;
+  @include md {
+    padding: 0 0 64px;
+  }
   .clients__intro {
     display: grid;
     align-items: end;
@@ -2260,7 +2265,10 @@ header.site-hero {
 
 .featured-projects {
   scroll-margin-top: 24px;
-  padding: clamp(48px, 7vw, 88px) 0 68px;
+  padding: clamp(48px, 7vw, 88px) 0 64px;
+  @include md {
+    padding: clamp(24px, 4vw, 48px) 0 64px;
+  }
   .featured-projects__intro {
     display: grid;
     align-items: end;
