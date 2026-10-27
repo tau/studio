@@ -15,7 +15,7 @@ export const teamContent: Record<Locale, {
     disciplines: ['Diseño UX/UI y accesibilidad', 'Maquetación responsive', 'Desarrollo web y móvil', 'WordPress, WooCommerce y webs multidioma', 'Migraciones web, correo y hosting', 'Marketing digital, redes y email', 'SEO técnico y local', 'Integraciones, reservas y pagos', 'Analítica, automatización y etiquetado', 'Hosting, CDN, seguridad y monitorización'],
     specialties: ['JavaScript / React', 'FullStack', 'Diseño UX/UI', 'Maquetación', 'React Native / Expo'],
     joseRole: 'Frontend React · Desarrollo móvil con React Native / Expo',
-    felipeRole: 'Ingeniería de software sénior',
+    felipeRole: 'Ingeniero de software sénior',
     contactAria: 'Contactar con Paul y Tau Studio',
   },
   en: {
