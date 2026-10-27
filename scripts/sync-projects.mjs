@@ -1,6 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { downloadProjectLogos } from './project-logo-assets.mjs';
 
 const SITE_URL = 'https://qu4k3.com';
 const PROJECTS_URL = `${SITE_URL}/proyectos`;
@@ -247,7 +248,8 @@ try {
   if (dryRun) {
     console.log('Vista previa: no se ha modificado ningún archivo.');
   } else {
-    await writeFile(outputPath, `${JSON.stringify(normalizedProjects, null, 2)}\n`, 'utf8');
+    const projectsWithLocalLogos = await downloadProjectLogos(normalizedProjects);
+    await writeFile(outputPath, `${JSON.stringify(projectsWithLocalLogos, null, 2)}\n`, 'utf8');
     console.log(`Catálogo actualizado: ${path.relative(root, outputPath)}`);
   }
 } catch (error) {
