@@ -2970,9 +2970,12 @@ footer {
       flex-direction: column;
     }
     .footer__bottom {
+      flex-wrap: nowrap;
       justify-content: flex-start;
+      align-items: flex-start;
     }
     .footer__top {
+      margin-left: auto;
       gap: 0;
       span {
         display: none;
