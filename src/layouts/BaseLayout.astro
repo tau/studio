@@ -6,6 +6,8 @@ import '@fontsource/poppins/latin-600.css';
 import poppins300 from '@fontsource/poppins/files/poppins-latin-300-normal.woff2?url';
 import poppins500 from '@fontsource/poppins/files/poppins-latin-500-normal.woff2?url';
 import poppins600 from '@fontsource/poppins/files/poppins-latin-600-normal.woff2?url';
+import { asLocale, locales, localizedPathForLocale, type Locale } from '@/i18n/routing';
+import { teamContent } from '@/i18n/team-content';
 
 interface Props {
   title?: string;
@@ -17,6 +19,7 @@ interface Props {
   mainEntity?: Record<string, any>;
   randomizeAccents?: boolean;
   themeColor?: string;
+  locale?: Locale;
 }
 
 const {
@@ -29,17 +32,25 @@ const {
   mainEntity,
   randomizeAccents = false,
   themeColor = '#111827',
+  locale: requestedLocale,
 } = Astro.props;
+const locale = asLocale(requestedLocale ?? Astro.currentLocale ?? undefined);
+const localeTag: Record<Locale, string> = { es: 'es-ES', en: 'en', fr: 'fr-FR', ca: 'ca-ES' };
+const ogLocale: Record<Locale, string> = { es: 'es_ES', en: 'en_US', fr: 'fr_FR', ca: 'ca_ES' };
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(image, Astro.site).href;
+const localizedAlternates = locales.map((targetLocale) => ({
+  locale: targetLocale,
+  href: new URL(localizedPathForLocale(Astro.url.pathname, targetLocale), Astro.site).href,
+}));
 
 const founder = {
   '@type': 'Person',
   '@id': `${Astro.site}#paul`,
   name: 'Paul Guillamón',
   alternateName: 'Qu4k3',
-  jobTitle: 'Desarrollador FullStack y diseñador UX/UI',
+  jobTitle: teamContent[locale].role,
   url: 'https://www.linkedin.com/in/paulguillamon/',
   image: new URL('/_astro/paul-guillamon.C3sn_PEE_1YNo9D.webp', Astro.site).href,
   sameAs: ['https://qu4k3.com/', 'https://www.linkedin.com/in/paulguillamon/'],
@@ -66,7 +77,7 @@ const jsonLd = {
         '@type': 'ContactPoint',
         contactType: 'customer service',
         email: 'hey@tau.studio',
-        availableLanguage: ['es'],
+      availableLanguage: locales.map((item) => localeTag[item]),
       },
       sameAs: [
         'https://www.facebook.com/TauStudioX',
@@ -83,7 +94,7 @@ const jsonLd = {
       name: 'Tau Studio',
       url: Astro.site?.href,
       publisher: { '@id': `${Astro.site}#organization` },
-      inLanguage: 'es-ES',
+      inLanguage: localeTag[locale],
     },
     {
       '@type': schemaType,
@@ -94,7 +105,7 @@ const jsonLd = {
       image: ogImage,
       ...(mainEntity ? { mainEntity } : {}),
       isPartOf: { '@id': `${Astro.site}#website` },
-      inLanguage: 'es-ES',
+      inLanguage: localeTag[locale],
     },
     ...extraNodes,
   ],
@@ -102,7 +113,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={localeTag[locale]}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -112,6 +123,10 @@ const jsonLd = {
     <link rel="preload" href={poppins600} as="font" type="font/woff2" crossorigin="anonymous" />
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
+    {localizedAlternates.map(({ locale: alternateLocale, href }) => (
+      <link rel="alternate" hreflang={localeTag[alternateLocale]} href={href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={localizedAlternates.find((item) => item.locale === 'es')?.href} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -124,7 +139,7 @@ const jsonLd = {
     <!-- Open Graph -->
     <meta property="og:type" content={type} />
     <meta property="og:site_name" content="Tau Studio" />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content={ogLocale[locale]} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />

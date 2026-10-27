@@ -9,6 +9,7 @@ export interface Testimonial {
   role?: string;
   company?: string;
   logo?: ImageMetadata;
+  quoteLocale?: 'es' | 'en' | 'fr' | 'ca';
 }
 
 // Add only client-approved quotes here; this list is used for production builds.
@@ -19,6 +20,7 @@ export const testimonials: Testimonial[] = [
     role: 'Gerente del estudio',
     company: 'JS Arquitecto',
     logo: jsArquitectoLogo,
+    quoteLocale: 'es',
   },
   /*{
     quote: '',
@@ -26,6 +28,7 @@ export const testimonials: Testimonial[] = [
     role: 'Dissenyadora gràfica',
     company: 'Farell Editors',
     logo: farellLogo,
+    quoteLocale: 'ca',
   },
   {
     quote: '',
@@ -33,5 +36,6 @@ export const testimonials: Testimonial[] = [
     role: 'Presidenta',
     company: 'Kin Felina',
     logo: kinFelinaLogo,
+    quoteLocale: 'es',
   },*/
 ];

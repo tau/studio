@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Nav from '@/components/shared/Nav.astro';
 import FooterNav from '@/components/shared/FooterNav.astro';
 import Footer from '@/components/shared/Footer.astro';
+import { asLocale, type Locale } from '@/i18n/routing';
 
 interface Props {
   title?: string;
@@ -14,16 +15,18 @@ interface Props {
   mainEntity?: Record<string, any>;
   randomizeAccents?: boolean;
   themeColor?: string;
+  locale?: Locale;
 }
 
 const { title, description, image, type, schemaType, jsonLd, mainEntity, randomizeAccents, themeColor } = Astro.props;
+const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
 ---
 
-<BaseLayout title={title} description={description} image={image} type={type} schemaType={schemaType} jsonLd={jsonLd} mainEntity={mainEntity} randomizeAccents={randomizeAccents} themeColor={themeColor}>
-  <Nav />
+<BaseLayout title={title} description={description} image={image} type={type} schemaType={schemaType} jsonLd={jsonLd} mainEntity={mainEntity} randomizeAccents={randomizeAccents} themeColor={themeColor} locale={locale}>
+  <Nav locale={locale} />
   <section id="main">
     <slot />
   </section>
-  <FooterNav />
-  <Footer />
+  <FooterNav locale={locale} />
+  <Footer locale={locale} />
 </BaseLayout>

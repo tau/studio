@@ -1,0 +1,214 @@
+{
+  "navigation": {
+    "services": "Serveis",
+    "projects": "Projectes",
+    "team": "L’equip",
+    "contact": "Contacte",
+    "ariaLabel": "Navegació principal",
+    "footerAriaLabel": "Explora Tau Studio",
+    "menuOpen": "Obre el menú",
+    "menuClose": "Tanca el menú",
+    "menuHeading": "Menú",
+    "homeLabel": "Tau Studio, inici",
+    "language": "Idioma"
+  },
+  "home": {
+    "metaTitle": "Tau Studio | Desenvolupament web i màrqueting digital",
+    "metaDescription": "Estudi de desenvolupament d’experiències web a mida, màrqueting digital i SEO.",
+    "eyebrow": "Estudi digital",
+    "title": "Disseny digital",
+    "titleAccent": "amb intenció.",
+    "lead": "Creem experiències web i estratègies digitals per connectar marques i persones.",
+    "contactProject": "Parlem del teu projecte",
+    "exploreStudio": "Explora l’estudi",
+    "scrollDiscover": "Desplaça’t per descobrir",
+    "serviceDesign": "Disseny web",
+    "serviceDevelopment": "Desenvolupament",
+    "serviceMarketing": "Màrqueting digital",
+    "serviceSeo": "SEO i estratègia",
+    "serviceMaintenance": "Migracions i manteniment"
+  },
+  "clients": {
+    "eyebrow": "Clients",
+    "title": "Clients que confien",
+    "titleAccent": "en Tau Studio.",
+    "summary": "Treballem amb equips que volen fer créixer la seva presència digital amb idees clares i solucions ben construïdes.",
+    "countLabel": "clients",
+    "projectsLabel": "projectes",
+    "ctaPrompt": "Fem equip?",
+    "ctaLabel": "Explica’ns el teu projecte"
+  },
+  "testimonials": {
+    "heading": "En les seves paraules"
+  },
+  "projects": {
+    "eyebrow": "Projectes",
+    "title": "Idees que",
+    "titleAccent": "es converteixen en projectes.",
+    "summary": "Una selecció de projectes personals i col·laboracions amb clients, creats per resoldre necessitats reals.",
+    "totalCount": "totals",
+    "personalCount": "personals",
+    "clientCount": "de clients",
+    "experimentalCount": "experimentals",
+    "categoryPersonal": "Projecte personal",
+    "categoryClient": "Projecte per a un client",
+    "categoryOther": "Projecte",
+    "viewProject": "Veure fitxa",
+    "allPrompt": "Descobreix el catàleg complet",
+    "viewAll": "Veure tots els projectes",
+    "pageEyebrow": "Projectes",
+    "pageTitle": "Idees que prenen",
+    "pageTitleAccent": "forma digital.",
+    "pageLead": "Un recorregut per projectes personals i feines fetes amb clients, des de productes digitals fins a webs corporatives.",
+    "catalogAria": "Resum del catàleg",
+    "forClientsCount": "per a clients",
+    "personalHeading": "Projectes personals",
+    "personalIdeasTitle": "Idees pròpies, en evolució.",
+    "active": "Actius",
+    "archived": "Projectes arxivats",
+    "countLabel": "projectes",
+    "statusArchived": "Arxivat",
+    "abandoned": "Abandonat",
+    "completed": "Finalitzat",
+    "inDevelopment": "En desenvolupament",
+    "personalCountLabel": "personals",
+    "clientCountLabel": "per a clients",
+    "otherCountLabel": "altres",
+    "activeProjectsAria": "Projectes personals de",
+    "archivedProjectsAria": "Projectes personals arxivats de",
+    "clientProjectsAria": "Projectes per a clients de",
+    "otherProjectsAria": "Altres projectes de",
+    "ideaPrompt": "Tens un projecte al cap?",
+    "talk": "En parlem.",
+    "talkAria": "Parlar amb Tau Studio sobre un projecte",
+    "clientHeading": "Projectes per a clients",
+    "sharedWorkTitle": "Feina compartida, resultats reals.",
+    "otherHeading": "Altres projectes",
+    "experimentsTitle": "Experiments i col·laboracions."
+  },
+  "services": {
+    "eyebrow": "Serveis",
+    "title": "Idees clares.",
+    "titleAccent": "Solucions digitals.",
+    "metaDescription": "Disseny i desenvolupament web, màrqueting digital, SEO, migracions i manteniment per a marques que volen créixer.",
+    "ariaLabel": "Els nostres serveis",
+    "serviceDetailAria": "Veure els detalls del servei",
+    "ctaAria": "Contacta amb Tau Studio",
+    "lead": "Unim estratègia, disseny i tecnologia per resoldre reptes reals i ajudar la teva marca a avançar.",
+    "process": {
+      "eyebrow": "El procés",
+      "title": "Com",
+      "titleAccent": "treballem.",
+      "intro": "Un procés clar i col·laboratiu, adaptat al que necessita cada projecte.",
+      "listen": "Escoltem",
+      "listenText": "Entenem el teu negoci, els teus objectius i el repte que vols resoldre.",
+      "define": "Definim",
+      "defineText": "Acordem prioritats, abast i una direcció estratègica per avançar.",
+      "build": "Dissenyem i construïm",
+      "buildText": "Convertim l’estratègia en una solució digital acurada i funcional.",
+      "improve": "Millorem",
+      "improveText": "Revisem els resultats i busquem oportunitats per continuar creixent."
+    },
+    "cta": {
+      "prompt": "No saps per on començar?",
+      "emphasis": "Explica’ns el repte."
+    },
+    "detail": {
+      "eyebrow": "Servei",
+      "scope": "Enfocament",
+      "scopeTitle": "Un servei pensat per al teu context."
+    },
+    "breadcrumbAria": "Ruta de navegació",
+    "schemaName": "Serveis de Tau Studio"
+  },
+  "team": {
+    "eyebrow": "L’equip",
+    "title": "Hola, soc en Paul.",
+    "titleAccent": "La persona darrere de Tau.",
+    "milestones": {
+      "experience": "anys d’experiència",
+      "projects": "projectes web i mòbil",
+      "clients": "clients acompanyats"
+    },
+    "approach": {
+      "eyebrow": "Un perfil multidisciplinari",
+      "title": "Disciplines diferents.",
+      "titleAccent": "Una visió connectada."
+    },
+    "collaborators": {
+      "eyebrow": "Col·laboradors",
+      "title": "Projectes que també es construeixen",
+      "titleAccent": "en equip."
+    },
+    "profileLabel": "Perfil de Paul Guillamón",
+    "specialties": "Especialitats",
+    "collaboratorProjects": "Projectes de",
+    "viewLinkedIn": "Veure el perfil de LinkedIn de",
+    "cta": {
+      "prompt": "Tens una idea al cap?",
+      "emphasis": "En parlem."
+    }
+  },
+  "contact": {
+    "eyebrow": "Contacte",
+    "title": "Fem alguna cosa",
+    "titleAccent": "que valgui la pena.",
+    "lead": "Explica’ns què tens al cap. Et respondrem personalment i veurem plegats com donar-hi forma.",
+    "writeUs": "Escriu-nos",
+    "tellIdea": "Explica’ns la teva idea",
+    "startHere": "Comencem per aquí.",
+    "metaDescription": "Explica’ns què tens al cap. Parlem del teu proper projecte amb Tau Studio.",
+    "ctaLabel": "Envia el missatge"
+  },
+  "form": {
+    "doNotFill": "No omplis:",
+    "name": "Nom",
+    "email": "Correu electrònic",
+    "phone": "Telèfon",
+    "optional": "(opcional)",
+    "service": "Servei que t’interessa",
+    "select": "Selecciona una opció",
+    "design": "Disseny web",
+    "web": "Desenvolupament web",
+    "marketing": "Màrqueting digital",
+    "seo": "SEO",
+    "maintenance": "Migracions i manteniment",
+    "other": "Altres",
+    "message": "Explica’ns el teu projecte",
+    "privacy": "Accepto la política de privacitat",
+    "submit": "Envia el missatge",
+    "errors": {
+      "nameRequired": "El nom és obligatori.",
+      "emailRequired": "El correu electrònic és obligatori.",
+      "emailInvalid": "Introdueix un correu electrònic vàlid.",
+      "messageRequired": "El missatge és obligatori.",
+      "consentRequired": "Has d’acceptar la política de privacitat."
+    },
+    "status": {
+      "sending": "S’està enviant…",
+      "success": "Missatge enviat correctament. Et respondrem aviat.",
+      "error": "S’ha produït un error. Torna-ho a provar."
+    }
+  },
+  "footer": {
+    "tagline": "Disseny, desenvolupament i estratègia digital.",
+    "findUs": "Troba’ns",
+    "backToTop": "Torna a dalt",
+    "navHeading": "Continua explorant",
+    "nav": {
+      "servicesText": "Disseny, desenvolupament i creixement digital per a la teva marca.",
+      "projectsText": "Idees i col·laboracions fetes realitat.",
+      "teamText": "Descobreix com pensem, dissenyem i treballem.",
+      "contactText": "Explica’ns què tens al cap. En parlem."
+    }
+  },
+  "notFound": {
+    "title": "Aquesta pàgina",
+    "titleAccent": "no apareix.",
+    "text": "Pot ser que l’enllaç hagi canviat o que l’adreça no sigui correcta. Busquem un altre camí.",
+    "home": "Torna a l’inici",
+    "eyebrow": "Error",
+    "services": "Veure serveis",
+    "visual": "PÀGINA NO TROBADA"
+  }
+}

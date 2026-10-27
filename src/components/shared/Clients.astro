@@ -3,6 +3,8 @@ import Square from '@/components/shared/Square.astro';
 import SectionCta from '@/components/shared/SectionCta.astro';
 import Testimonials from '@/components/shared/Testimonials.astro';
 import type { Testimonial } from '@/data/testimonials';
+import { getMessages } from '@/i18n/messages';
+import { asLocale, localizedPagePath, type Locale } from '@/i18n/routing';
 
 interface Props {
   clients?: any[];
@@ -10,11 +12,20 @@ interface Props {
   total?: number;
   projectTotal?: number;
   testimonials?: Testimonial[];
+  locale?: Locale;
 }
 
 const { clients = [], max, total, projectTotal, testimonials = [] } = Astro.props;
+const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
+const messages = getMessages(locale);
 const limit = max ?? 14;
-const featuredClients = clients.slice(0, limit);
+const descriptions = {
+  es: ['Marketing digital y gestión para clubes de golf.', 'Universidad privada de Barcelona.', 'Software de gestión para empresas de transporte.', 'Constructora especializada en reformas y obra.', 'Editorial catalana de naturaleza, cultura e historia.', 'Plataforma de crecimiento para startups.', 'Clínica de podología y salud del pie.', 'Servicios y soluciones para empresas.', 'Asociación dedicada al cuidado ético de colonias felinas en Sorbas.', 'Estudio de arquitectura dirigido por José Sánchez.', 'Inmobiliaria centrada en las necesidades de las personas.'],
+  en: ['Digital marketing and management for golf clubs.', 'Private university in Barcelona.', 'Management software for transport companies.', 'Construction company specialising in renovation and building work.', 'Catalan publisher focused on nature, culture and history.', 'Growth platform for startups.', 'Podiatry and foot health clinic.', 'Business services and solutions.', 'Association caring for community cat colonies in Sorbas.', 'Architecture studio led by José Sánchez.', 'Real estate agency focused on people’s needs.'],
+  fr: ['Marketing digital et gestion pour des clubs de golf.', 'Université privée de Barcelone.', 'Logiciel de gestion pour les entreprises de transport.', 'Entreprise spécialisée dans la construction et la rénovation.', 'Maison d’édition catalane consacrée à la nature, à la culture et à l’histoire.', 'Plateforme de croissance pour les startups.', 'Cabinet de podologie et de santé du pied.', 'Services et solutions pour les entreprises.', 'Association dédiée aux colonies de chats libres à Sorbas.', 'Studio d’architecture dirigé par José Sánchez.', 'Agence immobilière attentive aux besoins des personnes.'],
+  ca: ['Màrqueting digital i gestió per a clubs de golf.', 'Universitat privada de Barcelona.', 'Programari de gestió per a empreses de transport.', 'Constructora especialitzada en reformes i obra.', 'Editorial catalana de natura, cultura i història.', 'Plataforma de creixement per a startups.', 'Clínica de podologia i salut del peu.', 'Serveis i solucions per a empreses.', 'Associació dedicada a la cura ètica de les colònies felines de Sorbas.', 'Estudi d’arquitectura dirigit per José Sánchez.', 'Immobiliària centrada en les necessitats de les persones.'],
+} satisfies Record<Locale, string[]>;
+const featuredClients = clients.slice(0, limit).map((client, index) => ({ ...client, description: descriptions[locale][index] ?? client.description }));
 const totalClientCount = String(total ?? clients.length).padStart(2, '0');
 ---
 
@@ -22,25 +33,25 @@ const totalClientCount = String(total ?? clients.length).padStart(2, '0');
   <div class="content">
     <div class="clients__intro">
       <div class="clients__heading">
-        <p class="clients__eyebrow"><span></span> Clientes <b># {totalClientCount}</b></p>
-        <h2 id="clients-title">Clientes que confían <em>en Tau Studio.</em></h2>
+        <p class="clients__eyebrow"><span></span> {messages.clients.eyebrow} <b># {totalClientCount}</b></p>
+        <h2 id="clients-title">{messages.clients.title} <em>{messages.clients.titleAccent}</em></h2>
       </div>
       <div class="clients__summary">
-        <p>Trabajamos junto a equipos que quieren hacer crecer su presencia digital con ideas claras y soluciones bien construidas.</p>
+        <p>{messages.clients.summary}</p>
         <div class="clients__count">
           <div class="clients__count-item">
             <strong>{totalClientCount}</strong>
-            <span>clientes</span>
+            <span>{messages.clients.countLabel}</span>
           </div>
           <div class="clients__count-item">
             <strong>{projectTotal ?? '—'}</strong>
-            <span>proyectos</span>
+            <span>{messages.clients.projectsLabel}</span>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="clients__carousel" aria-label="Clientes de Tau Studio">
+    <div class="clients__carousel" aria-label={`${messages.clients.eyebrow} Tau Studio`}>
       <div class="clients__track">
         {featuredClients.map((client) => (
           <Square client={client} />
@@ -51,13 +62,13 @@ const totalClientCount = String(total ?? clients.length).padStart(2, '0');
       </div>
     </div>
 
-    <Testimonials testimonials={testimonials} />
+    <Testimonials testimonials={testimonials} locale={locale} />
 
     <SectionCta
       variant="clients"
-      prompt="¿Hacemos equipo?"
-      label="Cuéntanos tu proyecto"
-      href="/contacto"
+      prompt={messages.clients.ctaPrompt}
+      label={messages.clients.ctaLabel}
+      href={localizedPagePath(locale, 'contact')}
     />
   </div>
 </section>

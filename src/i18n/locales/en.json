@@ -1,0 +1,214 @@
+{
+  "navigation": {
+    "services": "Services",
+    "projects": "Projects",
+    "team": "The team",
+    "contact": "Contact",
+    "ariaLabel": "Main navigation",
+    "footerAriaLabel": "Explore Tau Studio",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "menuHeading": "Menu",
+    "homeLabel": "Tau Studio, home",
+    "language": "Language"
+  },
+  "home": {
+    "metaTitle": "Tau Studio | Web development and digital marketing",
+    "metaDescription": "Studio creating bespoke web experiences, digital marketing and SEO.",
+    "eyebrow": "Digital studio",
+    "title": "Digital design",
+    "titleAccent": "with purpose.",
+    "lead": "We create web experiences and digital strategies that connect brands and people.",
+    "contactProject": "Let’s talk about your project",
+    "exploreStudio": "Explore the studio",
+    "scrollDiscover": "Scroll to discover",
+    "serviceDesign": "Web design",
+    "serviceDevelopment": "Development",
+    "serviceMarketing": "Digital marketing",
+    "serviceSeo": "SEO & strategy",
+    "serviceMaintenance": "Migrations & maintenance"
+  },
+  "clients": {
+    "eyebrow": "Clients",
+    "title": "Clients who trust",
+    "titleAccent": "Tau Studio.",
+    "summary": "We work alongside teams looking to grow their digital presence through clear ideas and well-crafted solutions.",
+    "countLabel": "clients",
+    "projectsLabel": "projects",
+    "ctaPrompt": "Shall we team up?",
+    "ctaLabel": "Tell us about your project"
+  },
+  "testimonials": {
+    "heading": "In their words"
+  },
+  "projects": {
+    "eyebrow": "Projects",
+    "title": "Ideas that",
+    "titleAccent": "turn into projects.",
+    "summary": "A selection of personal projects and client collaborations built to solve real needs.",
+    "totalCount": "total",
+    "personalCount": "personal",
+    "clientCount": "client work",
+    "experimentalCount": "experimental",
+    "categoryPersonal": "Personal project",
+    "categoryClient": "Client project",
+    "categoryOther": "Project",
+    "viewProject": "View project",
+    "allPrompt": "Explore the full catalogue",
+    "viewAll": "View all projects",
+    "pageEyebrow": "Projects",
+    "pageTitle": "Ideas taking",
+    "pageTitleAccent": "digital shape.",
+    "pageLead": "A look at personal projects and client work, from digital products to corporate websites.",
+    "catalogAria": "Catalogue summary",
+    "forClientsCount": "for clients",
+    "personalHeading": "Personal projects",
+    "personalIdeasTitle": "Ideas of our own, always evolving.",
+    "active": "Active",
+    "archived": "Archived projects",
+    "countLabel": "projects",
+    "statusArchived": "Archived",
+    "abandoned": "Abandoned",
+    "completed": "Completed",
+    "inDevelopment": "In development",
+    "personalCountLabel": "personal",
+    "clientCountLabel": "client work",
+    "otherCountLabel": "other",
+    "activeProjectsAria": "Personal projects from",
+    "archivedProjectsAria": "Archived personal projects from",
+    "clientProjectsAria": "Client projects from",
+    "otherProjectsAria": "Other projects from",
+    "ideaPrompt": "Have a project in mind?",
+    "talk": "Let’s talk.",
+    "talkAria": "Talk to Tau Studio about a project",
+    "clientHeading": "Client projects",
+    "sharedWorkTitle": "Shared work, real results.",
+    "otherHeading": "Other projects",
+    "experimentsTitle": "Experiments and collaborations."
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Clear ideas.",
+    "titleAccent": "Digital solutions.",
+    "metaDescription": "Web design and development, digital marketing, SEO, migrations and maintenance for growing brands.",
+    "ariaLabel": "Our services",
+    "serviceDetailAria": "View service details for",
+    "ctaAria": "Contact Tau Studio",
+    "lead": "We bring strategy, design and technology together to solve real challenges and move your brand forward.",
+    "process": {
+      "eyebrow": "Our process",
+      "title": "How we",
+      "titleAccent": "work.",
+      "intro": "A clear, collaborative process tailored to what each project needs.",
+      "listen": "We listen",
+      "listenText": "We learn about your business, your goals and the challenge you want to solve.",
+      "define": "We define",
+      "defineText": "We agree on priorities, scope and a strategic direction for moving forward.",
+      "build": "We design and build",
+      "buildText": "We turn strategy into a thoughtful, functional digital solution.",
+      "improve": "We improve",
+      "improveText": "We review results and look for opportunities to keep growing."
+    },
+    "cta": {
+      "prompt": "Not sure where to start?",
+      "emphasis": "Tell us about the challenge."
+    },
+    "detail": {
+      "eyebrow": "Service",
+      "scope": "Our approach",
+      "scopeTitle": "A service shaped around your context."
+    },
+    "breadcrumbAria": "Breadcrumb",
+    "schemaName": "Tau Studio services"
+  },
+  "team": {
+    "eyebrow": "The team",
+    "title": "Hi, I’m Paul.",
+    "titleAccent": "The person behind Tau.",
+    "milestones": {
+      "experience": "years of experience",
+      "projects": "web and mobile projects",
+      "clients": "clients supported"
+    },
+    "approach": {
+      "eyebrow": "A multidisciplinary profile",
+      "title": "Different disciplines.",
+      "titleAccent": "One connected vision."
+    },
+    "collaborators": {
+      "eyebrow": "Collaborators",
+      "title": "Projects built together",
+      "titleAccent": "as a team."
+    },
+    "profileLabel": "Paul Guillamón’s profile",
+    "specialties": "Specialties",
+    "collaboratorProjects": "Projects by",
+    "viewLinkedIn": "View LinkedIn profile for",
+    "cta": {
+      "prompt": "Have an idea in mind?",
+      "emphasis": "Let’s talk."
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let’s make something",
+    "titleAccent": "worthwhile.",
+    "lead": "Tell us what you have in mind. We’ll reply personally and work out how to bring it to life.",
+    "writeUs": "Email us",
+    "tellIdea": "Tell us your idea",
+    "startHere": "Let’s start here.",
+    "metaDescription": "Tell us what you have in mind. Let’s talk about your next project with Tau Studio.",
+    "ctaLabel": "Send message"
+  },
+  "form": {
+    "doNotFill": "Leave blank:",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "optional": "(optional)",
+    "service": "Service of interest",
+    "select": "Choose an option",
+    "design": "Web design",
+    "web": "Web development",
+    "marketing": "Digital marketing",
+    "seo": "SEO",
+    "maintenance": "Migrations & maintenance",
+    "other": "Other",
+    "message": "Tell us about your project",
+    "privacy": "I accept the privacy policy",
+    "submit": "Send message",
+    "errors": {
+      "nameRequired": "Name is required.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Enter a valid email address.",
+      "messageRequired": "Message is required.",
+      "consentRequired": "You must accept the privacy policy."
+    },
+    "status": {
+      "sending": "Sending...",
+      "success": "Message sent successfully. We’ll get back to you soon.",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "footer": {
+    "tagline": "Digital design, development and strategy.",
+    "findUs": "Find us",
+    "backToTop": "Back to top",
+    "navHeading": "Keep exploring",
+    "nav": {
+      "servicesText": "Design, development and digital growth for your brand.",
+      "projectsText": "Ideas and collaborations brought to life.",
+      "teamText": "Discover how we think, design and work.",
+      "contactText": "Tell us what you have in mind. Let’s talk."
+    }
+  },
+  "notFound": {
+    "title": "This page",
+    "titleAccent": "is missing.",
+    "text": "The link may have changed or the address may be incorrect. Let’s find another way.",
+    "home": "Back to home",
+    "eyebrow": "Error",
+    "services": "View services",
+    "visual": "PAGE NOT FOUND"
+  }
+}

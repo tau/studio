@@ -1,37 +1,42 @@
 ---
 import SiteLayout from '@/layouts/SiteLayout.astro';
-import { services } from '@/data/services';
+import { getLocalizedServices } from '@/data/services-i18n';
+import { getMessages } from '@/i18n/messages';
+import { asLocale, localizedPagePath, type Locale } from '@/i18n/routing';
 
 export function getStaticPaths() {
-  return services.map((service) => ({
+  return getLocalizedServices('es').map((service) => ({
     params: { slug: service.slug },
     props: { service },
   }));
 }
 
 const { service } = Astro.props;
+const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
+const messages = getMessages(locale);
 ---
 
 <SiteLayout
-  title={`${service.title} | Servicios | Tau Studio`}
+  title={`${service.title} | ${messages.navigation.services} | Tau Studio`}
   description={service.intro}
+  locale={locale}
 >
   <main class="content service-detail">
-    <nav class="service-detail__breadcrumb" aria-label="Ruta de navegación">
-      <a href="/servicios">Servicios</a>
+    <nav class="service-detail__breadcrumb" aria-label={messages.services.breadcrumbAria}>
+      <a href={localizedPagePath(locale, 'services')}>{messages.navigation.services}</a>
       <span>/</span>
       <span>{service.title}</span>
     </nav>
 
     <header class="service-detail__intro">
       <div>
-        <p class="service-detail__eyebrow"><span></span> Servicio <b>/ {service.number}</b></p>
+        <p class="service-detail__eyebrow"><span></span> {messages.services.detail.eyebrow} <b>/ {service.number}</b></p>
         <h1>{service.title}<em>{service.headlineAccent}</em></h1>
       </div>
       <div class="service-detail__summary">
         <p>{service.intro}</p>
-        <a href="/contacto">
-          <span>Hablemos de tu proyecto</span>
+        <a href={localizedPagePath(locale, 'contact')}>
+          <span>{messages.home.contactProject}</span>
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
         </a>
       </div>
@@ -39,8 +44,8 @@ const { service } = Astro.props;
 
     <section class="service-detail__scope" aria-labelledby="service-scope-title">
       <div class="service-detail__scope-heading">
-        <p class="service-detail__eyebrow"><span></span> Enfoque</p>
-        <h2 id="service-scope-title">Un servicio, pensado para tu contexto.</h2>
+        <p class="service-detail__eyebrow"><span></span> {messages.services.detail.scope}</p>
+        <h2 id="service-scope-title">{messages.services.detail.scopeTitle}</h2>
       </div>
       <div class="service-detail__capabilities">
         {service.capabilities.map((capability, index) => (
@@ -54,12 +59,12 @@ const { service } = Astro.props;
     </section>
 
     <div class="service-detail__closing">
-      <a class="service-detail__back" href="/servicios">
+      <a class="service-detail__back" href={localizedPagePath(locale, 'services')}>
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7" /></svg>
-        <span>Todos los servicios</span>
+        <span>{messages.navigation.services}</span>
       </a>
-      <a class="service-detail__contact" href="/contacto">
-        <span>Cuéntanos qué necesitas</span>
+      <a class="service-detail__contact" href={localizedPagePath(locale, 'contact')}>
+        <span>{messages.services.cta.prompt}</span>
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
       </a>
     </div>

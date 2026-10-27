@@ -1,0 +1,10 @@
+---
+import ServicePage from '@/pages/servicios/[slug].astro';
+import { getLocalizedServices } from '@/data/services-i18n';
+
+export function getStaticPaths() {
+  return getLocalizedServices('en').map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+---
+
+<ServicePage locale="en" service={Astro.props.service} />

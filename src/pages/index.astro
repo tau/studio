@@ -6,6 +6,12 @@ import FeaturedProjects from '@/components/shared/FeaturedProjects.astro';
 import { clients } from '@/data/clients';
 import { projects } from '@/data/projects';
 import { testimonials } from '@/data/testimonials';
+import { getMessages } from '@/i18n/messages';
+import { asLocale, type Locale } from '@/i18n/routing';
+
+interface Props { locale?: Locale }
+const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
+const messages = getMessages(locale);
 
 const clientProjects = projects.filter((project) => project.category === 'client');
 const clientProjectCount = clientProjects.length;
@@ -15,8 +21,8 @@ const uniqueClientCount = new Set(
 ).size;
 ---
 
-<SiteLayout image="/og.png" schemaType="WebPage" mainEntity={{ '@id': 'https://tau.studio#organization' }} randomizeAccents>
-  <Header />
-  <Clients clients={clients} max={clients.length} total={uniqueClientCount} projectTotal={clientProjectCount} testimonials={testimonials} />
-  <FeaturedProjects />
+<SiteLayout title={messages.home.metaTitle} description={messages.home.metaDescription} image="/og.png" schemaType="WebPage" mainEntity={{ '@id': 'https://tau.studio#organization' }} randomizeAccents locale={locale}>
+  <Header locale={locale} />
+  <Clients clients={clients} max={clients.length} total={uniqueClientCount} projectTotal={clientProjectCount} testimonials={testimonials} locale={locale} />
+  <FeaturedProjects locale={locale} />
 </SiteLayout>

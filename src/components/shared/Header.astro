@@ -1,32 +1,37 @@
 ---
 import Button from '@/components/shared/Button.astro';
+import { getMessages } from '@/i18n/messages';
+import { asLocale, localizedPagePath, localizedServicePath, type Locale } from '@/i18n/routing';
 
+interface Props { locale?: Locale }
+const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
+const messages = getMessages(locale);
 const services = [
-  { number: '01', className: 'c1', label: 'Diseño web', slug: 'diseno-web' },
-  { number: '02', className: 'c2', label: 'Desarrollo', slug: 'desarrollo-web' },
-  { number: '03', className: 'c3', label: 'Marketing digital', slug: 'marketing-digital' },
-  { number: '04', className: 'c4', label: 'SEO y estrategia', slug: 'seo' },
-  { number: '05', className: 'c1', label: 'Migraciones y mantenimiento', slug: 'migraciones-y-mantenimiento' },
-];
+  { number: '01', className: 'c1', label: messages.home.serviceDesign, slug: 'diseno-web' },
+  { number: '02', className: 'c2', label: messages.home.serviceDevelopment, slug: 'desarrollo-web' },
+  { number: '03', className: 'c3', label: messages.home.serviceMarketing, slug: 'marketing-digital' },
+  { number: '04', className: 'c4', label: messages.home.serviceSeo, slug: 'seo' },
+  { number: '05', className: 'c1', label: messages.home.serviceMaintenance, slug: 'migraciones-y-mantenimiento' },
+].map((service) => ({ ...service, href: localizedServicePath(locale, service.slug) }));
 ---
 
 <header class="site-hero">
   <div class="content hero__content">
     <div class="hero__layout">
       <div class="hero__intro">
-        <p class="hero__eyebrow"><span></span> Tau Studio <b>/</b> Estudio digital</p>
-        <h1>Diseño digital <em>con intención.</em></h1>
-        <p class="hero__lead">Creamos experiencias web y estrategias digitales para conectar marcas y personas.</p>
+        <p class="hero__eyebrow"><span></span> Tau Studio <b>/</b> {messages.home.eyebrow}</p>
+        <h1>{messages.home.title} <em>{messages.home.titleAccent}</em></h1>
+        <p class="hero__lead">{messages.home.lead}</p>
         <div class="hero__actions">
-          <Button class="hero__primary" href="/contacto" label="Hablemos de tu proyecto" />
-          <Button class="hero__secondary" href="#clients" label="Explorar el estudio" />
+          <Button class="hero__primary" href={localizedPagePath(locale, 'contact')} label={messages.home.contactProject} />
+          <Button class="hero__secondary" href="#clients" label={messages.home.exploreStudio} />
         </div>
       </div>
 
-      <ul class="hero__services" aria-label="Qué hacemos">
+      <ul class="hero__services" aria-label={messages.navigation.services}>
         {services.map((service) => (
           <li class={service.className}>
-            <a class="hero__service-card" href={`/servicios/${service.slug}`}>
+            <a class="hero__service-card" href={service.href}>
               <span class="hero__service-number">{service.number}</span>
               <strong>{service.label}</strong>
               <span class="hero__service-link" aria-hidden="true">
@@ -42,6 +47,6 @@ const services = [
 </header>
 
 <a class="hero__scroll" href="#clients">
-  <span>Desliza para descubrir</span>
+  <span>{messages.home.scrollDiscover}</span>
   <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v16m-7-7 7 7 7-7" /></svg>
 </a>

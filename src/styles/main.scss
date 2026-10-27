@@ -98,7 +98,9 @@ nav {
       flex-wrap: wrap;
       display: none;
       @include md {
-        display: block;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
       }
       .nav__items {
         display: flex;
@@ -167,6 +169,29 @@ nav {
             &::before {
               background-color: $color4;
             }
+          }
+        }
+      }
+      .nav__languages {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: 22px;
+        padding-left: 18px;
+        border-left: 1px solid rgba($color: $base-color, $alpha: 0.12);
+        a {
+          padding: 7px 2px;
+          color: rgba($color: $base-color, $alpha: 0.58);
+          font-size: 0.64rem;
+          font-weight: 500;
+          letter-spacing: 0.06em;
+          &[aria-current="page"] {
+            color: $base-color;
+            border-bottom: 1px solid var(--home-hero-accent, #111827);
+          }
+          &:focus-visible {
+            outline: 2px solid $color1;
+            outline-offset: 3px;
           }
         }
       }
@@ -2930,7 +2955,7 @@ footer {
     overflow-y: auto;
     overscroll-behavior: contain;
     &::before {
-      content: "MENÚ";
+      content: attr(data-menu-label);
       position: absolute;
       top: 28px;
       left: 28px;
@@ -2993,6 +3018,23 @@ footer {
     &:focus-visible {
       outline: 2px solid $color1;
       outline-offset: 2px;
+    }
+  }
+  .nav__flex.show .nav__languages {
+    width: min(100%, 440px);
+    justify-content: flex-start;
+    gap: 16px;
+    margin: 24px 0 0;
+    padding: 16px 0 0;
+    border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
+    border-left: 0;
+    a {
+      padding: 8px 2px;
+      font-size: 0.74rem;
+      &[aria-current="page"] {
+        color: $base-color;
+        border-bottom: 1px solid var(--home-hero-accent, #111827);
+      }
     }
   }
 }
