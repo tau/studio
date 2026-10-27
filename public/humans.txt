@@ -1,0 +1,32 @@
+/* TEAM */
+
+Developer: Paul Guillamon (Qu4k3)
+Role: Founder, developer and designer
+Site: https://qu4k3.com
+Twitter: @TauStudioX
+Location: Barcelona, Catalonia, Spain
+
+Thanks: Felipe Bernal and Jose Sanchez for their work and support.
+
+/* THANKS */
+
+Astro - https://astro.build
+Netlify - https://www.netlify.com
+Cloudflare - https://www.cloudflare.com
+Fontsource - https://fontsource.org
+Sharp - https://sharp.pixelplumbing.com
+Sass - https://sass-lang.com
+Simple Icons - https://simpleicons.org
+
+/* SITE */
+
+Last update: 2026-10-27
+Language: Spanish / Catalan / English / French
+Doctype: HTML5
+IDE: VS Code
+Components: Astro, SCSS, TypeScript
+
+/* EASTER EGG */
+
+Konami Code: Up Up Down Down Left Right Left Right B A
+Effect: retro mode (saved in localStorage)

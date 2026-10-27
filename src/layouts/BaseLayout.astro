@@ -131,6 +131,7 @@ const jsonLd = {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="author" href="/humans.txt" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href={webManifest} />
     <meta name="description" content={description} />
@@ -203,6 +204,98 @@ const jsonLd = {
       </span>
     </div>
     <slot />
+
+    <script is:inline>
+      try {
+        if (localStorage.getItem('tau-retro-mode') === '1') {
+          document.documentElement.classList.add('retro-mode');
+        }
+      } catch {}
+    </script>
+
+    <style is:global>
+      html.retro-mode {
+        --retro-font: 'Courier New', 'Lucida Console', monospace;
+      }
+      html.retro-mode body {
+        font-family: var(--retro-font) !important;
+        image-rendering: pixelated;
+        filter: saturate(0.72) contrast(1.12);
+      }
+      html.retro-mode img,
+      html.retro-mode svg {
+        image-rendering: pixelated;
+      }
+      html.retro-mode * {
+        border-radius: 0 !important;
+      }
+      html.retro-mode body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+        background: repeating-linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.10) 0 2px,
+          transparent 2px 4px
+        );
+        mix-blend-mode: multiply;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html.retro-mode body::after {
+          display: none;
+        }
+      }
+    </style>
+
+    <script is:inline>
+      (function () {
+        const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        const buffer = [];
+        let retro = document.documentElement.classList.contains('retro-mode');
+
+        function setRetro(next) {
+          retro = next;
+          document.documentElement.classList.toggle('retro-mode', retro);
+          try {
+            localStorage.setItem('tau-retro-mode', retro ? '1' : '0');
+          } catch {}
+          console.log('%c[TAU] Retro mode: ' + (retro ? 'ON' : 'OFF'), 'color:#5abe93;font-weight:bold;');
+        }
+
+        window.addEventListener('keydown', function (event) {
+          const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
+          buffer.push(key);
+          if (buffer.length > KONAMI.length) buffer.shift();
+          if (buffer.join(',') === KONAMI.join(',')) {
+            setRetro(!retro);
+            buffer.length = 0;
+          }
+          if (event.key === 'Escape' && retro) {
+            setRetro(false);
+          }
+        });
+
+        // Consola ASCII / créditos
+        const ascii = [
+          '████████╗  █████╗  ██╗   ██╗',
+          '╚══██╔══╝ ██╔══██╗ ██║   ██║',
+          '   ██║    ███████║ ██║   ██║',
+          '   ██║    ██╔══██║ ██║   ██║',
+          '   ██║    ██║  ██║ ╚██████╔╝',
+          '   ╚═╝    ╚═╝  ╚═╝  ╚═════╝',
+        ].join('\n');
+
+        console.group('%cTau Studio', 'font-weight:bold;font-size:14px;color:#6853a2;');
+        console.log('%c' + ascii, 'font-family:monospace;line-height:1;color:#111827;');
+        console.log('%cCréditos  %cPaul Guillamón (Qu4k3)', 'font-weight:bold;color:#6853a2;', 'color:#111827;');
+        console.log('%cStack     %cAstro · SCSS · TypeScript · Netlify', 'font-weight:bold;color:#5abe93;', 'color:#111827;');
+        console.log('%cEaster    %cKonami Code: ↑ ↑ ↓ ↓ ← → ← → B A // modo retro (Pulsa Esc para Salir)', 'font-weight:bold;color:#ec1978;', 'color:#111827;');
+        console.log('%cWeb       %chttps://tau.studio', 'font-weight:bold;color:#fbaf18;', 'color:#5abe93;text-decoration:underline;');
+        console.groupEnd();
+      })();
+    </script>
   </body>
   <style>
     .bg-decor {

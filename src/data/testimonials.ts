@@ -2,6 +2,7 @@ import type { ImageMetadata } from 'astro';
 import farellLogo from '@/assets/clients/WEB-Logo-Farell-Color.jpg';
 import kinFelinaLogo from '@/assets/clients/kin-felina.jpeg';
 import jsArquitectoLogo from '@/assets/clients/js-arquitecto-icon.jpeg';
+import transcontrolLogo from "@/assets/clients/transcontrol.svg";
 
 export interface Testimonial {
   quote: string;
@@ -30,6 +31,14 @@ export const testimonials: Testimonial[] = [
     logo: farellLogo,
     quoteLocale: 'ca',
   },
+  {
+    quote: 'Trabajar con él ha sido un auténtico placer. Destaco especialmente su rapidez y la gran implicación que demostró desde el primer minuto. Su trabajo es sumamente eficiente, pero lo que realmente marca la diferencia es su disposición para ayudar en cada detalle del proceso. Un profesional de total confianza.',
+    name: 'Felipe Bernal',
+    role: 'CEO',
+    company: 'Transcontrol',
+    logo: transcontrolLogo,
+    quoteLocale: 'es'
+  }
   /*{
     quote: '',
     name: 'Silvana Castro Moreno',

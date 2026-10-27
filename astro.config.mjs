@@ -5,10 +5,10 @@ import path from 'node:path';
 const locales = ['es', 'en', 'fr', 'ca'];
 const localeTags = { es: 'es-ES', en: 'en', fr: 'fr-FR', ca: 'ca-ES' };
 const pageSlugs = {
-  es: { services: 'servicios', projects: 'proyectos', team: 'equipo', contact: 'contacto' },
-  en: { services: 'services', projects: 'projects', team: 'team', contact: 'contact' },
-  fr: { services: 'services', projects: 'projets', team: 'equipe', contact: 'contact' },
-  ca: { services: 'serveis', projects: 'projectes', team: 'equip', contact: 'contacte' },
+  es: { services: 'servicios', projects: 'proyectos', team: 'equipo', contact: 'contacto', legalNotice: 'aviso-legal', privacy: 'privacidad' },
+  en: { services: 'services', projects: 'projects', team: 'team', contact: 'contact', legalNotice: 'legal-notice', privacy: 'privacy-policy' },
+  fr: { services: 'services', projects: 'projets', team: 'equipe', contact: 'contact', legalNotice: 'mentions-legales', privacy: 'politique-confidentialite' },
+  ca: { services: 'serveis', projects: 'projectes', team: 'equip', contact: 'contacte', legalNotice: 'avis-legal', privacy: 'politica-privacitat' },
 };
 const serviceSlugs = {
   es: { 'diseno-web': 'diseno-web', 'desarrollo-web': 'desarrollo-web', 'marketing-digital': 'marketing-digital', seo: 'seo', 'migraciones-y-mantenimiento': 'migraciones-y-mantenimiento' },

@@ -6,6 +6,12 @@ import { asLocale, localizedPagePath, type Locale } from '@/i18n/routing';
 const year = new Date().getFullYear();
 const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
 const messages = getMessages(locale);
+const legalLabels = {
+  es: { notice: 'Aviso Legal', privacy: 'Privacidad' },
+  en: { notice: 'Legal Notice', privacy: 'Privacy Policy' },
+  fr: { notice: 'Mentions légales', privacy: 'Confidentialité' },
+  ca: { notice: 'Avís legal', privacy: 'Privacitat' },
+}[locale];
 ---
 
 <footer class="site-footer">
@@ -34,12 +40,18 @@ const messages = getMessages(locale);
       </div>
 
       <div class="footer__bottom">
-        <a class="footer__email" href="mailto:hey@tau.studio">hey@tau.studio</a>
-        <span class="footer__copyright">© {year} Tau Studio</span>
+        <div class="footer__meta">
+          <span class="footer__copyright">© {year} Tau Studio</span>
+          <div class="footer__legal">
+            <a href={localizedPagePath(locale, 'legalNotice')}>{legalLabels.notice}</a>
+            <span aria-hidden="true">·</span>
+            <a href={localizedPagePath(locale, 'privacy')}>{legalLabels.privacy}</a>
+          </div>
+        </div>
         <a class="footer__top" href="#top">
-          <span>{messages.footer.backToTop}</span>
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7" /></svg>
-        </a>
+            <span>{messages.footer.backToTop}</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7" /></svg>
+          </a>
       </div>
     </div>
   </section>
