@@ -55,3 +55,7 @@ npm run generate:og
 
 - MCP de documentación de Astro configurado en `opencode.json`.
 - Skills de Astro instaladas en `.agents/skills/`.
+
+## Licencia
+
+El código fuente se publica bajo licencia MIT. El contenido, textos, imágenes, logos, marcas y demás material no-código son "All Rights Reserved" y no pueden reutilizarse sin permiso previo por escrito.
