@@ -4,6 +4,7 @@ import Nav from '@/components/shared/Nav.astro';
 import FooterNav from '@/components/shared/FooterNav.astro';
 import Footer from '@/components/shared/Footer.astro';
 import { asLocale, type Locale } from '@/i18n/routing';
+import { getMessages } from '@/i18n/messages';
 
 interface Props {
   title?: string;
@@ -20,13 +21,13 @@ interface Props {
 
 const { title, description, image, type, schemaType, jsonLd, mainEntity, randomizeAccents, themeColor } = Astro.props;
 const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
+const messages = getMessages(locale);
 ---
 
 <BaseLayout title={title} description={description} image={image} type={type} schemaType={schemaType} jsonLd={jsonLd} mainEntity={mainEntity} randomizeAccents={randomizeAccents} themeColor={themeColor} locale={locale}>
+  <a class="skip-link" href="#main">{messages.navigation.skipToContent}</a>
   <Nav locale={locale} />
-  <section id="main">
-    <slot />
-  </section>
+  <slot />
   <FooterNav locale={locale} />
   <Footer locale={locale} />
 </BaseLayout>
