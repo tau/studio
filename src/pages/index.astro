@@ -21,8 +21,10 @@ const uniqueClientCount = new Set(
 ).size;
 ---
 
-<SiteLayout title={messages.home.metaTitle} description={messages.home.metaDescription} image="/og.png" schemaType="WebPage" mainEntity={{ '@id': 'https://tau.studio#organization' }} randomizeAccents locale={locale}>
+<SiteLayout title={messages.home.metaTitle} description={messages.home.metaDescription} image={`/og/${locale}/home.png`} schemaType="WebPage" mainEntity={{ '@id': 'https://tau.studio#organization' }} randomizeAccents locale={locale}>
+  <main id="main" tabindex="-1">
   <Header locale={locale} />
   <Clients clients={clients} max={clients.length} total={uniqueClientCount} projectTotal={clientProjectCount} testimonials={testimonials} locale={locale} />
   <FeaturedProjects locale={locale} />
+  </main>
 </SiteLayout>

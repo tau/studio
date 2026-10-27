@@ -19,9 +19,10 @@ const messages = getMessages(locale);
 <SiteLayout
   title={`${service.title} | ${messages.navigation.services} | Tau Studio`}
   description={service.intro}
+  image={`/og/${locale}/service-${service.canonicalSlug}.png`}
   locale={locale}
 >
-  <main class="content service-detail">
+  <main id="main" tabindex="-1" class="content service-detail">
     <nav class="service-detail__breadcrumb" aria-label={messages.services.breadcrumbAria}>
       <a href={localizedPagePath(locale, 'services')}>{messages.navigation.services}</a>
       <span>/</span>

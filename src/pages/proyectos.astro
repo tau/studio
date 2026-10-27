@@ -54,13 +54,13 @@ const projectList = {
 <SiteLayout
   title={`${messages.navigation.projects} | Tau Studio`}
   description={messages.projects.pageLead}
-  image="/og-proyectos.png"
+  image={`/og/${locale}/projects.png`}
   schemaType="CollectionPage"
   mainEntity={projectList}
   themeColor="#EC1978"
   locale={locale}
 >
-  <main class="content projects-page">
+  <main id="main" tabindex="-1" class="content projects-page">
     <header class="projects-page__intro">
       <div>
         <p class="projects-page__eyebrow"><span></span> {messages.projects.pageEyebrow} <b>/ 02</b></p>

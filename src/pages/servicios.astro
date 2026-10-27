@@ -31,13 +31,13 @@ const serviceList = {
 <SiteLayout
   title={`${messages.navigation.services} | Tau Studio`}
   description={messages.services.metaDescription}
-  image="/og-servicios.png"
+  image={`/og/${locale}/services.png`}
   schemaType="CollectionPage"
   mainEntity={serviceList}
   themeColor="#6853A2"
   locale={locale}
 >
-  <main class="content services-page">
+  <main id="main" tabindex="-1" class="content services-page">
     <header class="services-page__intro">
       <div>
         <p class="services-page__eyebrow"><span></span> {messages.services.eyebrow} <b>/ 01</b></p>

@@ -9,8 +9,8 @@ const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
 const messages = getMessages(locale);
 ---
 
-<SiteLayout title={`${messages.navigation.contact} | Tau Studio`} description={messages.contact.metaDescription} image="/og-contacto.png" schemaType="ContactPage" mainEntity={{ '@id': 'https://tau.studio#organization' }} themeColor="#FBAF18" locale={locale}>
-  <main class="content contact-page">
+<SiteLayout title={`${messages.navigation.contact} | Tau Studio`} description={messages.contact.metaDescription} image={`/og/${locale}/contact.png`} schemaType="ContactPage" mainEntity={{ '@id': 'https://tau.studio#organization' }} themeColor="#FBAF18" locale={locale}>
+  <main id="main" tabindex="-1" class="content contact-page">
     <section class="contact-page__intro" aria-labelledby="contact-title">
       <p class="contact-page__eyebrow"><span></span>{messages.contact.eyebrow} <b>/</b> 04</p>
       <h1 id="contact-title">{messages.contact.title} <em>{messages.contact.titleAccent}</em></h1>

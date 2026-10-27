@@ -42,8 +42,8 @@ const collaborators = [
 
 <SiteLayout
   title={`${messages.navigation.team} | Tau Studio`}
-  description={content.description}
-  image="/og-equipo.png"
+  description={messages.team.metaDescription}
+  image={`/og/${locale}/team.png`}
   schemaType="ProfilePage"
   mainEntity={{ '@id': 'https://tau.studio#paul' }}
   jsonLd={collaborators.map((collaborator) => ({
@@ -55,7 +55,7 @@ const collaborators = [
   themeColor="#5ABE93"
   locale={locale}
 >
-  <main class="content team-page">
+  <main id="main" tabindex="-1" class="content team-page">
     <section class="team-page__intro" aria-labelledby="team-title">
       <div class="team-page__copy">
         <p class="team-page__eyebrow"><span></span> {messages.team.eyebrow} <b>/ 03</b></p>
