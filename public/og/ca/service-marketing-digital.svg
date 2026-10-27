@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F9FAFB"/>
+  <g opacity=".1" stroke="#111827" stroke-width="1">
+    <path d="M72 0v630M300 0v630M600 0v630M900 0v630M1128 0v630"/>
+    <path d="M0 112h1200M0 315h1200M0 518h1200"/>
+  </g>
+  <g fill="#111827" opacity=".42"><rect x="72" y="112" width="5" height="5"/><rect x="1123" y="518" width="5" height="5"/></g>
+  <g transform="translate(72 72)">
+    <rect width="7" height="7" fill="#FBAF18"/>
+    <text x="22" y="8" fill="#111827" font-family="Poppins, Arial, sans-serif" font-size="14" font-weight="500" letter-spacing="3">TAU STUDIO / SERVEI / 03</text>
+  </g>
+  <image href="data:image/svg+xml;base64,PHN2ZyBpZD0iR3J1cG9fNTIiIGRhdGEtbmFtZT0iR3J1cG8gNTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwNS4zIiBoZWlnaHQ9IjEyMS41IiB2aWV3Qm94PSIwIDAgMTA1LjMgMTIxLjUiPg0KICA8ZyBpZD0iR3J1cG9fNTEiIGRhdGEtbmFtZT0iR3J1cG8gNTEiPg0KICAgIDxnIGlkPSJHcnVwb180NCIgZGF0YS1uYW1lPSJHcnVwbyA0NCI+DQogICAgICA8ZyBpZD0iR3J1cG9fNDMiIGRhdGEtbmFtZT0iR3J1cG8gNDMiPg0KICAgICAgICA8cGF0aCBpZD0iVHJhemFkb18xMDgiIGRhdGEtbmFtZT0iVHJhemFkbyAxMDgiIGQ9Ik0yOC4yLDg0LjVjNi4zLTguMywxMy0xNi4xLDIwLTIzLjdhNC42Miw0LjYyLDAsMCwxLC43LS43QzQxLjYsNTQsMzQuNiw0Ny43LDI3LjgsNDFjLTQtNC03LjktOC0xMS43LTEyLjItMS41LTEuNy0zLTMuNC00LjUtNS4yTDAsMzAuNFY5MS4xbDE2LjksOS43Yy44LTEuMiwxLjUtMi40LDIuMy0zLjZDMjIsOTIuOSwyNS4xLDg4LjcsMjguMiw4NC41WiIgZmlsbD0iIzVhYmU5MyIvPg0KICAgICAgPC9nPg0KICAgIDwvZz4NCiAgICA8ZyBpZD0iR3J1cG9fNDYiIGRhdGEtbmFtZT0iR3J1cG8gNDYiPg0KICAgICAgPGcgaWQ9IkdydXBvXzQ1IiBkYXRhLW5hbWU9IkdydXBvIDQ1Ij4NCiAgICAgICAgPHBhdGggaWQ9IlRyYXphZG9fMTA5IiBkYXRhLW5hbWU9IlRyYXphZG8gMTA5IiBkPSJNMzQuOSwzMi4zQzQzLjIsMzcuOCw1MS4yLDQzLjcsNTksNDkuOWMzLjgtMy42LDcuNi03LjIsMTEuNi0xMC43LDMuOS0zLjQsNy45LTYuNywxMi4xLTkuOSwyLjEtMS42LDQuMi0zLjEsNi40LTQuNiwxLS43LDItMS4zLDMtMkw1Mi42LDAsMTYuMiwyMWMxLjQuOCwyLjksMS42LDQuMywyLjRDMjUuNCwyNi4yLDMwLjIsMjkuMiwzNC45LDMyLjNaIiBmaWxsPSIjNjg1M2EyIi8+DQogICAgICA8L2c+DQogICAgPC9nPg0KICAgIDxnIGlkPSJHcnVwb180OCIgZGF0YS1uYW1lPSJHcnVwbyA0OCI+DQogICAgICA8ZyBpZD0iR3J1cG9fNDciIGRhdGEtbmFtZT0iR3J1cG8gNDciPg0KICAgICAgICA8cGF0aCBpZD0iVHJhemFkb18xMTAiIGRhdGEtbmFtZT0iVHJhemFkbyAxMTAiIGQ9Ik04Ny44LDM0LjJjLTIuOSw0LjQtNS45LDguNi05LDEyLjgtMyw0LTYuMSw3LjgtOS4zLDExLjYsNiw1LjIsMTEuOSwxMC41LDE3LjYsMTYuMSw0LDQsNy45LDgsMTEuNywxMi4yLDEuNiwxLjgsMy4xLDMuNSw0LjYsNS4zbDEuOS0xLjFWMzAuNEw5NCwyMy45Yy0uNywxLjItMS40LDIuNC0yLDMuNkM5MC42LDI5LjgsODkuMiwzMiw4Ny44LDM0LjJaIiBmaWxsPSIjZWMxOTc4Ii8+DQogICAgICA8L2c+DQogICAgPC9nPg0KICAgIDxnIGlkPSJHcnVwb181MCIgZGF0YS1uYW1lPSJHcnVwbyA1MCI+DQogICAgICA8ZyBpZD0iR3J1cG9fNDkiIGRhdGEtbmFtZT0iR3J1cG8gNDkiPg0KICAgICAgICA8cGF0aCBpZD0iVHJhemFkb18xMTEiIGRhdGEtbmFtZT0iVHJhemFkbyAxMTEiIGQ9Ik03OS45LDgzLjRjLTYuOC00LjUtMTMuNC05LjMtMTkuOC0xNC4zLS41LjUtLjksMS0xLjQsMS41QTMwMy40NjUsMzAzLjQ2NSwwLDAsMSwzNi40LDkyLjJjLTMuOSwzLjQtNy45LDYuNy0xMi4xLDkuOS0uOC42LTEuNSwxLjEtMi4zLDEuN2wzMC42LDE3LjdMOTguOCw5NC44Yy0xLjUtLjgtMy0xLjctNC41LTIuNUM4OS40LDg5LjUsODQuNiw4Ni41LDc5LjksODMuNFoiIGZpbGw9IiNmYmFmMTgiLz4NCiAgICAgIDwvZz4NCiAgICA8L2c+DQogIDwvZz4NCjwvc3ZnPg0K" x="925" y="110" width="190" height="219"/>
+  <g transform="translate(72 198)">
+    <text fill="#111827" font-family="Poppins, Arial, sans-serif" font-size="76" font-weight="500" letter-spacing="-4">Màrqueting digital</text>
+    <text y="88" fill="#5ABE93" font-family="Poppins, Arial, sans-serif" font-size="49" font-weight="500" letter-spacing="-2">Xarxes · Emails MJML · Analítica</text>
+    <rect y="132" width="120" height="3" fill="#5ABE93"/>
+    <text x="0" y="184" fill="#111827" opacity=".68" font-family="Poppins, Arial, sans-serif" font-size="21" font-weight="300">Connectem canals, automatitzem tasques i mesurem resultats.</text>
+  </g>
+  <text x="72" y="566" fill="#111827" opacity=".64" font-family="Poppins, Arial, sans-serif" font-size="16" font-weight="300" letter-spacing="2">tau.studio</text>
+  <text x="1128" y="566" text-anchor="end" fill="#111827" opacity=".64" font-family="Poppins, Arial, sans-serif" font-size="14" font-weight="300" letter-spacing="1">SERVEI / 03 · TAU STUDIO</text>
+</svg>
