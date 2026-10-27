@@ -8,14 +8,17 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "generate:og": "node scripts/generate-og-images.mjs",
     "sync:projects": "node scripts/sync-projects.mjs",
-    "sync:projects:check": "node scripts/sync-projects.mjs --dry-run"
+    "sync:projects:check": "node scripts/sync-projects.mjs --dry-run",
+    "download:project-logos": "node scripts/download-project-logos.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "3.7.4",
+    "@fontsource/poppins": "5.3.0",
     "astro": "7.4.2",
     "sass": "1.106.1",
-    "simple-icons": "13.21.0",
-    "@fontsource/poppins": "5.3.0",
-    "@astrojs/sitemap": "3.7.4"
+    "sharp": "^0.35.5",
+    "simple-icons": "13.21.0"
   }
 }
