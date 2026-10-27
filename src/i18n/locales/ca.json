@@ -10,7 +10,8 @@
     "menuClose": "Tanca el menú",
     "menuHeading": "Menú",
     "homeLabel": "Tau Studio, inici",
-    "language": "Idioma"
+    "language": "Idioma",
+    "skipToContent": "Ves al contingut"
   },
   "home": {
     "metaTitle": "Tau Studio | Desenvolupament web i màrqueting digital",
@@ -91,6 +92,13 @@
     "title": "Idees clares.",
     "titleAccent": "Solucions digitals.",
     "metaDescription": "Disseny i desenvolupament web, màrqueting digital, SEO, migracions i manteniment per a marques que volen créixer.",
+    "og": {
+      "design": { "accent": "UX/UI · Accessibilitat · Interfície", "description": "Experiències digitals clares, accessibles i coherents amb la teva marca." },
+      "development": { "accent": "WordPress · E-commerce · Integracions", "description": "Webs, botigues i landing pages ràpides i integrades amb les teves eines." },
+      "marketing": { "accent": "Xarxes · Emails MJML · Analítica", "description": "Connectem canals, automatitzem tasques i mesurem resultats." },
+      "seo": { "accent": "SEO tècnic · Velocitat · Metadades", "description": "Millorem la visibilitat orgànica i el rendiment tècnic." },
+      "maintenance": { "accent": "Migracions · Hosting · Suport", "description": "Migrem i mantenim la teva web, el correu i els serveis en línia." }
+    },
     "ariaLabel": "Els nostres serveis",
     "serviceDetailAria": "Veure els detalls del servei",
     "ctaAria": "Contacta amb Tau Studio",
@@ -125,6 +133,7 @@
     "eyebrow": "L’equip",
     "title": "Hola, soc en Paul.",
     "titleAccent": "La persona darrere de Tau.",
+    "metaDescription": "Coneix en Paul Guillamón, creador de Tau Studio, i la seva trajectòria en màrqueting, SEO, disseny i desenvolupament web.",
     "milestones": {
       "experience": "anys d’experiència",
       "projects": "projectes web i mòbil",

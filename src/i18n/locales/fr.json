@@ -10,7 +10,8 @@
     "menuClose": "Fermer le menu",
     "menuHeading": "Menu",
     "homeLabel": "Tau Studio, accueil",
-    "language": "Langue"
+    "language": "Langue",
+    "skipToContent": "Aller au contenu"
   },
   "home": {
     "metaTitle": "Tau Studio | Développement web et marketing digital",
@@ -91,6 +92,13 @@
     "title": "Des idées claires.",
     "titleAccent": "Des solutions numériques.",
     "metaDescription": "Design et développement web, marketing digital, SEO, migrations et maintenance pour les marques qui veulent évoluer.",
+    "og": {
+      "design": { "accent": "UX/UI · Accessibilité · Interface", "description": "Des expériences numériques claires, accessibles et fidèles à votre marque." },
+      "development": { "accent": "WordPress · E-commerce · Intégrations", "description": "Des sites, boutiques et landing pages rapides, connectés à vos outils." },
+      "marketing": { "accent": "Réseaux · E-mails MJML · Analyse", "description": "Nous connectons les canaux, automatisons les tâches et mesurons les résultats." },
+      "seo": { "accent": "SEO technique · Vitesse · Métadonnées", "description": "Nous améliorons la visibilité organique et les performances techniques." },
+      "maintenance": { "accent": "Migrations · Hébergement · Support", "description": "Nous migrons et maintenons votre site, vos e-mails et vos services en ligne." }
+    },
     "ariaLabel": "Nos services",
     "serviceDetailAria": "Voir le détail du service",
     "ctaAria": "Contacter Tau Studio",
@@ -125,6 +133,7 @@
     "eyebrow": "L’équipe",
     "title": "Bonjour, je suis Paul.",
     "titleAccent": "La personne derrière Tau.",
+    "metaDescription": "Découvrez Paul Guillamón, fondateur de Tau Studio, et son expérience en marketing, SEO, design et développement web.",
     "milestones": {
       "experience": "ans d’expérience",
       "projects": "projets web et mobiles",
