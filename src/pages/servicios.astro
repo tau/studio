@@ -2,11 +2,18 @@
 import SiteLayout from '@/layouts/SiteLayout.astro';
 import Button from '@/components/shared/Button.astro';
 import ClosingCta from '@/components/shared/ClosingCta.astro';
-import { services } from '@/data/services';
+import { getLocalizedServices } from '@/data/services-i18n';
+import { getMessages } from '@/i18n/messages';
+import { asLocale, localizedPagePath, localizedServicePath, type Locale } from '@/i18n/routing';
+
+interface Props { locale?: Locale }
+const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
+const messages = getMessages(locale);
+const services = getLocalizedServices(locale);
 
 const serviceList = {
   '@type': 'ItemList',
-  name: 'Servicios de Tau Studio',
+  name: messages.services.schemaName,
   itemListElement: services.map((service, index) => ({
     '@type': 'ListItem',
     position: index + 1,
@@ -14,7 +21,7 @@ const serviceList = {
       '@type': 'Service',
       name: service.title,
       description: service.description,
-      url: `https://tau.studio/servicios/${service.slug}`,
+       url: `https://tau.studio${localizedServicePath(locale, service.canonicalSlug)}`,
       provider: { '@id': 'https://tau.studio#organization' },
     },
   })),
@@ -22,28 +29,30 @@ const serviceList = {
 ---
 
 <SiteLayout
-  title="Servicios | Tau Studio"
-  description="Diseño web, desarrollo, marketing digital y SEO para marcas que quieren crecer."
-  image="/og-servicios.png"
+  title={`${messages.navigation.services} | Tau Studio`}
+  description={messages.services.metaDescription}
+  image={`/og/${locale}/services.png`}
   schemaType="CollectionPage"
   mainEntity={serviceList}
+  themeColor="#6853A2"
+  locale={locale}
 >
-  <main class="content services-page">
+  <main id="main" tabindex="-1" class="content services-page">
     <header class="services-page__intro">
       <div>
-        <p class="services-page__eyebrow"><span></span> Servicios <b>/ 01</b></p>
-        <h1>Ideas claras.<br /><em>Soluciones digitales.</em></h1>
+        <p class="services-page__eyebrow"><span></span> {messages.services.eyebrow} <b>/ 01</b></p>
+        <h1>{messages.services.title}<br /><em>{messages.services.titleAccent}</em></h1>
       </div>
       <div class="services-page__summary">
-        <p>Unimos estrategia, diseño y tecnología para resolver retos reales y ayudar a tu marca a avanzar.</p>
-        <Button href="/contacto" label="Hablemos de tu proyecto" />
+        <p>{messages.services.lead}</p>
+        <Button href={localizedPagePath(locale, 'contact')} label={messages.home.contactProject} />
       </div>
     </header>
 
-    <section class="services-page__grid" aria-label="Nuestros servicios">
+    <section class="services-page__grid" aria-label={messages.services.ariaLabel}>
       {services.map((service) => (
         <article class={`services-page__card ${service.className}`}>
-          <a class="services-page__card-content" href={`/servicios/${service.slug}`} aria-label={`Ver detalle de ${service.title}`}>
+          <a class="services-page__card-content" href={localizedServicePath(locale, service.canonicalSlug)} aria-label={`${messages.services.serviceDetailAria} ${service.title}`}>
             <div class="services-page__card-top">
               <span>{service.number}</span>
               <span class="services-page__card-link" aria-hidden="true">
@@ -58,11 +67,45 @@ const serviceList = {
       ))}
     </section>
 
+    <section class="services-process" aria-labelledby="services-process-title">
+      <div class="services-process__intro">
+        <div>
+          <p class="services-process__eyebrow"><span></span> {messages.services.process.eyebrow} <b>/ 02</b></p>
+          <h2 id="services-process-title">{messages.services.process.title} <em>{messages.services.process.titleAccent}</em></h2>
+        </div>
+        <p>{messages.services.process.intro}</p>
+      </div>
+
+      <ol class="services-process__steps">
+        <li>
+          <span class="services-process__number">01</span>
+          <h3>{messages.services.process.listen}</h3>
+          <p>{messages.services.process.listenText}</p>
+        </li>
+        <li>
+          <span class="services-process__number">02</span>
+          <h3>{messages.services.process.define}</h3>
+          <p>{messages.services.process.defineText}</p>
+        </li>
+        <li>
+          <span class="services-process__number">03</span>
+          <h3>{messages.services.process.build}</h3>
+          <p>{messages.services.process.buildText}</p>
+        </li>
+        <li>
+          <span class="services-process__number">04</span>
+          <h3>{messages.services.process.improve}</h3>
+          <p>{messages.services.process.improveText}</p>
+        </li>
+      </ol>
+    </section>
+
     <ClosingCta
       variant="services"
-      prompt="¿No sabes por dónde empezar?"
-      emphasis="Cuéntanos el reto."
-      ariaLabel="Contacta con Tau Studio"
+      prompt={messages.services.cta.prompt}
+      emphasis={messages.services.cta.emphasis}
+      href={localizedPagePath(locale, 'contact')}
+      ariaLabel={messages.services.ctaAria}
     />
   </main>
 </SiteLayout>

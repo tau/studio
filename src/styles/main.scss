@@ -8,6 +8,24 @@
   --home-projects-accent: #111827;
 }
 
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: -10000px;
+  z-index: 200;
+  padding: 12px 16px;
+  border: 1px solid $base-color;
+  background: $background-light;
+  color: $base-color;
+  font-size: 0.85rem;
+  font-weight: 500;
+  &:focus {
+    left: 8px;
+    outline: 2px solid $color1;
+    outline-offset: 2px;
+  }
+}
+
 .site-nav {
   border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.1);
 }
@@ -98,7 +116,9 @@ nav {
       flex-wrap: wrap;
       display: none;
       @include md {
-        display: block;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
       }
       .nav__items {
         display: flex;
@@ -170,12 +190,34 @@ nav {
           }
         }
       }
+      .nav__languages {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: 22px;
+        padding-left: 18px;
+        border-left: 1px solid rgba($color: $base-color, $alpha: 0.12);
+        a {
+          padding: 7px 2px;
+          color: rgba($color: $base-color, $alpha: 0.64);
+          font-size: 0.64rem;
+          font-weight: 500;
+          letter-spacing: 0.06em;
+          &[aria-current="page"] {
+            color: $base-color;
+            border-bottom: 1px solid var(--home-hero-accent, #111827);
+          }
+          &:focus-visible {
+            outline: 2px solid $color1;
+            outline-offset: 3px;
+          }
+        }
+      }
     }
   }
   .footer-nav__wrapper {
-    padding: 72px 0 0;
-    margin: 72px 0 48px;
-    border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
+    padding: 64px 0 0;
+    margin: 0;
     .footer-nav__heading {
       display: flex;
       align-items: center;
@@ -183,7 +225,7 @@ nav {
       margin-bottom: 18px;
       p {
         margin: 0;
-        color: rgba($color: $base-color, $alpha: 0.58);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.72rem;
         font-weight: 500;
         letter-spacing: 0.14em;
@@ -301,7 +343,7 @@ nav {
         }
         .footer-nav__icon {
           align-self: center;
-          color: rgba($color: $base-color, $alpha: 0.58);
+          color: rgba($color: $base-color, $alpha: 0.64);
           transition: transform $default-transition;
         }
       }
@@ -327,7 +369,7 @@ nav {
       align-items: center;
       gap: 9px;
       margin: 0 0 22px;
-      color: rgba($color: $base-color, $alpha: 0.58);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.13em;
@@ -338,7 +380,7 @@ nav {
         background-color: $color4;
       }
       b {
-        color: rgba($color: $base-color, $alpha: 0.28);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-weight: 300;
       }
     }
@@ -380,7 +422,7 @@ nav {
         outline-offset: 2px;
       }
       .contact-page__detail-label {
-        color: rgba($color: $base-color, $alpha: 0.52);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.68rem;
         font-weight: 500;
         letter-spacing: 0.12em;
@@ -418,7 +460,7 @@ nav {
     border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.12);
     .contact-page__eyebrow {
       margin: 0 0 7px;
-      color: rgba($color: $base-color, $alpha: 0.58);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 0.12em;
@@ -432,7 +474,7 @@ nav {
     }
     .contact-page__panel-index {
       padding-top: 2px;
-      color: rgba($color: $base-color, $alpha: 0.4);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.7rem;
       letter-spacing: 0.08em;
       white-space: nowrap;
@@ -465,7 +507,7 @@ nav {
     align-items: center;
     gap: 9px;
     margin: 0 0 18px;
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -476,7 +518,7 @@ nav {
       background-color: $color1;
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -528,6 +570,7 @@ nav {
       gap: 12px;
     }
     @include lg {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
   }
@@ -574,7 +617,7 @@ nav {
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    color: rgba($color: $base-color, $alpha: 0.45);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     letter-spacing: 0.1em;
     .services-page__card-link {
@@ -615,10 +658,107 @@ nav {
   .services-page__detail {
     width: 100%;
     padding-top: 11px;
-    color: rgba($color: $base-color, $alpha: 0.5);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.67rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+  .services-process {
+    display: grid;
+    gap: 24px;
+    padding-top: 27px;
+    border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
+    @include md {
+      gap: 30px;
+      padding-top: 34px;
+    }
+  }
+  .services-process__intro {
+    display: grid;
+    align-items: end;
+    gap: 12px;
+    @include md {
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 0.6fr);
+      gap: 36px;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 3.7vw, 3rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 1.05;
+      em {
+        color: $color1;
+        font-style: normal;
+      }
+    }
+    > p {
+      max-width: 27rem;
+      margin: 0;
+      color: rgba($color: $base-color, $alpha: 0.68);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+  }
+  .services-process__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 12px;
+    color: rgba($color: $base-color, $alpha: 0.64);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    span {
+      width: 6px;
+      height: 6px;
+      background-color: $color1;
+    }
+    b {
+      color: rgba($color: $base-color, $alpha: 0.64);
+      font-weight: 300;
+    }
+  }
+  .services-process__steps {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    @include sm {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px 14px;
+    }
+    @include lg {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+    li {
+      min-width: 0;
+      padding-top: 13px;
+      border-top: 1px solid rgba($color: $base-color, $alpha: 0.16);
+    }
+    h3 {
+      margin: 16px 0 7px;
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    li p {
+      max-width: 22rem;
+      margin: 0;
+      color: rgba($color: $base-color, $alpha: 0.65);
+      font-size: 0.82rem;
+      line-height: 1.65;
+    }
+  }
+  .services-process__number {
+    color: $color1;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
   }
   .services-page__closing {
     display: flex;
@@ -670,7 +810,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: rgba($color: $base-color, $alpha: 0.48);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.72rem;
     a {
       &:hover {
@@ -696,7 +836,7 @@ nav {
     align-items: center;
     gap: 9px;
     margin: 0 0 18px;
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -707,7 +847,7 @@ nav {
       background-color: $color1;
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -789,13 +929,13 @@ nav {
       display: flex;
       min-height: 110px;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
+      justify-content: flex-start;
+      gap: 12px;
       padding: 14px;
       border: 1px solid rgba($color: $base-color, $alpha: 0.12);
       background-color: rgba($color: $background-light, $alpha: 0.48);
       span {
-        color: rgba($color: $base-color, $alpha: 0.45);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.67rem;
         letter-spacing: 0.08em;
       }
@@ -874,7 +1014,7 @@ nav {
     align-items: center;
     gap: 9px;
     margin: 0 0 18px;
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -885,7 +1025,7 @@ nav {
       background-color: $color3;
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -953,7 +1093,7 @@ nav {
       font-size: 1rem;
       font-weight: 500;
       b {
-        color: rgba($color: $base-color, $alpha: 0.42);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-weight: 300;
       }
     }
@@ -962,7 +1102,7 @@ nav {
       font-size: 0.82rem;
       b {
         padding: 0 3px;
-        color: rgba($color: $base-color, $alpha: 0.3);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-weight: 300;
       }
     }
@@ -970,7 +1110,7 @@ nav {
       display: flex;
       flex-wrap: wrap;
       gap: 4px 8px;
-      color: rgba($color: $base-color, $alpha: 0.48);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.64rem;
       letter-spacing: 0.03em;
       line-height: 1.4;
@@ -1040,7 +1180,7 @@ nav {
       letter-spacing: -0.05em;
     }
     span {
-      color: rgba($color: $base-color, $alpha: 0.56);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: clamp(0.62rem, 1vw, 0.72rem);
       line-height: 1.4;
     }
@@ -1176,7 +1316,7 @@ nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: rgba($color: $base-color, $alpha: 0.5);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.67rem;
       letter-spacing: 0.08em;
       i {
@@ -1192,7 +1332,7 @@ nav {
     }
     .team-page__collaborator-role {
       margin: 4px 0 0;
-      color: rgba($color: $base-color, $alpha: 0.58);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.7rem;
       line-height: 1.45;
     }
@@ -1326,7 +1466,7 @@ nav {
   margin-top: 22px;
   padding-top: 14px;
   border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
-  color: rgba($color: $base-color, $alpha: 0.58);
+  color: rgba($color: $base-color, $alpha: 0.64);
   font-size: 0.8rem;
   flex-wrap: wrap;
   a {
@@ -1373,7 +1513,7 @@ nav {
     align-items: center;
     gap: 9px;
     margin: 0 0 20px;
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -1384,7 +1524,7 @@ nav {
       background-color: $color2;
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -1497,7 +1637,7 @@ nav {
     position: absolute;
     top: 18px;
     left: 18px;
-    color: rgba($color: $base-color, $alpha: 0.48);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.62rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -1540,9 +1680,12 @@ header.site-hero {
   display: flex;
   min-height: min(760px, calc(100svh - 89px));
   align-items: center;
-  padding: clamp(48px, 7vw, 88px) 0 40px;
+  padding: clamp(48px, 7vw, 88px) 0 64px;
   padding-left: 10px;
   @include md {
+    min-height: 100svh;
+    align-items: center;
+    padding: 0 0 128px;
     padding-left: 0;
   }
   .hero__content {
@@ -1562,7 +1705,7 @@ header.site-hero {
     align-items: center;
     gap: 9px;
     margin: 0 0 24px;
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -1573,7 +1716,7 @@ header.site-hero {
       background-color: var(--home-hero-accent, #111827);
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.28);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -1685,7 +1828,7 @@ header.site-hero {
     }
   }
   .hero__service-number {
-    color: rgba($color: $base-color, $alpha: 0.45);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.68rem;
     letter-spacing: 0.1em;
   }
@@ -1729,7 +1872,7 @@ header.site-hero {
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  color: rgba($color: $base-color, $alpha: 0.58);
+  color: rgba($color: $base-color, $alpha: 0.64);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1838,6 +1981,9 @@ header.site-hero {
 .clients-section {
   scroll-margin-top: 24px;
   padding: clamp(48px, 7vw, 92px) 0 64px;
+  @include md {
+    padding: 0 0 64px;
+  }
   .clients__intro {
     display: grid;
     align-items: end;
@@ -1855,7 +2001,7 @@ header.site-hero {
     align-items: center;
     gap: 9px;
     margin: 0 0 16px;
-    color: rgba($color: $base-color, $alpha: 0.56);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -1866,7 +2012,7 @@ header.site-hero {
       background-color: var(--home-clients-accent, #111827);
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -1908,7 +2054,7 @@ header.site-hero {
         letter-spacing: -0.04em;
       }
       span {
-        color: rgba($color: $base-color, $alpha: 0.52);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.68rem;
         font-weight: 500;
         letter-spacing: 0.1em;
@@ -1928,7 +2074,8 @@ header.site-hero {
     gap: 10px;
     width: max-content;
     animation: clients-marquee 25s linear infinite;
-    &:hover {
+    &:hover,
+    &:focus-within {
       animation-play-state: paused;
     }
     .square {
@@ -1996,7 +2143,7 @@ header.site-hero {
     margin-top: 22px;
     padding-top: 14px;
     border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.8rem;
     flex-wrap: wrap;
     a {
@@ -2020,9 +2167,108 @@ header.site-hero {
   }
 }
 
+.clients-section .testimonials-section {
+  margin-top: 24px;
+  padding-top: 17px;
+  border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
+  .testimonials__title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 12px;
+    color: rgba($color: $base-color, $alpha: 0.64);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    &::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background-color: var(--home-clients-accent, #111827);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .clients__track {
+      animation: none;
+      .square--duplicate {
+        display: none;
+      }
+    }
+  }
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+  .testimonials__card {
+    display: grid;
+    align-items: start;
+    gap: 12px;
+    padding: 0 0 14px;
+    margin: 0;
+    border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.1);
+    @include md {
+      grid-template-columns: minmax(0, 1fr) minmax(180px, 0.32fr);
+      align-items: center;
+      gap: 28px;
+    }
+    blockquote {
+      position: relative;
+      margin: 0;
+      padding-left: 22px;
+      &::before {
+        content: "“";
+        position: absolute;
+        top: -2px;
+        left: 0;
+        color: var(--home-clients-accent, #111827);
+        font-size: 1.35rem;
+        font-weight: 500;
+        line-height: 1;
+      }
+      p {
+        margin: 0;
+        font-size: 0.86rem;
+        line-height: 1.7;
+      }
+    }
+    figcaption {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      @include md {
+        padding-left: 18px;
+        border-left: 1px solid rgba($color: $base-color, $alpha: 0.12);
+      }
+    }
+    .testimonials__logo {
+      width: 58px;
+      height: 38px;
+      flex: 0 0 58px;
+      object-fit: contain;
+    }
+    .testimonials__identity {
+      display: grid;
+      gap: 3px;
+      strong {
+        font-size: 0.78rem;
+        font-weight: 500;
+      }
+      span {
+        color: rgba($color: $base-color, $alpha: 0.64);
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
 .featured-projects {
   scroll-margin-top: 24px;
-  padding: clamp(48px, 7vw, 88px) 0 68px;
+  padding: clamp(48px, 7vw, 88px) 0 64px;
+  @include md {
+    padding: clamp(24px, 4vw, 48px) 0 64px;
+  }
   .featured-projects__intro {
     display: grid;
     align-items: end;
@@ -2040,7 +2286,7 @@ header.site-hero {
     align-items: center;
     gap: 9px;
     margin: 0 0 16px;
-    color: rgba($color: $base-color, $alpha: 0.56);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -2051,7 +2297,7 @@ header.site-hero {
       background-color: var(--home-projects-accent, #111827);
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -2105,7 +2351,7 @@ header.site-hero {
     margin-top: 22px;
     padding-top: 14px;
     border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.8rem;
     flex-wrap: wrap;
     .featured-projects__all {
@@ -2127,6 +2373,7 @@ header.site-hero {
     display: flex;
     align-items: baseline;
     gap: 20px;
+    flex-wrap: wrap;
     margin-top: 16px;
     padding-top: 12px;
     .featured-projects__count {
@@ -2140,7 +2387,7 @@ header.site-hero {
         letter-spacing: -0.04em;
       }
       span {
-        color: rgba($color: $base-color, $alpha: 0.52);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.68rem;
         font-weight: 500;
         letter-spacing: 0.1em;
@@ -2185,7 +2432,7 @@ header.site-hero {
     display: flex;
     justify-content: space-between;
     gap: 12px;
-    color: rgba($color: $base-color, $alpha: 0.52);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.65rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -2260,7 +2507,7 @@ header.site-hero {
     align-items: center;
     gap: 9px;
     margin: 0 0 16px;
-    color: rgba($color: $base-color, $alpha: 0.56);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.68rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -2271,7 +2518,7 @@ header.site-hero {
       background-color: $color2;
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -2304,7 +2551,7 @@ header.site-hero {
       display: flex;
       align-items: baseline;
       gap: 7px;
-      color: rgba($color: $base-color, $alpha: 0.56);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.7rem;
       text-transform: uppercase;
       strong {
@@ -2351,7 +2598,7 @@ header.site-hero {
       }
     }
     > span {
-      color: rgba($color: $base-color, $alpha: 0.5);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.72rem;
     }
   }
@@ -2397,7 +2644,7 @@ header.site-hero {
         min-width: 0;
       }
       .projects-page__status {
-        color: rgba($color: $base-color, $alpha: 0.48);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.62rem;
         white-space: nowrap;
         &--active {
@@ -2444,7 +2691,7 @@ header.site-hero {
       }
       > span:last-child {
         margin-left: auto;
-        color: rgba($color: $base-color, $alpha: 0.5);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.7rem;
         font-weight: 300;
       }
@@ -2616,7 +2863,7 @@ footer {
     gap: 10px;
   }
   .footer__eyebrow {
-    color: rgba($color: $base-color, $alpha: 0.52);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.68rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -2743,11 +2990,11 @@ footer {
     overflow-y: auto;
     overscroll-behavior: contain;
     &::before {
-      content: "MENÚ";
+      content: attr(data-menu-label);
       position: absolute;
       top: 28px;
       left: 28px;
-      color: rgba($color: $base-color, $alpha: 0.48);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.7rem;
       font-weight: 500;
       letter-spacing: 0.16em;
@@ -2781,7 +3028,7 @@ footer {
       position: absolute;
       top: 50%;
       right: 4px;
-      color: rgba($color: $base-color, $alpha: 0.4);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.72rem;
       letter-spacing: 0.08em;
       transform: translateY(-50%);
@@ -2807,5 +3054,37 @@ footer {
       outline: 2px solid $color1;
       outline-offset: 2px;
     }
+  }
+  .nav__flex.show .nav__languages {
+    width: min(100%, 440px);
+    justify-content: flex-start;
+    gap: 16px;
+    margin: 24px 0 0;
+    padding: 16px 0 0;
+    border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
+    border-left: 0;
+    a {
+      padding: 8px 2px;
+      font-size: 0.74rem;
+      &[aria-current="page"] {
+        color: $base-color;
+        border-bottom: 1px solid var(--home-hero-accent, #111827);
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

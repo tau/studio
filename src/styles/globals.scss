@@ -1,6 +1,10 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   padding: 0;

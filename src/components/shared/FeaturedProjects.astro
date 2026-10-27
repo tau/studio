@@ -1,26 +1,35 @@
 ---
 import { projects } from '@/data/projects';
 import SectionCta from '@/components/shared/SectionCta.astro';
+import { localizedProjectDescription } from '@/data/project-translations';
+import { getMessages } from '@/i18n/messages';
+import { asLocale, localizedPagePath, type Locale } from '@/i18n/routing';
+
+interface Props { locale?: Locale }
+const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
+const messages = getMessages(locale);
 
 const featuredProjects = projects.filter((project) => project.featured);
 const totalProjectCount = String(projects.length).padStart(2, '0');
 const personalProjectCount = projects.filter((project) => project.category === 'personal').length;
 const clientProjectCount = projects.filter((project) => project.category === 'client').length;
+const otherProjectCount = projects.filter((project) => project.category === 'other').length;
 ---
 
 <section class="featured-projects" id="featured-projects" aria-labelledby="featured-projects-title">
   <div class="content">
     <div class="featured-projects__intro">
       <div>
-        <p class="featured-projects__eyebrow"><span></span> Proyectos <b># {totalProjectCount}</b></p>
-        <h2 id="featured-projects-title">Ideas que <em>se convierten en proyectos.</em></h2>
+        <p class="featured-projects__eyebrow"><span></span> {messages.projects.eyebrow} <b># {totalProjectCount}</b></p>
+        <h2 id="featured-projects-title">{messages.projects.title} <em>{messages.projects.titleAccent}</em></h2>
       </div>
       <div class="featured-projects__summary">
-        <p>Una selección de proyectos personales y colaboraciones con clientes, construidos para resolver necesidades reales.</p>
-        <div class="featured-projects__counts" aria-label="Resumen de proyectos">
-          <div class="featured-projects__count"><strong>{totalProjectCount}</strong><span>totales</span></div>
-          <div class="featured-projects__count"><strong>{String(personalProjectCount).padStart(2, '0')}</strong><span>personales</span></div>
-          <div class="featured-projects__count"><strong>{String(clientProjectCount).padStart(2, '0')}</strong><span>de clientes</span></div>
+        <p>{messages.projects.summary}</p>
+        <div class="featured-projects__counts" aria-label={messages.projects.catalogAria}>
+          <div class="featured-projects__count"><strong>{totalProjectCount}</strong><span>{messages.projects.totalCount}</span></div>
+          <div class="featured-projects__count"><strong>{String(personalProjectCount).padStart(2, '0')}</strong><span>{messages.projects.personalCount}</span></div>
+          <div class="featured-projects__count"><strong>{String(clientProjectCount).padStart(2, '0')}</strong><span>{messages.projects.clientCount}</span></div>
+          <div class="featured-projects__count"><strong>{String(otherProjectCount).padStart(2, '0')}</strong><span>{messages.projects.experimentalCount}</span></div>
         </div>
       </div>
     </div>
@@ -34,16 +43,16 @@ const clientProjectCount = projects.filter((project) => project.category === 'cl
           rel="noopener noreferrer"
         >
           <div class="featured-projects__meta">
-            <span>{project.category === 'personal' ? 'Proyecto personal' : project.category === 'client' ? 'Proyecto para cliente' : 'Proyecto'}</span>
+            <span>{project.category === 'personal' ? messages.projects.categoryPersonal : project.category === 'client' ? messages.projects.categoryClient : messages.projects.categoryOther}</span>
             <span>{project.year}</span>
           </div>
           <div class="featured-projects__identity">
             {project.logo && <img src={project.logo} alt="" loading="lazy" decoding="async" />}
             <h3>{project.title}</h3>
           </div>
-          <p>{project.description}</p>
+          <p>{localizedProjectDescription(project, locale)}</p>
           <span class="featured-projects__link">
-            <span>Ver ficha</span>
+            <span>{messages.projects.viewProject}</span>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
           </span>
         </a>
@@ -52,9 +61,9 @@ const clientProjectCount = projects.filter((project) => project.category === 'cl
 
     <SectionCta
       variant="projects"
-      prompt="Descubre el catálogo completo"
-      label="Ver todos los proyectos"
-      href="/proyectos"
+      prompt={messages.projects.allPrompt}
+      label={messages.projects.viewAll}
+      href={localizedPagePath(locale, 'projects')}
     />
   </div>
 </section>

@@ -1,17 +1,23 @@
 ---
+import { getMessages } from '@/i18n/messages';
+import { asLocale, localizedPagePath, type Locale } from '@/i18n/routing';
+
+interface Props { locale?: Locale }
+const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
+const messages = getMessages(locale);
 const items = [
-  { href: '/servicios', cls: 'c1', number: '01', label: 'Servicios', text: 'Diseño, desarrollo y crecimiento digital para tu marca.' },
-  { href: '/proyectos', cls: 'c2', number: '02', label: 'Proyectos', text: 'Ideas y colaboraciones llevadas a la práctica.' },
-  { href: '/equipo', cls: 'c3', number: '03', label: 'El equipo', text: 'Conoce cómo pensamos, diseñamos y trabajamos.' },
-  { href: '/contacto', cls: 'c4', number: '04', label: 'Contacto', text: 'Cuéntanos qué tienes en mente. Hablemos.' },
-];
+  { page: 'services' as const, cls: 'c1', number: '01', label: messages.navigation.services, text: messages.footer.nav.servicesText },
+  { page: 'projects' as const, cls: 'c2', number: '02', label: messages.navigation.projects, text: messages.footer.nav.projectsText },
+  { page: 'team' as const, cls: 'c3', number: '03', label: messages.navigation.team, text: messages.footer.nav.teamText },
+  { page: 'contact' as const, cls: 'c4', number: '04', label: messages.navigation.contact, text: messages.footer.nav.contactText },
+].map((item) => ({ ...item, href: localizedPagePath(locale, item.page) }));
 ---
 
-<nav class="footer-nav" aria-label="Explora Tau Studio">
+<nav class="footer-nav" aria-label={messages.navigation.footerAriaLabel}>
   <section class="content">
     <section class="footer-nav__wrapper">
       <div class="footer-nav__heading">
-        <p>Continúa explorando</p>
+          <p>{messages.footer.navHeading}</p>
         <span class="footer-nav__rule" aria-hidden="true"></span>
       </div>
       <div class="footer-nav__flex">

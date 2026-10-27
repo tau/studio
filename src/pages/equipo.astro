@@ -6,12 +6,19 @@ import { projects } from '@/data/projects';
 import felipePhoto from '@/assets/team/felipe-bernal.jfif';
 import josePhoto from '@/assets/team/jose-sanchez.jfif';
 import paulPhoto from '@/assets/team/paul-guillamon.jpeg';
+import { getMessages } from '@/i18n/messages';
+import { teamContent } from '@/i18n/team-content';
+import { asLocale, localizedPagePath, type Locale } from '@/i18n/routing';
 
-const disciplines = ['Marketing', 'SEO', 'Diseño', 'Maquetación', 'Desarrollo web', 'Desarrollo móvil'];
+interface Props { locale?: Locale }
+const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
+const messages = getMessages(locale);
+const content = teamContent[locale];
+const disciplines = content.disciplines;
 const milestones = [
-  { value: '+10', label: 'años de experiencia' },
-  { value: '+50', label: 'proyectos web y móvil' },
-  { value: '+15', label: 'clientes acompañados' },
+  { value: '+10', label: messages.team.milestones.experience },
+  { value: '+70', label: messages.team.milestones.projects },
+  { value: '+25', label: messages.team.milestones.clients },
 ];
 const collaborators = [
   {
@@ -19,7 +26,7 @@ const collaborators = [
     profile: 'https://www.linkedin.com/in/jos%C3%A9-antonio-s%C3%A1nchez-fuentes/',
     photo: josePhoto,
     period: '2024 — 2026',
-    role: 'Frontend React · Móvil con React Native / Expo',
+    role: content.joseRole,
     projects: ['pckt-link-v0', 'medilens-app'],
   },
   {
@@ -27,16 +34,16 @@ const collaborators = [
     profile: 'https://www.linkedin.com/in/felipe-bernal-martinez-a140a483/',
     photo: felipePhoto,
     period: '2026',
-    role: 'Senior Software Developer Engineering',
+    role: content.felipeRole,
     projects: ['medilens-app'],
   },
 ];
 ---
 
 <SiteLayout
-  title="El equipo | Tau Studio"
-  description="Conoce a Paul Guillamón, creador de Tau Studio, y su trayectoria en marketing, SEO, diseño y desarrollo web."
-  image="/og-equipo.png"
+  title={`${messages.navigation.team} | Tau Studio`}
+  description={messages.team.metaDescription}
+  image={`/og/${locale}/team.png`}
   schemaType="ProfilePage"
   mainEntity={{ '@id': 'https://tau.studio#paul' }}
   jsonLd={collaborators.map((collaborator) => ({
@@ -45,34 +52,32 @@ const collaborators = [
     jobTitle: collaborator.role,
     url: collaborator.profile,
   }))}
+  themeColor="#5ABE93"
+  locale={locale}
 >
-  <main class="content team-page">
+  <main id="main" tabindex="-1" class="content team-page">
     <section class="team-page__intro" aria-labelledby="team-title">
       <div class="team-page__copy">
-        <p class="team-page__eyebrow"><span></span> El equipo <b>/ 03</b></p>
-        <h1 id="team-title">Hola, soy Paul.<br /><em>La persona detrás de Tau.</em></h1>
-        <p class="team-page__lead">Soy Paul Guillamón, también conocido como Qu4k3. Desarrollador web con más de diez años de experiencia en marketing, SEO, diseño y desarrollo web y móvil. Desde 2019, doy forma a Tau Studio.</p>
+        <p class="team-page__eyebrow"><span></span> {messages.team.eyebrow} <b>/ 03</b></p>
+        <h1 id="team-title">{messages.team.title}<br /><em>{messages.team.titleAccent}</em></h1>
+        <p class="team-page__lead">{content.bio}</p>
       </div>
 
-      <aside class="team-page__profile" aria-label="Perfil de Paul Guillamón">
+      <aside class="team-page__profile" aria-label={messages.team.profileLabel}>
           <Image class="team-page__profile-photo" src={paulPhoto} alt="Paul Guillamón" width={76} height={88} loading="lazy" decoding="async" />
         <div class="team-page__profile-info">
             <strong>Paul Guillamón <b>/ Qu4k3</b></strong>
-            <span class="team-page__profile-role">Desarrollador FullStack · Diseñador UX/UI</span>
-            <div class="team-page__profile-specialties" aria-label="Especialidades">
-              <span>JavaScript / React</span>
-              <span>FullStack</span>
-              <span>Diseño UX/UI</span>
-              <span>Maquetación</span>
-              <span>React Native / Expo</span>
+            <span class="team-page__profile-role">{content.role}</span>
+            <div class="team-page__profile-specialties" aria-label={messages.team.specialties}>
+              {content.specialties.map((specialty) => <span>{specialty}</span>)}
             </div>
         </div>
         <div class="team-page__profile-links">
           <a href="https://www.linkedin.com/in/paulguillamon/" target="_blank" rel="noopener noreferrer">
-            <span>LinkedIn</span>
+                <span>LinkedIn</span>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
           </a>
-          <a href="https://qu4k3.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://qu4k3.com/" target="_blank" rel="noopener noreferrer">
             <span>qu4k3.com</span>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
           </a>
@@ -80,7 +85,7 @@ const collaborators = [
       </aside>
     </section>
 
-    <section class="team-page__milestones" aria-label="Experiencia">
+    <section class="team-page__milestones" aria-label={messages.team.eyebrow}>
       {milestones.map((milestone) => (
         <div class="team-page__milestone">
           <strong>{milestone.value}</strong>
@@ -91,27 +96,26 @@ const collaborators = [
 
     <section class="team-page__approach" aria-labelledby="team-approach-title">
       <div>
-        <p class="team-page__eyebrow"><span></span> Un perfil multidisciplinar</p>
-        <h2 id="team-approach-title">Distintas disciplinas.<br /><em>Una visión conectada.</em></h2>
+        <p class="team-page__eyebrow"><span></span> {messages.team.approach.eyebrow}</p>
+        <h2 id="team-approach-title">{messages.team.approach.title}<br /><em>{messages.team.approach.titleAccent}</em></h2>
       </div>
       <div class="team-page__disciplines">
         {disciplines.map((discipline) => (
           <span><i aria-hidden="true"></i>{discipline}</span>
         ))}
       </div>
-      <p class="team-page__note">Su trayectoria empezó con PHP y evolucionó hacia el desarrollo web y móvil con JavaScript y React, siempre conectando la tecnología con el diseño y los objetivos de cada proyecto.</p>
     </section>
 
     <section class="team-page__collaborators" aria-labelledby="team-collaborators-title">
       <div class="team-page__collaborators-heading">
-        <p class="team-page__eyebrow"><span></span> Colaboradores</p>
-        <h2 id="team-collaborators-title">Proyectos que también se construyen <em>en equipo.</em></h2>
+        <p class="team-page__eyebrow"><span></span> {messages.team.collaborators.eyebrow}</p>
+        <h2 id="team-collaborators-title">{messages.team.collaborators.title} <em>{messages.team.collaborators.titleAccent}</em></h2>
       </div>
       <div class="team-page__collaborators-list">
         {collaborators.map((collaborator) => (
           <article class="team-page__collaborator">
             <div class="team-page__collaborator-person">
-              <a class="team-page__collaborator-photo-link" href={collaborator.profile} target="_blank" rel="noopener noreferrer" aria-label={`Ver perfil de ${collaborator.name} en LinkedIn`}>
+              <a class="team-page__collaborator-photo-link" href={collaborator.profile} target="_blank" rel="noopener noreferrer" aria-label={`${messages.team.viewLinkedIn} ${collaborator.name}`}>
                 <Image class="team-page__collaborator-photo" src={collaborator.photo} alt={collaborator.name} width={58} height={58} loading="lazy" decoding="async" />
               </a>
               <div>
@@ -123,7 +127,7 @@ const collaborators = [
                 {collaborator.role && <p class="team-page__collaborator-role">{collaborator.role}</p>}
               </div>
             </div>
-            <div class="team-page__collaborator-projects" aria-label={`Proyectos de ${collaborator.name}`}>
+            <div class="team-page__collaborator-projects" aria-label={`${messages.team.collaboratorProjects} ${collaborator.name}`}>
               {collaborator.projects.map((slug) => {
                 const project = projects.find((item) => item.slug === slug);
                 return project && (
@@ -142,9 +146,10 @@ const collaborators = [
 
     <ClosingCta
       variant="team"
-      prompt="¿Tienes una idea entre manos?"
-      emphasis="Hablemos."
-      ariaLabel="Contactar con Paul y Tau Studio"
+      prompt={messages.team.cta.prompt}
+      emphasis={messages.team.cta.emphasis}
+      href={localizedPagePath(locale, 'contact')}
+      ariaLabel={content.contactAria}
     />
   </main>
 </SiteLayout>
