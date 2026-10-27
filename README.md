@@ -8,14 +8,27 @@ Sitio web de Tau Studio migrado a [Astro](https://astro.build/) (v7.4+), sin fra
 
 ```
 src/
+  assets/
+    clients/          # logos de clientes
+    team/             # fotos del equipo
   components/
-  i18n/locales/
-  layouts/
-  pages/
-  styles/
+    shared/           # Nav, Footer, Header, Clients, etc.
+  data/             # proyectos, servicios, clientes, testimonios
+  i18n/
+    locales/          # es, en, fr, ca
+  layouts/          # BaseLayout, SiteLayout
+  pages/            # rutas (es base + ca/en/fr + servicios)
+  styles/           # SCSS (main, variables, mixins)
 public/
-  assets/projects/
-scripts/
+  assets/
+    cards/            # tarjetas de visita
+    img/              # imágenes generales
+    projects/         # logos de proyectos (generados)
+  icons/            # iconos PWA
+  manifests/        # webmanifest por idioma
+  og/               # imágenes Open Graph por idioma
+scripts/            # sync, descarga de logos, generación OG
+.agents/skills/     # skills de Astro
 ```
 
 ## Comandos
