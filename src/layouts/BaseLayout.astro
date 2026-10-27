@@ -138,14 +138,6 @@ const jsonLd = {
     <meta name="author" content="Tau Studio" />
     <meta name="theme-color" content={themeColor} />
 
-    <script is:inline>
-      try {
-        if (localStorage.getItem('tau-retro-mode') === '1') {
-          document.documentElement.classList.add('retro-mode');
-        }
-      } catch {}
-    </script>
-
     <!-- Open Graph -->
     <meta property="og:type" content={type} />
     <meta property="og:site_name" content="Tau Studio" />
@@ -212,6 +204,14 @@ const jsonLd = {
       </span>
     </div>
     <slot />
+
+    <script is:inline>
+      try {
+        if (localStorage.getItem('tau-retro-mode') === '1') {
+          document.documentElement.classList.add('retro-mode');
+        }
+      } catch {}
+    </script>
 
     <style is:global>
       html.retro-mode {
@@ -287,23 +287,13 @@ const jsonLd = {
           '   ╚═╝    ╚═╝  ╚═╝  ╚═════╝',
         ].join('\n');
 
-        console.log('%c  TAU STUDIO  ', 'background:#6853a2;color:#ffffff;padding:6px 14px;border-radius:8px;font-weight:800;font-size:15px;letter-spacing:1px;');
-        console.log('%cDesarrollo web y marketing digital', 'color:#6b7280;font-style:italic;font-size:12px;');
-        console.log('%c' + ascii, 'font-family:monospace;line-height:1.05;color:#111827;font-size:12px;');
-        console.table({
-          'Créditos': 'Paul Guillamón (Qu4k3) + equipo Tau Studio',
-          'Stack': 'Astro · SCSS · TypeScript · Netlify',
-          'Easter egg': 'Modo retro (Konami Code)',
-          'Salir retro': 'Esc',
-          'Web': 'https://tau.studio'
-        });
-        const konamiKeys = ['↑', '↑', '↓', '↓', '←', '→', '←', '→', 'B', 'A'];
-        console.log('%cKonami Code', 'font-weight:bold;color:#ec1978;font-size:13px;margin-top:6px;');
-        console.log(
-          konamiKeys.map((key) => '%c ' + key + ' ').join(''),
-          ...konamiKeys.map(() => 'background:#111827;color:#ffffff;padding:6px 10px;border-radius:6px;font-weight:bold;font-size:15px;margin:2px;box-shadow:0 2px 0 #000;')
-        );
-        console.log('%cactiva o desactiva el modo retro (se guarda en localStorage).', 'color:#6b7280;font-weight:600;font-size:12px;margin-top:4px;');
+        console.group('%cTau Studio', 'font-weight:bold;font-size:14px;color:#6853a2;');
+        console.log('%c' + ascii, 'font-family:monospace;line-height:1;color:#111827;');
+        console.log('%cCréditos  %cPaul Guillamón (Qu4k3)', 'font-weight:bold;color:#6853a2;', 'color:#111827;');
+        console.log('%cStack     %cAstro · SCSS · TypeScript · Netlify', 'font-weight:bold;color:#5abe93;', 'color:#111827;');
+        console.log('%cEaster    %cKonami Code: ↑ ↑ ↓ ↓ ← → ← → B A // modo retro (Pulsa Esc para Salir)', 'font-weight:bold;color:#ec1978;', 'color:#111827;');
+        console.log('%cWeb       %chttps://tau.studio', 'font-weight:bold;color:#fbaf18;', 'color:#5abe93;text-decoration:underline;');
+        console.groupEnd();
       })();
     </script>
   </body>
