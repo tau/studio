@@ -57,7 +57,7 @@ const totalClientCount = String(total ?? clients.length).padStart(2, '0');
           <Square client={client} />
         ))}
         {featuredClients.map((client) => (
-          <Square client={client} />
+          <Square client={client} duplicate />
         ))}
       </div>
     </div>
