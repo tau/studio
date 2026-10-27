@@ -2,7 +2,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 
 export const locales = ['es', 'en', 'fr', 'ca'] as const;
 export type Locale = (typeof locales)[number];
-export type PageRoute = 'home' | 'services' | 'projects' | 'team' | 'contact';
+export type PageRoute = 'home' | 'services' | 'projects' | 'team' | 'contact' | 'legalNotice' | 'privacy';
 
 export const localeNames: Record<Locale, string> = {
   es: 'Español',
@@ -12,10 +12,10 @@ export const localeNames: Record<Locale, string> = {
 };
 
 const pageSlugs: Record<Locale, Record<Exclude<PageRoute, 'home'>, string>> = {
-  es: { services: 'servicios', projects: 'proyectos', team: 'equipo', contact: 'contacto' },
-  en: { services: 'services', projects: 'projects', team: 'team', contact: 'contact' },
-  fr: { services: 'services', projects: 'projets', team: 'equipe', contact: 'contact' },
-  ca: { services: 'serveis', projects: 'projectes', team: 'equip', contact: 'contacte' },
+  es: { services: 'servicios', projects: 'proyectos', team: 'equipo', contact: 'contacto', legalNotice: 'aviso-legal', privacy: 'privacidad' },
+  en: { services: 'services', projects: 'projects', team: 'team', contact: 'contact', legalNotice: 'legal-notice', privacy: 'privacy-policy' },
+  fr: { services: 'services', projects: 'projets', team: 'equipe', contact: 'contact', legalNotice: 'mentions-legales', privacy: 'politique-confidentialite' },
+  ca: { services: 'serveis', projects: 'projectes', team: 'equip', contact: 'contacte', legalNotice: 'avis-legal', privacy: 'politica-privacitat' },
 };
 
 export const serviceSlugs: Record<Locale, Record<string, string>> = {
