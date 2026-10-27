@@ -8,6 +8,24 @@
   --home-projects-accent: #111827;
 }
 
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: -10000px;
+  z-index: 200;
+  padding: 12px 16px;
+  border: 1px solid $base-color;
+  background: $background-light;
+  color: $base-color;
+  font-size: 0.85rem;
+  font-weight: 500;
+  &:focus {
+    left: 8px;
+    outline: 2px solid $color1;
+    outline-offset: 2px;
+  }
+}
+
 .site-nav {
   border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.1);
 }
@@ -181,7 +199,7 @@ nav {
         border-left: 1px solid rgba($color: $base-color, $alpha: 0.12);
         a {
           padding: 7px 2px;
-          color: rgba($color: $base-color, $alpha: 0.58);
+          color: rgba($color: $base-color, $alpha: 0.64);
           font-size: 0.64rem;
           font-weight: 500;
           letter-spacing: 0.06em;
@@ -208,7 +226,7 @@ nav {
       margin-bottom: 18px;
       p {
         margin: 0;
-        color: rgba($color: $base-color, $alpha: 0.58);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.72rem;
         font-weight: 500;
         letter-spacing: 0.14em;
@@ -326,7 +344,7 @@ nav {
         }
         .footer-nav__icon {
           align-self: center;
-          color: rgba($color: $base-color, $alpha: 0.58);
+          color: rgba($color: $base-color, $alpha: 0.64);
           transition: transform $default-transition;
         }
       }
@@ -352,7 +370,7 @@ nav {
       align-items: center;
       gap: 9px;
       margin: 0 0 22px;
-      color: rgba($color: $base-color, $alpha: 0.58);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.13em;
@@ -363,7 +381,7 @@ nav {
         background-color: $color4;
       }
       b {
-        color: rgba($color: $base-color, $alpha: 0.28);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-weight: 300;
       }
     }
@@ -405,7 +423,7 @@ nav {
         outline-offset: 2px;
       }
       .contact-page__detail-label {
-        color: rgba($color: $base-color, $alpha: 0.52);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.68rem;
         font-weight: 500;
         letter-spacing: 0.12em;
@@ -443,7 +461,7 @@ nav {
     border-bottom: 1px solid rgba($color: $base-color, $alpha: 0.12);
     .contact-page__eyebrow {
       margin: 0 0 7px;
-      color: rgba($color: $base-color, $alpha: 0.58);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 0.12em;
@@ -457,7 +475,7 @@ nav {
     }
     .contact-page__panel-index {
       padding-top: 2px;
-      color: rgba($color: $base-color, $alpha: 0.4);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.7rem;
       letter-spacing: 0.08em;
       white-space: nowrap;
@@ -490,7 +508,7 @@ nav {
     align-items: center;
     gap: 9px;
     margin: 0 0 18px;
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -501,7 +519,7 @@ nav {
       background-color: $color1;
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -600,7 +618,7 @@ nav {
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    color: rgba($color: $base-color, $alpha: 0.45);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     letter-spacing: 0.1em;
     .services-page__card-link {
@@ -641,7 +659,7 @@ nav {
   .services-page__detail {
     width: 100%;
     padding-top: 11px;
-    color: rgba($color: $base-color, $alpha: 0.5);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.67rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -688,7 +706,7 @@ nav {
     align-items: center;
     gap: 9px;
     margin: 0 0 12px;
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.68rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -699,7 +717,7 @@ nav {
       background-color: $color1;
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -793,7 +811,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: rgba($color: $base-color, $alpha: 0.48);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.72rem;
     a {
       &:hover {
@@ -819,7 +837,7 @@ nav {
     align-items: center;
     gap: 9px;
     margin: 0 0 18px;
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -830,7 +848,7 @@ nav {
       background-color: $color1;
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -918,7 +936,7 @@ nav {
       border: 1px solid rgba($color: $base-color, $alpha: 0.12);
       background-color: rgba($color: $background-light, $alpha: 0.48);
       span {
-        color: rgba($color: $base-color, $alpha: 0.45);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.67rem;
         letter-spacing: 0.08em;
       }
@@ -997,7 +1015,7 @@ nav {
     align-items: center;
     gap: 9px;
     margin: 0 0 18px;
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -1008,7 +1026,7 @@ nav {
       background-color: $color3;
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -1076,7 +1094,7 @@ nav {
       font-size: 1rem;
       font-weight: 500;
       b {
-        color: rgba($color: $base-color, $alpha: 0.42);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-weight: 300;
       }
     }
@@ -1085,7 +1103,7 @@ nav {
       font-size: 0.82rem;
       b {
         padding: 0 3px;
-        color: rgba($color: $base-color, $alpha: 0.3);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-weight: 300;
       }
     }
@@ -1093,7 +1111,7 @@ nav {
       display: flex;
       flex-wrap: wrap;
       gap: 4px 8px;
-      color: rgba($color: $base-color, $alpha: 0.48);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.64rem;
       letter-spacing: 0.03em;
       line-height: 1.4;
@@ -1163,7 +1181,7 @@ nav {
       letter-spacing: -0.05em;
     }
     span {
-      color: rgba($color: $base-color, $alpha: 0.56);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: clamp(0.62rem, 1vw, 0.72rem);
       line-height: 1.4;
     }
@@ -1299,7 +1317,7 @@ nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: rgba($color: $base-color, $alpha: 0.5);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.67rem;
       letter-spacing: 0.08em;
       i {
@@ -1315,7 +1333,7 @@ nav {
     }
     .team-page__collaborator-role {
       margin: 4px 0 0;
-      color: rgba($color: $base-color, $alpha: 0.58);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.7rem;
       line-height: 1.45;
     }
@@ -1449,7 +1467,7 @@ nav {
   margin-top: 22px;
   padding-top: 14px;
   border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
-  color: rgba($color: $base-color, $alpha: 0.58);
+  color: rgba($color: $base-color, $alpha: 0.64);
   font-size: 0.8rem;
   flex-wrap: wrap;
   a {
@@ -1496,7 +1514,7 @@ nav {
     align-items: center;
     gap: 9px;
     margin: 0 0 20px;
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -1507,7 +1525,7 @@ nav {
       background-color: $color2;
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -1620,7 +1638,7 @@ nav {
     position: absolute;
     top: 18px;
     left: 18px;
-    color: rgba($color: $base-color, $alpha: 0.48);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.62rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -1685,7 +1703,7 @@ header.site-hero {
     align-items: center;
     gap: 9px;
     margin: 0 0 24px;
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -1696,7 +1714,7 @@ header.site-hero {
       background-color: var(--home-hero-accent, #111827);
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.28);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -1808,7 +1826,7 @@ header.site-hero {
     }
   }
   .hero__service-number {
-    color: rgba($color: $base-color, $alpha: 0.45);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.68rem;
     letter-spacing: 0.1em;
   }
@@ -1852,7 +1870,7 @@ header.site-hero {
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  color: rgba($color: $base-color, $alpha: 0.58);
+  color: rgba($color: $base-color, $alpha: 0.64);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1978,7 +1996,7 @@ header.site-hero {
     align-items: center;
     gap: 9px;
     margin: 0 0 16px;
-    color: rgba($color: $base-color, $alpha: 0.56);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -1989,7 +2007,7 @@ header.site-hero {
       background-color: var(--home-clients-accent, #111827);
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -2031,7 +2049,7 @@ header.site-hero {
         letter-spacing: -0.04em;
       }
       span {
-        color: rgba($color: $base-color, $alpha: 0.52);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.68rem;
         font-weight: 500;
         letter-spacing: 0.1em;
@@ -2051,7 +2069,8 @@ header.site-hero {
     gap: 10px;
     width: max-content;
     animation: clients-marquee 25s linear infinite;
-    &:hover {
+    &:hover,
+    &:focus-within {
       animation-play-state: paused;
     }
     .square {
@@ -2119,7 +2138,7 @@ header.site-hero {
     margin-top: 22px;
     padding-top: 14px;
     border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.8rem;
     flex-wrap: wrap;
     a {
@@ -2152,7 +2171,7 @@ header.site-hero {
     align-items: center;
     gap: 9px;
     margin: 0 0 12px;
-    color: rgba($color: $base-color, $alpha: 0.56);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.68rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -2162,6 +2181,14 @@ header.site-hero {
       width: 6px;
       height: 6px;
       background-color: var(--home-clients-accent, #111827);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .clients__track {
+      animation: none;
+      .square--duplicate {
+        display: none;
+      }
     }
   }
   .testimonials__grid {
@@ -2224,7 +2251,7 @@ header.site-hero {
         font-weight: 500;
       }
       span {
-        color: rgba($color: $base-color, $alpha: 0.58);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.7rem;
       }
     }
@@ -2251,7 +2278,7 @@ header.site-hero {
     align-items: center;
     gap: 9px;
     margin: 0 0 16px;
-    color: rgba($color: $base-color, $alpha: 0.56);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -2262,7 +2289,7 @@ header.site-hero {
       background-color: var(--home-projects-accent, #111827);
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -2316,7 +2343,7 @@ header.site-hero {
     margin-top: 22px;
     padding-top: 14px;
     border-top: 1px solid rgba($color: $base-color, $alpha: 0.12);
-    color: rgba($color: $base-color, $alpha: 0.58);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.8rem;
     flex-wrap: wrap;
     .featured-projects__all {
@@ -2352,7 +2379,7 @@ header.site-hero {
         letter-spacing: -0.04em;
       }
       span {
-        color: rgba($color: $base-color, $alpha: 0.52);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.68rem;
         font-weight: 500;
         letter-spacing: 0.1em;
@@ -2397,7 +2424,7 @@ header.site-hero {
     display: flex;
     justify-content: space-between;
     gap: 12px;
-    color: rgba($color: $base-color, $alpha: 0.52);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.65rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -2472,7 +2499,7 @@ header.site-hero {
     align-items: center;
     gap: 9px;
     margin: 0 0 16px;
-    color: rgba($color: $base-color, $alpha: 0.56);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.68rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -2483,7 +2510,7 @@ header.site-hero {
       background-color: $color2;
     }
     b {
-      color: rgba($color: $base-color, $alpha: 0.3);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-weight: 300;
     }
   }
@@ -2516,7 +2543,7 @@ header.site-hero {
       display: flex;
       align-items: baseline;
       gap: 7px;
-      color: rgba($color: $base-color, $alpha: 0.56);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.7rem;
       text-transform: uppercase;
       strong {
@@ -2563,7 +2590,7 @@ header.site-hero {
       }
     }
     > span {
-      color: rgba($color: $base-color, $alpha: 0.5);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.72rem;
     }
   }
@@ -2609,7 +2636,7 @@ header.site-hero {
         min-width: 0;
       }
       .projects-page__status {
-        color: rgba($color: $base-color, $alpha: 0.48);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.62rem;
         white-space: nowrap;
         &--active {
@@ -2656,7 +2683,7 @@ header.site-hero {
       }
       > span:last-child {
         margin-left: auto;
-        color: rgba($color: $base-color, $alpha: 0.5);
+        color: rgba($color: $base-color, $alpha: 0.64);
         font-size: 0.7rem;
         font-weight: 300;
       }
@@ -2828,7 +2855,7 @@ footer {
     gap: 10px;
   }
   .footer__eyebrow {
-    color: rgba($color: $base-color, $alpha: 0.52);
+    color: rgba($color: $base-color, $alpha: 0.64);
     font-size: 0.68rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -2959,7 +2986,7 @@ footer {
       position: absolute;
       top: 28px;
       left: 28px;
-      color: rgba($color: $base-color, $alpha: 0.48);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.7rem;
       font-weight: 500;
       letter-spacing: 0.16em;
@@ -2993,7 +3020,7 @@ footer {
       position: absolute;
       top: 50%;
       right: 4px;
-      color: rgba($color: $base-color, $alpha: 0.4);
+      color: rgba($color: $base-color, $alpha: 0.64);
       font-size: 0.72rem;
       letter-spacing: 0.08em;
       transform: translateY(-50%);
@@ -3036,5 +3063,20 @@ footer {
         border-bottom: 1px solid var(--home-hero-accent, #111827);
       }
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
