@@ -22,15 +22,15 @@ export const testimonials: Testimonial[] = [
     logo: jsArquitectoLogo,
     quoteLocale: 'es',
   },
-  /*{
-    quote: '',
+  {
+    quote: 'Estem molt contents de treballar amb el Paul. Sempre que ho hem necessitat ens ha donat solucions als problemes que ens han sorgit amb el web o el servidor.',
     name: 'Begonya Molins',
     role: 'Dissenyadora gràfica',
     company: 'Farell Editors',
     logo: farellLogo,
     quoteLocale: 'ca',
   },
-  {
+  /*{
     quote: '',
     name: 'Silvana Castro Moreno',
     role: 'Presidenta',
