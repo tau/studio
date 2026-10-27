@@ -19,6 +19,7 @@
     "astro": "7.4.2",
     "sass": "1.106.1",
     "sharp": "0.35.5",
-    "simple-icons": "13.21.0"
+    
+    "simple-icons": "16.36.0"
   }
 }
