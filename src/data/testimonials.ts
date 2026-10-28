@@ -3,6 +3,7 @@ import farellLogo from '@/assets/clients/WEB-Logo-Farell-Color.jpg';
 import kinFelinaLogo from '@/assets/clients/kin-felina.jpeg';
 import jsArquitectoLogo from '@/assets/clients/js-arquitecto-icon.jpeg';
 import transcontrolLogo from "@/assets/clients/transcontrol.svg";
+import inOneLogo from '@/assets/clients/logo-inone.png';
 
 export interface Testimonial {
   quote: string;
@@ -38,6 +39,14 @@ export const testimonials: Testimonial[] = [
     company: 'Transcontrol',
     logo: transcontrolLogo,
     quoteLocale: 'es'
+  },
+  {
+    quote: 'Trabajar con Tau Studio fue un placer, fue de gran ayuda su visión y experiencia, nos aportó nuevas ideas en una gestión del diseño claro y eficiente.',
+    name: 'Jose Moreno Ruiz',
+    role: 'Fundador y CEO',
+    company: 'inOne',
+    logo: inOneLogo,
+    quoteLocale: 'es',
   }
   /*{
     quote: '',
