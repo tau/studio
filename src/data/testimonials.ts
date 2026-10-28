@@ -41,7 +41,7 @@ export const testimonials: Testimonial[] = [
     quoteLocale: 'es'
   },
   {
-    quote: 'Trabajar con Tau Studio fue un placer, fue de gran ayuda su visión y experiencia, nos aportó nuevas ideas en una gestión del diseño claro y eficiente',
+    quote: 'Trabajar con Tau Studio fue un placer, fue de gran ayuda su visión y experiencia, nos aportó nuevas ideas en una gestión del diseño claro y eficiente.',
     name: 'Jose Moreno Ruiz',
     role: 'Fundador y CEO',
     company: 'inOne',
