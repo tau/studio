@@ -47,13 +47,13 @@ export const testimonials: Testimonial[] = [
     company: 'inOne',
     logo: inOneLogo,
     quoteLocale: 'es',
-  }
-  /*{
-    quote: '',
-    name: 'Silvana Castro Moreno',
+  },
+  {
+    quote: 'Estamos encantados con el trabajo de Tau Studio. Han sabido captar nuestra esencia y filosofía desde el primer momento, transformándolas en una página web cuidada, elegante y fiel a nuestra identidad. Destacamos su profesionalidad, creatividad y sensibilidad, así como la facilidad y agilidad de todo el proceso. Estamos muy orgullosos del resultado y, sin duda, seguiremos contando con ellos para futuros proyectos. ¡Totalmente recomendables!',
+    name: 'Silvana Castro',
     role: 'Presidenta',
     company: 'Kin Felina',
     logo: kinFelinaLogo,
     quoteLocale: 'es',
-  },*/
+  }
 ];
