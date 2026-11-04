@@ -91,9 +91,11 @@ nav {
         height: 4px;
         background-color: var(--menu-accent, #111827);
       }
-      &:hover {
-        background-color: rgba($color: $background-regular, $alpha: 1);
-        border-color: rgba($color: $base-color, $alpha: 0.24);
+      @media (hover: hover) {
+        &:hover {
+          background-color: rgba($color: $background-regular, $alpha: 1);
+          border-color: rgba($color: $base-color, $alpha: 0.24);
+        }
       }
       &:active {
         transform: translateY(0) scale(0.96);
@@ -129,7 +131,7 @@ nav {
         gap: 0px 30px;
         a {
           transition: $default-transition;
-          display: inline-block;
+          display: block;
           position: relative;
           padding: 12px 3px;
           &:hover,
@@ -3016,6 +3018,7 @@ footer {
     background: rgba(249, 250, 251, 0.98);
      box-shadow: 0 18px 42px rgba($color: $base-color, $alpha: 0.1);
     overflow-y: auto;
+    overflow-x: hidden;
     overscroll-behavior: contain;
     &::before {
       content: attr(data-menu-label);
