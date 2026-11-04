@@ -1,7 +1,8 @@
 ---
+import Icon from '@/components/shared/Icon.astro';
 import SiteLayout from '@/layouts/SiteLayout.astro';
 import ClosingCta from '@/components/shared/ClosingCta.astro';
-import { projects } from '@/data/projects';
+import { projects, type Project } from '@/data/projects';
 import { getMessages } from '@/i18n/messages';
 import { asLocale, localizedPagePath, type Locale } from '@/i18n/routing';
 
@@ -16,13 +17,13 @@ const localizedStatus = (label: string) => ({
   Abandonado: messages.projects.abandoned,
 }[label] ?? label);
 
-const personalProjects = projects.filter((project) => project.category === 'personal');
-const clientProjects = projects.filter((project) => project.category === 'client');
-const otherProjects = projects.filter((project) => project.category === 'other');
+const personalProjects = projects.filter((project: Project) => project.category === 'personal');
+const clientProjects = projects.filter((project: Project) => project.category === 'client');
+const otherProjects = projects.filter((project: Project) => project.category === 'other');
 const activeProjects = personalProjects.filter((project) => project.status === 'active');
 const archivedProjects = personalProjects.filter((project) => project.status === 'archived');
 
-const groupByYear = (items) => {
+const groupByYear = (items: Project[]) => {
   const years = [...new Set(items.map((project) => project.year))].sort((a, b) => b - a);
   return years.map((year) => ({
     year,
@@ -39,7 +40,7 @@ const projectList = {
   '@type': 'ItemList',
   name: `${messages.projects.eyebrow} Tau Studio`,
   numberOfItems: projects.length,
-  itemListElement: projects.map((project, index) => ({
+  itemListElement: projects.map((project: Project, index: number) => ({
     '@type': 'ListItem',
     position: index + 1,
     item: {
@@ -96,7 +97,7 @@ const projectList = {
                   <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
                     <span class="projects-page__name">{project.title}</span>
                     <span class={`projects-page__status projects-page__status--${project.status}`}>{localizedStatus(project.statusLabel)}</span>
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+                    <Icon name="external-link" size={16} />
                   </a>
                 </li>
               ))}
@@ -120,7 +121,7 @@ const projectList = {
                     <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
                       <span class="projects-page__name">{project.title}</span>
                       <span class={`projects-page__status projects-page__status--${project.status}`}>{localizedStatus(project.statusLabel)}</span>
-                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+                      <Icon name="external-link" size={16} />
                     </a>
                   </li>
                 ))}
@@ -146,7 +147,7 @@ const projectList = {
                   <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
                     <span class="projects-page__name">{project.title}</span>
                     <span class={`projects-page__status projects-page__status--${project.status}`}>{localizedStatus(project.statusLabel)}</span>
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+                    <Icon name="external-link" size={16} />
                   </a>
                 </li>
               ))}
@@ -172,7 +173,7 @@ const projectList = {
                   <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
                     <span class="projects-page__name">{project.title}</span>
                     <span class={`projects-page__status projects-page__status--${project.status}`}>{localizedStatus(project.statusLabel)}</span>
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+                    <Icon name="external-link" size={16} />
                   </a>
                 </li>
               ))}
