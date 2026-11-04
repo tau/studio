@@ -68,43 +68,43 @@ const messages = getMessages(locale);
 </form>
 
 <script>
-  const form = document.querySelector('.contact-form');
+  const form = document.querySelector<HTMLFormElement>('.contact-form');
   const status = document.getElementById('form-status');
   const copy = form?.dataset;
 
-  const showError = (name, message) => {
-    const el = form?.querySelector(`[data-for="${name}"]`);
+  const showError = (name: string, message: string) => {
+    const el = form?.querySelector<HTMLElement>(`[data-for="${name}"]`);
     if (el) el.textContent = message;
-    const field = form?.querySelector(`[name="${name}"]`);
+    const field = form?.querySelector<HTMLElement>(`[name="${name}"]`);
     if (field) field.setAttribute('aria-invalid', String(Boolean(message)));
   };
 
   const clearErrors = () => {
-    form?.querySelectorAll('.field-error').forEach((el) => (el.textContent = ''));
-    form?.querySelectorAll('[aria-invalid="true"]').forEach((field) => field.removeAttribute('aria-invalid'));
+    form?.querySelectorAll<HTMLElement>('.field-error').forEach((el) => (el.textContent = ''));
+    form?.querySelectorAll<HTMLElement>('[aria-invalid="true"]').forEach((field) => field.removeAttribute('aria-invalid'));
   };
 
   const validate = () => {
     clearErrors();
     let ok = true;
 
-    const nombre = form?.querySelector('[name="nombre"]');
+    const nombre = form?.querySelector<HTMLInputElement>('[name="nombre"]');
     if (!nombre?.value.trim()) { showError('nombre', copy?.errorName ?? 'Name is required.'); ok = false; }
 
-    const email = form?.querySelector('[name="email"]');
+    const email = form?.querySelector<HTMLInputElement>('[name="email"]');
     if (!email?.value.trim()) { showError('email', copy?.errorEmail ?? 'Email is required.'); ok = false; }
     else if (!email.checkValidity()) { showError('email', copy?.errorEmailInvalid ?? 'Enter a valid email address.'); ok = false; }
 
-    const mensaje = form?.querySelector('[name="mensaje"]');
+    const mensaje = form?.querySelector<HTMLTextAreaElement>('[name="mensaje"]');
     if (!mensaje?.value.trim()) { showError('mensaje', copy?.errorMessage ?? 'Message is required.'); ok = false; }
 
-    const consent = form?.querySelector('[name="consentimiento"]');
+    const consent = form?.querySelector<HTMLInputElement>('[name="consentimiento"]');
     if (!consent?.checked) { showError('consentimiento', copy?.errorConsent ?? 'You must accept the privacy policy.'); ok = false; }
 
     return ok;
   };
 
-  form?.querySelectorAll('input, textarea, select').forEach((field) => {
+  form?.querySelectorAll<HTMLElement>('input, textarea, select').forEach((field) => {
     field.addEventListener('input', () => {
       const name = field.getAttribute('name');
       if (name) showError(name, '');
@@ -115,15 +115,18 @@ const messages = getMessages(locale);
     e.preventDefault();
     if (!validate()) return;
 
-    const button = form.querySelector('button[type="submit"]');
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
     if (button) button.disabled = true;
     if (status) status.textContent = copy?.statusSending ?? 'Sending...';
 
     try {
+      const body = new URLSearchParams();
+      new FormData(form).forEach((value, key) => body.append(key, value.toString()));
+
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString(),
+        body: body.toString(),
       });
 
       if (response.ok) {

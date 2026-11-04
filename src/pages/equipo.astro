@@ -116,7 +116,11 @@ const collaborators = [
           <article class="team-page__collaborator">
             <div class="team-page__collaborator-person">
               <a class="team-page__collaborator-photo-link" href={collaborator.profile} target="_blank" rel="noopener noreferrer" aria-label={`${messages.team.viewLinkedIn} ${collaborator.name}`}>
-                <Image class="team-page__collaborator-photo" src={collaborator.photo} alt={collaborator.name} width={58} height={58} loading="lazy" decoding="async" />
+                {typeof collaborator.photo === 'string' ? (
+                  <img class="team-page__collaborator-photo" src={collaborator.photo} alt={collaborator.name} width="58" height="58" loading="lazy" decoding="async" />
+                ) : (
+                  <Image class="team-page__collaborator-photo" src={collaborator.photo} alt={collaborator.name} width={58} height={58} loading="lazy" decoding="async" />
+                )}
               </a>
               <div>
                 <div class="team-page__collaborator-meta">

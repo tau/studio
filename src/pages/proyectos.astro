@@ -1,7 +1,7 @@
 ---
 import SiteLayout from '@/layouts/SiteLayout.astro';
 import ClosingCta from '@/components/shared/ClosingCta.astro';
-import { projects } from '@/data/projects';
+import { projects, type Project } from '@/data/projects';
 import { getMessages } from '@/i18n/messages';
 import { asLocale, localizedPagePath, type Locale } from '@/i18n/routing';
 
@@ -16,13 +16,13 @@ const localizedStatus = (label: string) => ({
   Abandonado: messages.projects.abandoned,
 }[label] ?? label);
 
-const personalProjects = projects.filter((project) => project.category === 'personal');
-const clientProjects = projects.filter((project) => project.category === 'client');
-const otherProjects = projects.filter((project) => project.category === 'other');
+const personalProjects = projects.filter((project: Project) => project.category === 'personal');
+const clientProjects = projects.filter((project: Project) => project.category === 'client');
+const otherProjects = projects.filter((project: Project) => project.category === 'other');
 const activeProjects = personalProjects.filter((project) => project.status === 'active');
 const archivedProjects = personalProjects.filter((project) => project.status === 'archived');
 
-const groupByYear = (items) => {
+const groupByYear = (items: Project[]) => {
   const years = [...new Set(items.map((project) => project.year))].sort((a, b) => b - a);
   return years.map((year) => ({
     year,
@@ -39,7 +39,7 @@ const projectList = {
   '@type': 'ItemList',
   name: `${messages.projects.eyebrow} Tau Studio`,
   numberOfItems: projects.length,
-  itemListElement: projects.map((project, index) => ({
+  itemListElement: projects.map((project: Project, index: number) => ({
     '@type': 'ListItem',
     position: index + 1,
     item: {
