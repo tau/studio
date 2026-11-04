@@ -1,4 +1,5 @@
 ---
+import Icon from '@/components/shared/Icon.astro';
 import SiteLayout from '@/layouts/SiteLayout.astro';
 import ClosingCta from '@/components/shared/ClosingCta.astro';
 import { Image } from 'astro:assets';
@@ -75,11 +76,11 @@ const collaborators = [
         <div class="team-page__profile-links">
           <a href="https://www.linkedin.com/in/paulguillamon/" target="_blank" rel="noopener noreferrer">
                 <span>LinkedIn</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+            <Icon name="external-link" size={16} />
           </a>
             <a href="https://qu4k3.com/" target="_blank" rel="noopener noreferrer">
             <span>qu4k3.com</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+            <Icon name="external-link" size={16} />
           </a>
         </div>
       </aside>
@@ -138,7 +139,7 @@ const collaborators = [
                   <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
                     {project.logo && <img src={project.logo} alt="" loading="lazy" decoding="async" />}
                     <span>{project.title}</span>
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+                    <Icon name="external-link" size={14} />
                   </a>
                 );
               })}

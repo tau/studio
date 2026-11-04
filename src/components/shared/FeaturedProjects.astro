@@ -1,4 +1,5 @@
 ---
+import Icon from '@/components/shared/Icon.astro';
 import { projects } from '@/data/projects';
 import SectionCta from '@/components/shared/SectionCta.astro';
 import { localizedProjectDescription } from '@/data/project-translations';
@@ -53,7 +54,7 @@ const otherProjectCount = projects.filter((project) => project.category === 'oth
           <p>{localizedProjectDescription(project, locale)}</p>
           <span class="featured-projects__link">
             <span>{messages.projects.viewProject}</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+            <Icon name="external-link" size={16} />
           </span>
         </a>
       ))}
