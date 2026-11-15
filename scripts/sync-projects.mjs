@@ -27,7 +27,7 @@ function findProjectsModule(html) {
     const relation = tag.match(/\brel=["']([^"']+)["']/i)?.[1];
     const href = tag.match(/\bhref=["']([^"']+)["']/i)?.[1];
 
-    if (relation?.split(/\s+/).includes('modulepreload') && href?.includes('proyectos.md.') && href.endsWith('.lean.js')) {
+    if (relation?.split(/\s+/).includes('modulepreload') && /proyectos(?:_index)?\.md\./.test(href ?? '') && href.endsWith('.lean.js')) {
       return new URL(href, SITE_URL).href;
     }
   }
@@ -36,7 +36,7 @@ function findProjectsModule(html) {
 }
 
 function extractArrayLiteral(source) {
-  const assignment = source.match(/(?:const\s+|,)S\s*=/);
+  const assignment = source.match(/const\s+[A-Za-z_$][\w$]*\s*=/);
   if (!assignment) throw new Error('No se encontró el catálogo de proyectos en el módulo descargado.');
 
   const start = source.indexOf('[', assignment.index + assignment[0].length);
@@ -45,6 +45,7 @@ function extractArrayLiteral(source) {
   let depth = 0;
   let inString = false;
   let escaped = false;
+  let quoteChar = '"';
 
   for (let index = start; index < source.length; index += 1) {
     const char = source[index];
@@ -52,12 +53,14 @@ function extractArrayLiteral(source) {
     if (inString) {
       if (escaped) escaped = false;
       else if (char === '\\') escaped = true;
-      else if (char === '"') inString = false;
+      else if (char === quoteChar) inString = false;
       continue;
     }
 
-    if (char === '"') inString = true;
-    else if (char === '[') depth += 1;
+    if (char === '"' || char === "'") {
+      inString = true;
+      quoteChar = char;
+    } else if (char === '[') depth += 1;
     else if (char === ']') {
       depth -= 1;
       if (depth === 0) return source.slice(start, index + 1);
@@ -113,9 +116,9 @@ function quoteObjectKeys(literal) {
 function parseSourceProjects(moduleSource) {
   const arrayLiteral = extractArrayLiteral(moduleSource);
   let data;
-
+ 
   try {
-    data = JSON.parse(quoteObjectKeys(arrayLiteral));
+    data = new Function(`return ${arrayLiteral}`)();
   } catch (error) {
     throw new Error(`No se pudo interpretar el catálogo del módulo de qu4k3.com: ${error.message}`);
   }
@@ -131,7 +134,11 @@ function normalizeProject(project, featuredKeys, clientGroups = {}) {
   const categoryByType = {
     personal: 'personal',
     cliente: 'client',
+    client: 'client',
+    colaborativo: 'other',
+    colaborativos: 'other',
     otros: 'other',
+    other: 'other',
   };
   const category = categoryByType[project.type];
   const slug = project.link?.split('/').filter(Boolean).at(-1);
@@ -145,13 +152,13 @@ function normalizeProject(project, featuredKeys, clientGroups = {}) {
 
   return {
     key,
-    title: project.title,
+    title: project.type === 'colaborativo' ? (project.text || project.title) : project.title,
     year,
     yearStart: project.yearStart ? Number(project.yearStart) : null,
     yearEnd: project.yearEnd ? Number(project.yearEnd) : null,
     category,
     clientGroup: category === 'client' ? (clientGroups[sourceSlug(project)] ?? sourceSlug(project)) : null,
-    status: project.status === 'En Desarrollo' && !project.yearEnd ? 'active' : 'archived',
+    status: project.status === 'En Desarrollo' ? 'active' : 'archived',
     statusLabel: project.status || '',
     slug,
     description: project.description || '',
@@ -190,8 +197,12 @@ function curatedProject(entry, category, sourceProject, featuredKeys, clientGrou
       : sourceData?.statusLabel || 'Finalizado',
     slug: entry.slug,
     description: sourceData?.description || entry.description || '',
-    logo: entry.logo ? new URL(`/assets/img/favicons/${entry.logo}`, SITE_URL).href : sourceData?.logo ?? null,
-    sourceUrl: sourceData?.sourceUrl ?? new URL(`/proyecto/${entry.slug}`, SITE_URL).href,
+    logo: entry.logo
+      ? (entry.logo.startsWith('/') || entry.logo.startsWith('http')
+        ? entry.logo
+        : new URL(`/assets/img/favicons/${entry.logo}`, SITE_URL).href)
+      : sourceData?.logo ?? null,
+    sourceUrl: sourceData?.sourceUrl ?? new URL(`/proyectos/${entry.slug}`, SITE_URL).href,
     liveUrl: sourceData?.liveUrl ?? '',
     githubUrl: sourceData?.githubUrl ?? '',
     tech: sourceData?.tech ?? [],
