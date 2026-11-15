@@ -10,7 +10,7 @@ interface Props { locale?: Locale }
 const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
 const messages = getMessages(locale);
 
-const featuredProjects = projects.filter((project) => project.featured);
+const featuredProjects = projects.filter((project) => project.featured).sort((a, b) => b.year - a.year);
 const totalProjectCount = String(projects.length).padStart(2, '0');
 const personalProjectCount = projects.filter((project) => project.category === 'personal').length;
 const clientProjectCount = projects.filter((project) => project.category === 'client').length;
