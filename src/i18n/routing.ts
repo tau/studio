@@ -2,7 +2,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 
 export const locales = ['es', 'en', 'fr', 'ca'] as const;
 export type Locale = (typeof locales)[number];
-export type PageRoute = 'home' | 'services' | 'projects' | 'team' | 'contact' | 'legalNotice' | 'privacy';
+export type PageRoute = 'home' | 'services' | 'projects' | 'team' | 'contact' | 'legalNotice' | 'privacy' | 'whyTau';
 
 export const localeNames: Record<Locale, string> = {
   es: 'Español',
@@ -12,10 +12,10 @@ export const localeNames: Record<Locale, string> = {
 };
 
 const pageSlugs: Record<Locale, Record<Exclude<PageRoute, 'home'>, string>> = {
-  es: { services: 'servicios', projects: 'proyectos', team: 'equipo', contact: 'contacto', legalNotice: 'aviso-legal', privacy: 'privacidad' },
-  en: { services: 'services', projects: 'projects', team: 'team', contact: 'contact', legalNotice: 'legal-notice', privacy: 'privacy-policy' },
-  fr: { services: 'services', projects: 'projets', team: 'equipe', contact: 'contact', legalNotice: 'mentions-legales', privacy: 'politique-confidentialite' },
-  ca: { services: 'serveis', projects: 'projectes', team: 'equip', contact: 'contacte', legalNotice: 'avis-legal', privacy: 'politica-privacitat' },
+  es: { services: 'servicios', projects: 'proyectos', team: 'equipo', contact: 'contacto', legalNotice: 'aviso-legal', privacy: 'privacidad', whyTau: 'por-que-tau' },
+  en: { services: 'services', projects: 'projects', team: 'team', contact: 'contact', legalNotice: 'legal-notice', privacy: 'privacy-policy', whyTau: 'why-tau' },
+  fr: { services: 'services', projects: 'projets', team: 'equipe', contact: 'contact', legalNotice: 'mentions-legales', privacy: 'politique-confidentialite', whyTau: 'pourquoi-tau' },
+  ca: { services: 'serveis', projects: 'projectes', team: 'equip', contact: 'contacte', legalNotice: 'avis-legal', privacy: 'politica-privacitat', whyTau: 'per-que-tau' },
 };
 
 export const serviceSlugs: Record<Locale, Record<string, string>> = {

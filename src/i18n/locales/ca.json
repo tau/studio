@@ -219,5 +219,45 @@
     "eyebrow": "Error",
     "services": "Veure serveis",
     "visual": "PÀGINA NO TROBADA"
+  },
+  "whyTau": {
+    "metaTitle": "Per què es diu Tau | Tau Studio",
+    "metaDescription": "Descobreix per què Tau Studio es diu Tau: de la lletra fenícia Taw als T'au de Warhammer 40.000, i el seu vincle amb la identitat europea.",
+    "eyebrow": "Lore",
+    "title": "Per què es diu",
+    "titleAccent": "Tau.",
+    "lead": "Tres referències i el context del nom.",
+    "intro": "No, no va ser una reunió de màrqueting amb post-its. Va ser més estrany: una lletra antiga, una raça de ciència-ficció i una constant matemàtica van coincidir en un mateix nom.",
+    "hypothesesHeading": "Les tres hipòtesis",
+    "phoenician": {
+      "number": "01",
+      "title": "El Taw fenici",
+      "kicker": "Abans de ser T, era una marca",
+      "body": "A l'alfabet fenici, la lletra Taw era una creu o una X: una marca. D'aquí ve la lletra grega Tau (Τ) i, per herència, la T llatina que fem servir avui. Tau Studio porta literalment una marca al nom.",
+      "note": "Font: història de l'alfabet."
+    },
+    "warhammer": {
+      "number": "02",
+      "title": "Els T'au",
+      "kicker": "Una picada d'ull geek, no una afiliació",
+      "body": "Els T'au són una raça de l'univers Warhammer 40.000: tecnològica, futurista i obsessionada amb el Gran Bé. Nosaltres també desenvolupem tecnologia, però sense rifles de plasma.",
+      "note": "Sense afiliació oficial amb Games Workshop."
+    },
+    "math": {
+      "number": "03",
+      "title": "τ = 2π",
+      "kicker": "No mig cercle: el cercle complet",
+      "body": "Pi és mitja volta (π) i Tau la volta completa (τ = 2π). A Tau Studio busquem el mateix: tancar el cercle i acompanyar el projecte de principi a fi, fins a completar-lo.",
+      "note": "Una referència matemàtica usada com a metàfora."
+    },
+    "revealButton": "Revelar la veritat",
+    "revealedButton": "Ja l'has vista",
+    "revealTitle": "La veritat",
+    "revealBody1": "El nom ve de dues referències reals. D'una banda, el Taw fenici, una marca o una X que va esdevenir la lletra grega Tau (Τ) i, per herència, la T llatina que fem servir avui.",
+    "revealBody2": "De l'altra, la picada d'ull als T'au de Warhammer 40.000: una raça jove i tecnològicament avançada, obsessionada amb el Gran Bé (Greater Good), que busca unir espècies sota una mateixa causa.",
+    "revealBody3": "No va ser una idea prefabricada: va ser una barreja de referències històriques i culturals amb un punt d'identitat europea. Tau.",
+    "revealNote": "Si buscàveu una sola raó, aquesta pàgina no us la donarà. Però almenys ara sabeu que la T amaga una X i que els T'au també tenen la culpa.",
+    "linkLabel": "Per què Tau?",
+    "foundToast": "Has trobat el lore de Tau."
   }
 }

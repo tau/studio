@@ -1,0 +1,384 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import Button from '@/components/shared/Button.astro';
+import { getMessages } from '@/i18n/messages';
+import { asLocale, localizedPagePath, type Locale } from '@/i18n/routing';
+
+interface Props { locale?: Locale }
+const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
+const messages = getMessages(locale);
+const content = messages.whyTau;
+
+const hypotheses = [
+  { accent: 'c1', ...content.phoenician },
+  { accent: 'c2', ...content.warhammer },
+  { accent: 'c3', ...content.math },
+];
+---
+
+<SiteLayout
+  title={`${content.metaTitle}`}
+  description={content.metaDescription}
+  image={`/og/${locale}/home.png`}
+  schemaType="WebPage"
+  locale={locale}
+>
+  <main id="main" tabindex="-1" class="content why-tau-page">
+    <section class="why-tau-page__intro" aria-labelledby="why-tau-title">
+      <p class="why-tau-page__eyebrow"><span></span> {content.eyebrow} <b>/ lore</b></p>
+      <h1 id="why-tau-title">{content.title}<br /><em>{content.titleAccent}</em></h1>
+      <p class="why-tau-page__lead">{content.lead}</p>
+      <p class="why-tau-page__intro-text">{content.intro}</p>
+    </section>
+
+    <section class="why-tau-page__hypotheses" aria-labelledby="why-tau-hypotheses-title">
+      <div class="why-tau-page__section-heading">
+        <p class="why-tau-page__eyebrow"><span></span> {content.hypothesesHeading}</p>
+        <h2 id="why-tau-hypotheses-title">{content.hypothesesHeading}</h2>
+      </div>
+      <div class="why-tau-page__cards">
+        {hypotheses.map((hypothesis) => (
+          <article class={`why-tau-page__card ${hypothesis.accent}`}>
+            <div class="why-tau-page__card-top">
+              <span class="why-tau-page__card-number">{hypothesis.number}</span>
+              <i aria-hidden="true"></i>
+            </div>
+            <h3>{hypothesis.title}</h3>
+            <p class="why-tau-page__card-kicker">{hypothesis.kicker}</p>
+            <p class="why-tau-page__card-body">{hypothesis.body}</p>
+            <p class="why-tau-page__card-note">{hypothesis.note}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="why-tau-page__reveal" aria-labelledby="why-tau-reveal-title">
+      <button
+        id="why-tau-reveal-button"
+        class="why-tau-page__reveal-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="why-tau-reveal-panel"
+      >
+        {content.revealButton}
+      </button>
+      <div id="why-tau-reveal-panel" class="why-tau-page__reveal-panel" hidden>
+        <p class="why-tau-page__eyebrow"><span></span> {content.revealTitle}</p>
+        <h2 id="why-tau-reveal-title">{content.revealTitle}</h2>
+        <p class="why-tau-page__reveal-body">{content.revealBody1}</p>
+        <p class="why-tau-page__reveal-body">{content.revealBody2}</p>
+        <p class="why-tau-page__reveal-body">{content.revealBody3}</p>
+        <p class="why-tau-page__reveal-note">{content.revealNote}</p>
+        <div class="why-tau-page__reveal-actions">
+          <Button class="why-tau-page__reveal-contact" href={localizedPagePath(locale, 'contact')} label={messages.contact.writeUs} />
+        </div>
+      </div>
+    </section>
+
+    <div id="why-tau-toast" class="why-tau-page__toast" role="status" aria-live="polite" hidden></div>
+  </main>
+</SiteLayout>
+
+<script define:vars={{ revealedLabel: content.revealedButton, toastLabel: content.foundToast }}>
+  const STORAGE_KEY = 'tau-lore-seen';
+  const button = document.getElementById('why-tau-reveal-button');
+  const panel = document.getElementById('why-tau-reveal-panel');
+  const toast = document.getElementById('why-tau-toast');
+
+  const showPanel = () => {
+    panel?.removeAttribute('hidden');
+    button?.setAttribute('aria-expanded', 'true');
+    if (button) {
+      button.textContent = revealedLabel;
+      button.setAttribute('disabled', 'true');
+    }
+    try { localStorage.setItem(STORAGE_KEY, '1'); } catch {}
+  };
+
+  button?.addEventListener('click', showPanel);
+
+  try {
+    if (localStorage.getItem(STORAGE_KEY) === '1') showPanel();
+  } catch {}
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('found') === '1' && toast) {
+    toast.textContent = toastLabel;
+    toast.removeAttribute('hidden');
+    window.setTimeout(() => toast.setAttribute('hidden', ''), 4200);
+  }
+</script>
+
+<style>
+  .why-tau-page {
+    display: grid;
+    gap: 40px;
+    margin: 32px auto 64px;
+  }
+
+  .why-tau-page__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 18px;
+    color: rgba(17, 24, 39, 0.64);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .why-tau-page__eyebrow span {
+    width: 6px;
+    height: 6px;
+    background-color: #6853a2;
+  }
+
+  .why-tau-page__intro h1 {
+    margin: 0;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    line-height: 1.02;
+  }
+
+  .why-tau-page__intro h1 em {
+    display: block;
+    color: #6853a2;
+    font-style: normal;
+  }
+
+  .why-tau-page__lead {
+    max-width: 42rem;
+    margin: 20px 0 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  .why-tau-page__intro-text {
+    max-width: 46rem;
+    margin: 0;
+    color: rgba(17, 24, 39, 0.72);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .why-tau-page__section-heading h2 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+
+  .why-tau-page__cards {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .why-tau-page__cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .why-tau-page__card {
+    position: relative;
+    display: grid;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid rgba(17, 24, 39, 0.12);
+    background-color: rgba(249, 250, 251, 0.55);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+
+  .why-tau-page__card::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 34px;
+    height: 3px;
+    background-color: #111827;
+  }
+
+  .why-tau-page__card.c1::before { background-color: #6853a2; }
+  .why-tau-page__card.c2::before { background-color: #ec1978; }
+  .why-tau-page__card.c3::before { background-color: #5abe93; }
+
+  .why-tau-page__card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .why-tau-page__card-number {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+  .why-tau-page__card.c1 .why-tau-page__card-number { color: #6853a2; }
+  .why-tau-page__card.c2 .why-tau-page__card-number { color: #ec1978; }
+  .why-tau-page__card.c3 .why-tau-page__card-number { color: #5abe93; }
+
+  .why-tau-page__card-top i {
+    width: 5px;
+    height: 5px;
+    background-color: #111827;
+  }
+
+  .why-tau-page__card.c1 .why-tau-page__card-top i { background-color: #6853a2; }
+  .why-tau-page__card.c2 .why-tau-page__card-top i { background-color: #ec1978; }
+  .why-tau-page__card.c3 .why-tau-page__card-top i { background-color: #5abe93; }
+
+  .why-tau-page__card h3 {
+    margin: 4px 0 0;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .why-tau-page__card-kicker {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(17, 24, 39, 0.64);
+  }
+
+  .why-tau-page__card-body {
+    margin: 0;
+    color: rgba(17, 24, 39, 0.72);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .why-tau-page__card-note {
+    margin: 0;
+    padding-top: 10px;
+    border-top: 1px solid rgba(17, 24, 39, 0.1);
+    color: rgba(17, 24, 39, 0.58);
+    font-size: 0.76rem;
+    line-height: 1.6;
+  }
+
+  .why-tau-page__reveal {
+    display: grid;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(17, 24, 39, 0.12);
+  }
+
+  .why-tau-page__reveal-button {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 0 18px;
+    border: 1px solid #111827;
+    background-color: #111827;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .why-tau-page__reveal-button:hover {
+    border-color: #6853a2;
+    background-color: #6853a2;
+  }
+
+  .why-tau-page__reveal-button:disabled {
+    cursor: default;
+    opacity: 0.72;
+  }
+
+  .why-tau-page__reveal-button:focus-visible {
+    outline: 2px solid #6853a2;
+    outline-offset: 3px;
+  }
+
+  .why-tau-page__reveal-panel {
+    display: grid;
+    gap: 12px;
+    padding: 22px;
+    border: 1px solid rgba(17, 24, 39, 0.12);
+    background-color: rgba(249, 250, 251, 0.7);
+  }
+
+  .why-tau-page__reveal-panel[hidden] {
+    display: none;
+  }
+
+  .why-tau-page__reveal-panel h2 {
+    margin: 0;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+
+  .why-tau-page__reveal-body {
+    margin: 0;
+    max-width: 46rem;
+    color: rgba(17, 24, 39, 0.76);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .why-tau-page__reveal-note {
+    margin: 0;
+    color: rgba(17, 24, 39, 0.6);
+    font-size: 0.84rem;
+    line-height: 1.7;
+  }
+
+  .why-tau-page__reveal-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px 22px;
+    padding-top: 10px;
+  }
+
+
+
+  .why-tau-page__back-link {
+    color: rgba(17, 24, 39, 0.62);
+    font-size: 0.86rem;
+    border-bottom: 1px solid rgba(17, 24, 39, 0.3);
+    padding-bottom: 4px;
+  }
+
+  .why-tau-page__back-link:hover {
+    border-color: #6853a2;
+    color: #111827;
+  }
+
+  .why-tau-page__toast {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 60;
+    padding: 12px 16px;
+    border: 1px solid rgba(17, 24, 39, 0.16);
+    background-color: #ffffff;
+    color: #111827;
+    font-size: 0.84rem;
+    font-weight: 500;
+    box-shadow: 0 14px 40px rgba(17, 24, 39, 0.08);
+  }
+
+  .why-tau-page__toast[hidden] {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .why-tau-page__card,
+    .why-tau-page__reveal-button {
+      transition: none;
+    }
+  }
+</style>

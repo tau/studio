@@ -1,7 +1,7 @@
 ---
 import { siFacebook, siX, siInstagram, siGithub, siGoogleplay } from 'simple-icons';
 import { getMessages } from '@/i18n/messages';
-import { asLocale, localizedPagePath, type Locale } from '@/i18n/routing';
+import { asLocale, localizedPagePath } from '@/i18n/routing';
 
 const year = new Date().getFullYear();
 const locale = asLocale(Astro.props.locale ?? Astro.currentLocale ?? undefined);
@@ -46,6 +46,8 @@ const legalLabels = {
             <a href={localizedPagePath(locale, 'legalNotice')}>{legalLabels.notice}</a>
             <span aria-hidden="true">·</span>
             <a href={localizedPagePath(locale, 'privacy')}>{legalLabels.privacy}</a>
+            <span aria-hidden="true">·</span>
+            <a href={localizedPagePath(locale, 'whyTau')}>{messages.whyTau.linkLabel}</a>
           </div>
         </div>
         <a class="footer__top" href="#top">
