@@ -27,7 +27,7 @@ const menuAccent = currentItem
 <nav class="site-nav" id="top" aria-label={messages.navigation.ariaLabel}>
   <section class="content">
     <div class="nav__wrapper">
-        <a class="nav__logo-wrapper" href={localizedPagePath(locale, 'home')} aria-label={messages.navigation.homeLabel}>
+        <a class="nav__logo-wrapper" id="nav-logo-link" href={localizedPagePath(locale, 'home')} aria-label={messages.navigation.homeLabel} data-why-tau={localizedPagePath(locale, 'whyTau')}>
         <img class="nav__logo" src="/tau.svg" alt="" />
         <img class="nav__name" src="/studio.svg" alt="" />
       </a>
@@ -58,6 +58,24 @@ const menuAccent = currentItem
 </nav>
 
 <script>
+  const logoLink = document.getElementById('nav-logo-link');
+  const whyTauHref = logoLink?.getAttribute('data-why-tau');
+  let keyBuffer = '';
+  let keyTimer: ReturnType<typeof setTimeout> | undefined;
+  document.addEventListener('keydown', (event) => {
+    const target = event.target as HTMLElement | null;
+    if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) return;
+    const key = event.key && event.key.length === 1 ? event.key.toLowerCase() : '';
+    if (!key) return;
+    keyBuffer = (keyBuffer + key).slice(-3);
+    clearTimeout(keyTimer);
+    keyTimer = setTimeout(() => { keyBuffer = ''; }, 1800);
+    if (keyBuffer === 'tau' && whyTauHref) {
+      keyBuffer = '';
+      window.location.href = `${whyTauHref}?found=1`;
+    }
+  });
+
   const btn = document.getElementById('menu-btn');
   const flex = document.getElementById('nav-flex');
   const menuIcon = btn?.querySelector('.icon-menu');

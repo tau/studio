@@ -219,5 +219,45 @@
     "eyebrow": "Error",
     "services": "View services",
     "visual": "PAGE NOT FOUND"
+  },
+  "whyTau": {
+    "metaTitle": "Why it's called Tau | Tau Studio",
+    "metaDescription": "Three hypotheses, one twist and the truth (sort of) about why Tau Studio is called Tau.",
+    "eyebrow": "Lore",
+    "title": "Why it's called",
+    "titleAccent": "Tau.",
+    "lead": "Three references and the context of the name.",
+    "intro": "No, it wasn't a marketing meeting with sticky notes. It was stranger: an ancient letter, a science-fiction race and a mathematical constant collided into one name.",
+    "hypothesesHeading": "The three hypotheses",
+    "phoenician": {
+      "number": "01",
+      "title": "The Phoenician Taw",
+      "kicker": "Before it was T, it was a mark",
+      "body": "In the Phoenician alphabet, the letter Taw was a cross or an X: a mark. That's where the Greek letter Tau (Τ) comes from, and by inheritance the Latin T we use today. Tau Studio literally carries a mark in its name.",
+      "note": "Source: history of the alphabet."
+    },
+    "warhammer": {
+      "number": "02",
+      "title": "The T'au",
+      "kicker": "A geek nod, not an affiliation",
+      "body": "The T'au are a race from the Warhammer 40,000 universe: technological, futuristic and obsessed with the Greater Good. We also develop technology, although without plasma rifles.",
+      "note": "No official affiliation with Games Workshop."
+    },
+    "math": {
+      "number": "03",
+      "title": "τ = 2π",
+      "kicker": "Not half a website: the full circle",
+      "body": "Pi is half a turn (π) and Tau the full turn (τ = 2π). At Tau Studio we aim for the same: close the circle and accompany the project from start to finish, to completion.",
+      "note": "A mathematical reference used as a metaphor."
+    },
+    "revealButton": "Reveal the truth",
+    "revealedButton": "You already saw it",
+    "revealTitle": "The truth",
+    "revealBody1": "The name comes from two real references. On one side, the Phoenician Taw, a mark or an X that became the Greek letter Tau (Τ) and, by inheritance, the Latin T we use today.",
+    "revealBody2": "On the other, the nod to the T'au of Warhammer 40,000: a young, technologically advanced race obsessed with the Greater Good, seeking to unite species under one cause.",
+    "revealBody3": "It wasn't a single prefabricated idea: it was a mix of historical and cultural references with a touch of European identity. Tau.",
+    "revealNote": "If you were looking for a single reason, this page won't give you one. But at least now you know the T hides an X and the T'au are also to blame.",
+    "linkLabel": "Why Tau?",
+    "foundToast": "You found the Tau lore."
   }
 }

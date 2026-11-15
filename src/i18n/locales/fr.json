@@ -219,5 +219,45 @@
     "eyebrow": "Erreur",
     "services": "Voir les services",
     "visual": "PAGE INTROUVABLE"
+  },
+  "whyTau": {
+    "metaTitle": "Pourquoi Tau | Tau Studio",
+    "metaDescription": "Trois hypothèses, un rebondissement et la vérité (à peu près) sur le nom Tau Studio.",
+    "eyebrow": "Lore",
+    "title": "Pourquoi ça s'appelle",
+    "titleAccent": "Tau.",
+    "lead": "Trois références et le contexte du nom.",
+    "intro": "Non, ce n'était pas une réunion marketing avec des post-its. C'était plus bizarre : une lettre ancienne, une race de science-fiction et une constante mathématique se sont croisées dans un même nom.",
+    "hypothesesHeading": "Les trois hypothèses",
+    "phoenician": {
+      "number": "01",
+      "title": "Le Taw phénicien",
+      "kicker": "Avant d'être un T, c'était une marque",
+      "body": "Dans l'alphabet phénicien, la lettre Taw était une croix ou un X : une marque. De là vient la lettre grecque Tau (Τ) et, par héritage, le T latin que nous utilisons aujourd'hui. Tau Studio porte littéralement une marque dans son nom.",
+      "note": "Source : histoire de l'alphabet."
+    },
+    "warhammer": {
+      "number": "02",
+      "title": "Les T'au",
+      "kicker": "Un clin d'œil geek, pas une affiliation",
+      "body": "Les T'au sont une race de l'univers Warhammer 40 000 : technologique, futuriste et obsédée par le Grand Bien. Nous aussi on développe de la technologie, mais sans fusils à plasma.",
+      "note": "Aucune affiliation officielle avec Games Workshop."
+    },
+    "math": {
+      "number": "03",
+      "title": "τ = 2π",
+      "kicker": "Pas la moitié d'un site : le cercle complet",
+      "body": "Pi, c'est un demi-tour (π) et Tau le tour complet (τ = 2π). Chez Tau Studio, on cherche la même chose : fermer la boucle et accompagner le projet du début à la fin, jusqu'à sa complétion.",
+      "note": "Une référence mathématique utilisée comme métaphore."
+    },
+    "revealButton": "Révéler la vérité",
+    "revealedButton": "Tu l'as déjà vue",
+    "revealTitle": "La vérité",
+    "revealBody1": "Le nom vient de deux références réelles. D'un côté, le Taw phénicien, une marque ou un X qui est devenu la lettre grecque Tau (Τ) et, par héritage, le T latin que nous utilisons aujourd'hui.",
+    "revealBody2": "De l'autre, le clin d'œil aux T'au de Warhammer 40 000 : une race jeune et technologiquement avancée, obsédée par le Bien Suprême (Greater Good), qui cherche à unir les espèces sous une même cause.",
+    "revealBody3": "Ce n'était pas une idée toute faite : c'était un mélange de références historiques et culturelles avec un point d'identité européenne. Tau.",
+    "revealNote": "Si vous cherchiez une seule raison, cette page ne vous en donnera pas. Mais au moins vous savez maintenant que le T cache un X et que les T'au sont aussi responsables.",
+    "linkLabel": "Pourquoi Tau ?",
+    "foundToast": "Tu as trouvé le lore de Tau."
   }
 }
